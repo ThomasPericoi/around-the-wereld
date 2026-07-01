@@ -1,0 +1,187 @@
+/* #Footer
+--------------------------------------------------------------- */
+#footer {
+    position: relative;
+}
+
+#footer a:not(.btn) {
+    text-decoration: none;
+}
+
+/* Main Footer */
+#main-footer {
+    padding: var(--spacing-section-outer) 0;
+    font-family: var(--bold);
+    font-size: 0.875em;
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+#main-footer .cols-wrapper {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#main-footer .col {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--content-spacing);
+}
+
+#main-footer .formatted,
+#main-footer .formatted p,
+#main-footer .formatted li {
+    color: var(--white);
+}
+
+#main-footer .description p {
+    font-size: 1.25em;
+}
+
+#main-footer .formatted ul>li,
+#main-footer .formatted ol>li {
+    padding-left: 0;
+}
+
+#main-footer .formatted ul>li:before,
+#main-footer .formatted ol>li:before {
+    display: none;
+}
+
+#main-footer .addresses ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#main-footer .addresses a,
+#main-footer .addresses span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--white);
+}
+
+#main-footer .address svg {
+    width: 100%;
+    max-width: 16px;
+    height: auto;
+    max-height: 16px;
+    stroke: var(--white);
+}
+
+#main-footer .btn-wrapper {
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Sub Footer */
+#sub-footer {
+    padding: 24px 0;
+    font-family: var(--bold);
+    font-size: 0.875rem;
+    background-color: var(--primary-dark);
+}
+
+#sub-footer>.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    #sub-footer>.container {
+        flex-direction: row;
+    }
+}
+
+#sub-footer a {
+    color: var(--white);
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+#sub-footer .menu-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    #sub-footer .menu-footer {
+        align-items: flex-start;
+    }
+}
+
+#sub-footer .menu-footer span {
+    color: var(--primary);
+    font-size: inherit;
+}
+
+#sub-footer .menu-footer>ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    #sub-footer .menu-footer>ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+#sub-footer .menu-footer li {
+    font-size: inherit;
+}
+
+.dyslexic-toggle {
+    font-family: 'OpenDyslexic', sans-serif;
+}
+
+.dyslexic-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--white);
+    cursor: pointer;
+
+    &:before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        background-color: transparent;
+        border: 2px solid var(--white);
+        border-radius: 50%;
+        transition: background-color var(--transition-timing) var(--transition-duration);
+    }
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+.dyslexic-toggle input:checked+label:before {
+    background-color: var(--white);
+}
+
+.dyslexic-toggle input:focus-visible+label {
+    outline: 2px dashed var(--white);
+    outline-offset: 6px;
+}

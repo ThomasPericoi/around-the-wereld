@@ -1,0 +1,15 @@
+{
+    "name": "acf/gallery",
+    "title": "Gallery (fullscreen)",
+    "description": "A slider-style gallery with a fullscreen option.",
+    "category": "around-the-wereld-block",
+    "icon": "images-alt2",
+    "keywords": [
+        "image",
+        "slider"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "gallery.php"
+    }
+}

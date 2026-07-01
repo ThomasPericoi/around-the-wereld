@@ -1,0 +1,27 @@
+/* #Contact Template
+--------------------------------------------------------------- */
+/* Form */
+.page-template-contact .contact-form {
+    background-color: var(--tertiary-light);
+}
+
+.page-template-contact .wpcf7-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--content-spacing);
+    justify-content: center;
+}
+
+/* Map */
+.page-template-contact #contact-map {
+    width: 100%;
+    min-height: 400px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+@media screen and (min-width: 1200px) {
+    .page-template-contact #contact-map {
+        min-height: 650px;
+    }
+}

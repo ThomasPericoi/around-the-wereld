@@ -1,0 +1,27 @@
+/* #Breadcrumbs
+--------------------------------------------------------------- */
+.rank-math-breadcrumb a,
+.rank-math-breadcrumb .last {
+    color: var(--content-color);
+    font-family: var(--bold);
+    text-decoration: none;
+    font-size: 0.875em;
+    transition: color var(--transition-timing) var(--transition-duration);
+}
+
+.rank-math-breadcrumb a {
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+        color: var(--primary);
+    }
+}
+
+.rank-math-breadcrumb .separator {
+    font-size: 0.875em;
+}
+
+.rank-math-breadcrumb .last {
+    font-weight: 700;
+}

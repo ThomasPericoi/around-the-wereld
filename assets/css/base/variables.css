@@ -1,0 +1,70 @@
+/* #Variables
+--------------------------------------------------------------- */
+:root {
+    /* Colors */
+    --amber: #FCBE0E;
+    --atoll: #0D6272;
+    --black: #090909;
+    --mine-shaft: #333333;
+    --olive: #6c8801;
+    --silver: #dcdcdc;
+    --white: #fffffb;
+
+    --primary: var(--atoll);
+    --secondary: var(--amber);
+    --tertiary: var(--olive);
+
+    --content-color: var(--mine-shaft);
+    --accent-content-color: var(--primary);
+
+    --primary-dark: #083f4a;
+    --secondary-dark: #d09a00;
+    --tertiary-dark: #516700;
+    --tertiary-light: #edf2df;
+
+    --primary-filter: brightness(0) saturate(100%) invert(31%) sepia(43%) saturate(1119%) hue-rotate(147deg) brightness(89%) contrast(90%);
+    --secondary-filter: brightness(0) saturate(100%) invert(79%) sepia(80%) saturate(2715%) hue-rotate(350deg) brightness(102%) contrast(98%);
+    --tertiary-filter: brightness(0) saturate(100%) invert(42%) sepia(92%) saturate(452%) hue-rotate(33deg) brightness(88%) contrast(99%);
+    --content-color-filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(1362%) hue-rotate(184deg) brightness(100%) contrast(87%);
+
+    /* Fonts */
+    --bold: "Fraunces", "Open Sans", serif;
+    --body: "Open Sans", sans-serif;
+
+    /* Radius */
+    --border-radius: 1px;
+
+    /* Spacings */
+    --container-padding: 2rem;
+    --header-height: 87px;
+    --spacing-section-inner: 3rem;
+    --spacing-section-outer: 4rem;
+    --spacing-section-y: 3rem;
+
+    --content-spacing: 2.25em;
+    --spacing-title: 1em;
+
+    /* Motion */
+    --transition-duration: 250ms;
+    --transition-timing: ease;
+}
+
+html.is-dyslexic {
+    --bold: "OpenDyslexic", sans-serif;
+    --body: "OpenDyslexic", sans-serif;
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        --header-height: 100px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        /* Spacings */
+        --spacing-section-inner: 3rem;
+        --spacing-section-outer: 6rem;
+        --spacing-section-y: 4.5rem;
+    }
+}

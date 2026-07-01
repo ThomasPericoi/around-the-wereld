@@ -1,0 +1,15 @@
+{
+    "name": "acf/pdf-viewer",
+    "title": "PDF Viewer",
+    "description": "A PDF Viewer to insert a PDF in the page, with PDF.js.",
+    "category": "around-the-wereld-block",
+    "icon": "format-aside",
+    "keywords": [
+        "file",
+        "pdf"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "pdf-viewer.php"
+    }
+}

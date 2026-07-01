@@ -1,0 +1,86 @@
+/* #Index
+--------------------------------------------------------------- */
+
+/* Hero */
+.archive main .hero .btn-wrapper,
+.blog main .hero .btn-wrapper {
+    justify-content: center;
+    font-weight: 400;
+    font-family: var(--bold);
+}
+
+/* Pagination */
+.navigation.pagination {
+    margin-top: var(--spacing-section-inner);
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--bold);
+}
+
+.navigation.pagination .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.navigation.pagination .nav-links a,
+.navigation.pagination .nav-links .current {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    line-height: 1.6;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid var(--silver);
+    transition: background-color var(--transition-timing) var(--transition-duration), color var(--transition-timing) var(--transition-duration), border-color var(--transition-timing) var(--transition-duration);
+}
+
+.navigation.pagination .nav-links a.next {
+    margin-left: 1rem;
+    border-color: transparent;
+}
+
+.navigation.pagination .nav-links a.prev {
+    margin-right: 1rem;
+    border-color: transparent;
+}
+
+.navigation.pagination .nav-links .current,
+.navigation.pagination .nav-links a:not(.prev):hover,
+.navigation.pagination .nav-links a:not(.next):hover,
+.navigation.pagination .nav-links a:not(.prev):focus-visible,
+.navigation.pagination .nav-links a:not(.next):focus-visible {
+    color: var(--white);
+    border-color: var(--secondary);
+    background-color: var(--secondary);
+}
+
+.navigation.pagination .nav-links a.next:hover span,
+.navigation.pagination .nav-links a.next:focus-visible span,
+.navigation.pagination .nav-links a.prev:hover span,
+.navigation.pagination .nav-links a.prev:focus-visible span {
+    filter: brightness(0) invert(1);
+}
+
+.icon-left,
+.icon-right {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-size: 20px 20px;
+    filter: var(--content-color-filter);
+    transition: filter var(--transition-timing) var(--transition-duration);
+}
+
+.icon-left {
+    background-image: url(../../medias/icons/chevron-left.svg);
+}
+
+.icon-right {
+    background-image: url(../../medias/icons/chevron-right.svg);
+}

@@ -1,0 +1,457 @@
+/* #Header
+--------------------------------------------------------------- */
+body.js-menuOpened {
+    overflow: hidden;
+}
+
+#header {
+    width: 100%;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    font-family: var(--bold);
+    font-size: 1rem;
+    background-color: var(--white);
+    box-shadow: 0 -11px 15px 4px rgba(0, 0, 0, 0.25);
+
+    .admin-bar & {
+        top: var(--wp-admin--admin-bar--height);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #header {
+        padding: 0;
+    }
+}
+
+#header .inner-header {
+    min-height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media screen and (min-width: 1200px) {
+    #header .inner-header {
+        min-height: 100px;
+    }
+}
+
+#header .nav-wrapper {
+    width: 100%;
+    height: calc(var(--viewport-height, 100vh) - var(--header-height));
+    max-height: calc(var(--viewport-height, 100vh) - var(--header-height));
+    padding: 2em;
+    box-sizing: border-box;
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background-color: var(--white);
+    transform: translateX(100%);
+    transition: transform var(--transition-timing) var(--transition-duration);
+
+    .js-menuOpened & {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #header .nav-wrapper {
+        width: unset;
+        height: initial;
+        max-height: none;
+        padding: 0;
+        position: unset;
+        top: unset;
+        right: unset;
+        flex-direction: row;
+        align-items: center;
+        overflow: visible;
+        transform: translateX(0);
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .admin-bar #header .nav-wrapper {
+        height: calc(var(--viewport-height, 100vh) - var(--header-height) - var(--wp-admin--admin-bar--height, 0px));
+        max-height: calc(var(--viewport-height, 100vh) - var(--header-height) - var(--wp-admin--admin-bar--height, 0px));
+        top: calc(var(--header-height) + var(--wp-admin--admin-bar--height, 0px));
+    }
+}
+
+#header .logo-link {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 700;
+    font-style: italic;
+    transition: color var(--transition-timing) var(--transition-duration);
+
+    &:after {
+        content: "";
+        width: 100%;
+        height: 3px;
+        display: block;
+        background-color: var(--black);
+        transform: translateY(-3px);
+        transition: background-color var(--transition-timing) var(--transition-duration);
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--primary);
+
+        &:after {
+            background-color: var(--primary);
+        }
+    }
+}
+
+#header .custom-logo {
+    width: 100%;
+    max-width: 170px;
+    height: auto;
+    max-height: 55px;
+    display: block;
+    filter: brightness(0) saturate(100%);
+    transition: filter calc(var(--transition-duration) * 1.75) var(--transition-timing);
+}
+
+#header .custom-logo-link:hover .custom-logo,
+#header .custom-logo-link:focus-visible .custom-logo {
+    filter: none;
+}
+
+@media screen and (min-width: 1200px) {
+    #header .custom-logo {
+        max-height: 100px;
+    }
+}
+
+.menu-header {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+    flex-direction: column;
+    flex: 0 0 auto;
+    background-color: unset;
+    overflow: visible;
+    transition: opacity var(--transition-timing) var(--transition-duration);
+}
+
+@media screen and (min-width: 1200px) {
+    .menu-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        overflow: unset;
+    }
+}
+
+.menu-header li {
+    font-size: inherit;
+}
+
+.menu-header li.menu-item-has-children {
+    position: relative;
+}
+
+.menu-header li a {
+    --menu-accent-size: 0.45rem;
+    --menu-hover-offset: 0.35rem;
+
+    width: unset;
+    position: relative;
+    padding: 0.65rem 0.65rem 0.65rem calc(var(--menu-accent-size) + 0.85rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    isolation: isolate;
+    color: var(--content-color);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: color var(--transition-timing) var(--transition-duration), translate var(--transition-timing) var(--transition-duration);
+}
+
+@media screen and (min-width: 1200px) {
+    .menu-header li a {
+        padding: 2rem 0.65rem 2rem calc(var(--menu-accent-size) + 0.85rem);
+    }
+}
+
+.menu-header li a:hover,
+.menu-header li:focus-within>a,
+.menu-header li.menu-item-has-children:hover>a,
+.menu-header>li.current-menu-parent>a,
+.menu-header li a[aria-current="page"] {
+    color: var(--primary);
+    translate: var(--menu-hover-offset) 0;
+}
+
+.menu-header li a:before {
+    content: "";
+    width: var(--menu-accent-size);
+    height: var(--menu-accent-size);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    pointer-events: none;
+    background-color: var(--secondary);
+    rotate: 45deg;
+    translate: 0 -50%;
+    transition: background-color var(--transition-timing) var(--transition-duration), rotate var(--transition-timing) var(--transition-duration), scale var(--transition-timing) var(--transition-duration);
+}
+
+.menu-header li a:hover:before,
+.menu-header li:focus-within>a:before,
+.menu-header li.menu-item-has-children:hover>a:before,
+.menu-header>li.current-menu-parent>a:before,
+.menu-header li a[aria-current="page"]:before {
+    background-color: var(--primary);
+    rotate: 0deg;
+    scale: 1.3;
+}
+
+.menu-header li.menu-item-has-children>a {
+    padding-right: 1.75rem;
+}
+
+.menu-header li.menu-item-has-children>a:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: block;
+    background-size: 20px 20px;
+    background-image: url(../../medias/icons/chevron-right.svg);
+    position: static;
+    z-index: auto;
+    rotate: 0deg;
+    transform: none;
+    transition: rotate var(--transition-timing) var(--transition-duration), translate var(--transition-timing) var(--transition-duration), filter var(--transition-timing) var(--transition-duration);
+}
+
+.menu-header>li.current-menu-parent>a:after,
+.menu-header li a[aria-current="page"]:after {
+    filter: var(--primary-filter);
+}
+
+.menu-header li.menu-item-has-children>a:hover:after,
+.menu-header li.menu-item-has-children:hover>a:after,
+.menu-header li.menu-item-has-children:focus-within>a:after {
+    rotate: 90deg;
+    filter: var(--primary-filter);
+}
+
+@media screen and (min-width: 1200px) {
+
+    .menu-header>li.menu-item-has-children .menu-item-has-children>a:hover:after,
+    .menu-header>li.menu-item-has-children .menu-item-has-children:hover>a:after,
+    .menu-header>li.menu-item-has-children .menu-item-has-children:focus-within>a:after {
+        translate: 5px;
+        rotate: 0deg;
+        filter: var(--primary-filter);
+    }
+}
+
+.menu-header li.menu-item-has-children>ul.sub-menu {
+    width: 100%;
+    --spacing-inner-menu: 1.5rem;
+    padding: var(--spacing-inner-menu) 0 0 var(--spacing-inner-menu);
+    box-sizing: border-box;
+    display: none;
+    align-items: stretch;
+    gap: var(--spacing-inner-menu);
+    flex-direction: column;
+    visibility: hidden;
+    transition: opacity var(--transition-timing) var(--transition-duration);
+}
+
+@media screen and (min-width: 1200px) {
+    .menu-header li.menu-item-has-children>ul.sub-menu {
+        min-width: 14rem;
+        padding: var(--spacing-inner-menu) 0;
+        position: absolute;
+        display: flex;
+        gap: 1rem;
+        background-color: var(--white);
+        opacity: 0;
+        transition: background-color var(--transition-timing) var(--transition-duration);
+        pointer-events: none;
+
+        &:hover {
+            background-color: var(--tertiary-light);
+        }
+    }
+
+    .menu-header li.menu-item-has-children.wpml-ls-item>ul.sub-menu {
+        min-width: 4.25rem;
+    }
+
+    .menu-header>li.menu-item-has-children>ul.sub-menu,
+    .menu-header>li.menu-item-has-children>ul.sub-menu>li.menu-item-has-children:first-child>ul.sub-menu {
+        border-top-right-radius: 0 !important;
+    }
+
+    .menu-header>li.menu-item-has-children>ul.sub-menu {
+        border-bottom-left-radius: var(--border-radius);
+    }
+
+    .menu-header li.menu-item-has-children>ul.sub-menu:not(:has(li.menu-item-has-children:hover)) {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+    }
+}
+
+.menu-header li.menu-item-has-children:focus-within>ul.sub-menu,
+.menu-header li.menu-item-has-children.active>ul.sub-menu,
+.menu-header li.menu-item-has-children:hover>ul.sub-menu {
+    display: flex;
+    visibility: initial;
+}
+
+@media screen and (min-width: 1200px) {
+
+    .menu-header li.menu-item-has-children:focus-within>ul.sub-menu,
+    .menu-header li.menu-item-has-children.active>ul.sub-menu,
+    .menu-header li.menu-item-has-children:hover>ul.sub-menu {
+        display: flex;
+        visibility: initial;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .menu-header li.menu-item-has-children>ul.sub-menu li {
+        padding: 0 var(--spacing-inner-menu);
+    }
+}
+
+.menu-header li.menu-item-has-children>ul.sub-menu a {
+    padding: 0.35rem 0.65rem 0.35rem calc(var(--menu-accent-size) + 0.85rem);
+}
+
+.menu-header li.menu-item-has-children>ul.sub-menu li.menu-item-has-children>ul.sub-menu {
+    top: calc(var(--spacing-inner-menu) * -1);
+    left: 100%;
+}
+
+/* Toggle */
+.menu-toggle-col {
+    width: 30px;
+    transition: opacity var(--transition-timing) var(--transition-duration);
+}
+
+@media screen and (min-width: 1200px) {
+    .menu-toggle-col {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.menu-toggle-wrapper {
+    position: relative;
+}
+
+#menu-toggle {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    opacity: 0;
+    cursor: pointer;
+
+    &:focus:not(:focus-visible)+div {
+        outline: 0;
+    }
+
+    &:focus-visible+div {
+        outline: 2px dashed var(--secondary);
+        outline-offset: 6px;
+    }
+}
+
+.menu-toggle-open {
+    max-width: 30px;
+    height: 30px;
+    pointer-events: none;
+}
+
+.menu-toggle-open>span {
+    margin-top: 13px;
+
+    .js-menuOpened & {
+        background-color: transparent;
+    }
+}
+
+.menu-toggle-open>span,
+.menu-toggle-open>span:before,
+.menu-toggle-open>span:after {
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    display: block;
+    background-color: var(--black);
+}
+
+.menu-toggle-open>span:before,
+.menu-toggle-open>span:after {
+    width: 20px;
+    right: 0;
+}
+
+.menu-toggle-open>span:before {
+    content: "";
+    margin-top: -13px;
+    transition: width var(--transition-timing) var(--transition-duration);
+}
+
+.js-menuOpened .menu-toggle-open>span:before {
+    rotate: -45deg;
+}
+
+.menu-toggle-open>span:after {
+    content: "";
+    margin-top: 13px;
+    transition: width var(--transition-timing) var(--transition-duration) 90ms;
+}
+
+.js-menuOpened .menu-toggle-open>span:after {
+    rotate: 45deg;
+}
+
+.js-menuOpened .menu-toggle-open>span:before,
+.js-menuOpened .menu-toggle-open>span:after {
+    width: 36px;
+    transform-origin: right;
+}
+
+body:not(.js-menuOpened) .menu-toggle-wrapper:hover .menu-toggle-open>span:before,
+body:not(.js-menuOpened) .menu-toggle-wrapper:focus-within .menu-toggle-open>span:before,
+body:not(.js-menuOpened) .menu-toggle-wrapper:hover .menu-toggle-open>span:after,
+body:not(.js-menuOpened) .menu-toggle-wrapper:focus-within .menu-toggle-open>span:after {
+    width: 30px;
+}

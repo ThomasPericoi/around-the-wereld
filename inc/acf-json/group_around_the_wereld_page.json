@@ -1,0 +1,48 @@
+{
+    "key": "group_around_the_wereld_page",
+    "title": "Post type - Page",
+    "fields": [
+        {
+            "key": "field_page_subtitle",
+            "label": "Subtitle",
+            "name": "page_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 2,
+            "new_lines": "br",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "Optional settings",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1782912457
+}

@@ -1,0 +1,136 @@
+/* #Typography
+--------------------------------------------------------------- */
+body {
+    font-size: 1rem;
+    font-family: var(--body);
+    line-height: 1.65;
+    font-weight: 300;
+    color: var(--content-color);
+}
+
+p,
+.p-size,
+li {
+    font-size: inherit;
+    line-height: 1.65;
+    color: var(--content-color);
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+sup {
+    vertical-align: super;
+    font-size: 0.7em;
+}
+
+main a:not([class]) {
+    color: var(--secondary);
+    font-weight: 400;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+h1,
+.h1-size,
+h2,
+.h2-size,
+h3,
+.h3-size,
+h4,
+.h4-size,
+h5,
+.h5-size,
+h6,
+.h6-size {
+    font-style: normal;
+    font-family: var(--bold);
+    font-weight: 300;
+    line-height: 1.15;
+    -webkit-font-smoothing: antialiased;
+}
+
+h5,
+h6 {
+    line-height: 1.4;
+}
+
+h1,
+.h1-size {
+    font-size: 2.5rem;
+}
+
+h2,
+.h2-size {
+    font-size: 2rem;
+}
+
+h3,
+.h3-size {
+    font-size: 1.5rem;
+}
+
+h4,
+.h4-size {
+    font-size: 1.25rem;
+}
+
+h5,
+.h5-size {
+    font-size: 1.125rem;
+}
+
+h6,
+.h6-size {
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+
+    p,
+    .p-size,
+    li {
+        font-size: 1.125rem;
+    }
+
+    h1,
+    .h1-size {
+        font-size: 4rem;
+    }
+
+    h2,
+    .h2-size {
+        font-size: 3rem;
+    }
+
+    h3,
+    .h3-size {
+        font-size: 2.125rem;
+    }
+
+    h4,
+    .h4-size {
+        font-size: 1.5rem;
+    }
+
+    h5,
+    .h5-size {
+        font-size: 1.25rem;
+    }
+
+    h6,
+    .h6-size {
+        font-size: 1.125rem;
+    }
+}

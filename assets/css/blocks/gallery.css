@@ -1,0 +1,21 @@
+/* #Gallery Block
+--------------------------------------------------------------- */
+.gallery-block {
+    margin-top: var(--content-spacing);
+    margin-bottom: var(--content-spacing);
+}
+
+.gallery-block h2 {
+    margin-bottom: var(--spacing-title);
+    text-align: center;
+}
+
+.gallery-block .introduction {
+    margin-bottom: var(--content-spacing);
+}
+
+.gallery-block .galleries-wrapper .gallery {
+    width: calc(100vw - var(--scrollbar-width, 0px));
+    margin: var(--spacing-section-inner) 0 var(--spacing-section-inner) 50%;
+    transform: translateX(-50%);
+}

@@ -1,0 +1,161 @@
+/* #Content
+--------------------------------------------------------------- */
+.formatted,
+.formatted .wp-block-media-text__content {
+    --list-indent: 1.75em;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-spacing);
+    overflow-wrap: break-word;
+}
+
+.formatted > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.formatted p,
+.formatted li {
+    color: var(--content-color);
+}
+
+.formatted a:not([class]) {
+    overflow-wrap: anywhere;
+}
+
+/* List */
+.formatted ul,
+.formatted ol {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    list-style: none;
+}
+
+.formatted ol {
+    counter-reset: item;
+}
+
+.formatted ul>li,
+.formatted ol>li {
+    position: relative;
+    padding-left: var(--list-indent);
+    text-indent: 0;
+
+    &:before {
+        position: absolute;
+        left: 0;
+    }
+
+    ul,
+    ol {
+        margin-top: 0.6em;
+    }
+}
+
+.formatted ul>li:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-top: 0.7em;
+    display: block;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.formatted ol>li {
+    counter-increment: item;
+
+    &:before {
+        content: counter(item);
+        color: var(--accent-content-color);
+        font-weight: 700;
+    }
+}
+
+/* Image */
+.formatted figure {
+    max-width: 100%;
+}
+
+.formatted figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+.formatted figure img+figcaption,
+.formatted .wp-block-image .wp-element-caption {
+    margin-top: 0.5em;
+    font-size: 0.875em;
+    font-style: italic;
+}
+
+/* Quote */
+.formatted .wp-block-quote {
+    position: relative;
+    padding: 1em 1em 1em 2em;
+    border-left: 5px solid var(--accent-content-color);
+
+    &:before {
+        content: "\201C";
+        min-height: 40px;
+        display: block;
+        font-size: 4em;
+        font-family: var(--bold);
+        color: var(--accent-content-color);
+        line-height: 1em;
+    }
+
+    &>*:not(:nth-last-child(1)) {
+        margin-top: 0;
+        margin-bottom: 1em;
+    }
+
+    cite {
+        display: block;
+        text-align: right;
+        font-family: var(--bold);
+        font-weight: 700;
+    }
+}
+
+/* Tables */
+.formatted .wp-block-table {
+    overflow-x: auto;
+
+    &.is-style-stripes {
+        border-spacing: 0;
+        border-collapse: inherit;
+        background-color: transparent;
+
+        tbody tr:nth-child(odd) {
+            background-color: #f0f0f0;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid var(--silver);
+        padding: 1em;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: var(--accent-content-color);
+        font-weight: bold;
+    }
+}
+
+.formatted .has-text-align-center {
+    text-align: center;
+}

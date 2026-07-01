@@ -1,0 +1,35 @@
+/* #Heros
+--------------------------------------------------------------- */
+/* Simple */
+.hero-simple {
+    text-align: center;
+}
+
+.hero-simple .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-spacing);
+    align-items: center;
+}
+
+.hero-simple .container > .btn-wrapper {
+    margin-top: 1rem;
+}
+
+/* Thumbnail */
+.hero-thumbnail {
+    color: var(--white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #00000055;
+    background-blend-mode: darken;
+}
+
+.hero-thumbnail .container > * {
+    color: var(--white);
+}
+
+.hero-thumbnail .breadcrumbs * {
+    color: var(--white);
+}

@@ -1,0 +1,32 @@
+/* #Single
+--------------------------------------------------------------- */
+
+.single-post.publications .hero .title {
+    font-style: italic;
+}
+
+/* Tags */
+.single-post .tags-list {
+    font-weight: 400;
+    font-family: var(--bold);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.single-post .tags-list .tag {
+    padding: 0.5rem 1rem;
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    background-color: var(--secondary);
+    border-radius: var(--border-radius);
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+}

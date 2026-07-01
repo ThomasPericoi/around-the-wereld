@@ -1,0 +1,19 @@
+/* #Latest Posts
+--------------------------------------------------------------- */
+.latest-posts h2 {
+    margin-bottom: var(--spacing-title);
+}
+
+@media screen and (min-width: 1200px) {
+    .latest-posts .grid-3 .post {
+        border-radius: 0;
+    }
+
+    .latest-posts .grid-3 .post:nth-child(1) {
+        border-top-left-radius: var(--border-radius);
+    }
+
+    .latest-posts .grid-3 .post:nth-child(3) {
+        border-top-right-radius: var(--border-radius);
+    }
+}

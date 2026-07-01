@@ -1,0 +1,121 @@
+/* #Base
+--------------------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--white);
+
+    &.body-freeze {
+        overflow: hidden;
+    }
+}
+
+main {
+    margin-top: var(--header-height);
+}
+
+main > section {
+    padding-block: var(--section-padding-y, var(--spacing-section-y));
+}
+
+main section {
+    opacity: 1;
+    translate: none;
+}
+
+.js-enabled main section:not(:first-child) {
+    opacity: 0;
+    transition: opacity calc(var(--transition-duration) * 2) ease-out, translate calc(var(--transition-duration) * 2) ease-out;
+
+    &:not(.js-alwaysInView):not([id^="content"]) {
+        translate: 0 20px;
+    }
+
+    &.js-inView {
+        opacity: 1;
+
+        &:not(.js-alwaysInView):not([id^="content"]) {
+            translate: 0;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+    }
+
+    main section {
+
+        &:not(.js-alwaysInView):not([id^="content"]) {
+            transition: none;
+            translate: none;
+        }
+    }
+}
+
+::selection {
+    color: var(--white);
+    background: var(--secondary);
+}
+
+:focus-visible {
+    outline: 2px dashed var(--secondary);
+    outline-offset: 4px;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.sr-only-focusable:not(:focus):not(:focus-within) {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.skip-link:focus {
+    padding: 0.75rem 1rem;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 999;
+    color: var(--white);
+    background-color: var(--primary);
+    text-decoration: none;
+}

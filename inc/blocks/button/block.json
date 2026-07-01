@@ -1,0 +1,15 @@
+{
+    "name": "acf/button",
+    "title": "Button",
+    "description": "A button with multiple options to insert a link.",
+    "category": "around-the-wereld-block",
+    "icon": "admin-links",
+    "keywords": [
+        "content",
+        "link"
+    ],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "button.php"
+    }
+}

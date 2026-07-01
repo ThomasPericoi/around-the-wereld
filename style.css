@@ -1,0 +1,73 @@
+/*
+Theme Name: Around The Wereld
+Theme URI: https://thomaspericoi.com/
+Author: Thomas Pericoi
+Author URI: https://thomaspericoi.com/
+Description: A complete and customizable WordPress theme built for Wereldcafé.
+Language: fr_FR
+Version: 1.1
+Requires at least: 7.0
+Tested up to: 7.0
+Text Domain: around-the-wereld
+*/
+
+/* #Imports
+--------------------------------------------------------------- */
+
+@import "./assets/css/base/imports.css";
+
+/* #Variables
+--------------------------------------------------------------- */
+
+@import "./assets/css/base/variables.css";
+
+/* #Base
+--------------------------------------------------------------- */
+
+@import "./assets/css/base/animations.css";
+@import "./assets/css/base/base.css";
+@import "./assets/css/base/typography.css";
+@import "./assets/css/base/content.css";
+
+/* #Elements
+--------------------------------------------------------------- */
+
+@import "./assets/css/elements/breadcrumbs.css";
+@import "./assets/css/elements/buttons.css";
+@import "./assets/css/elements/columns.css";
+@import "./assets/css/elements/containers.css";
+@import "./assets/css/elements/footer.css";
+@import "./assets/css/elements/forms.css";
+@import "./assets/css/elements/grids.css";
+@import "./assets/css/elements/header.css";
+@import "./assets/css/elements/heros.css";
+@import "./assets/css/elements/medias.css";
+
+/* #Blocks
+--------------------------------------------------------------- */
+
+@import "./assets/css/blocks/button.css";
+@import "./assets/css/blocks/gallery.css";
+@import "./assets/css/blocks/pdf-viewer.css";
+
+/* #Template Parts
+--------------------------------------------------------------- */
+
+@import "./assets/css/template-parts/gallery.css";
+@import "./assets/css/template-parts/item-post.css";
+@import "./assets/css/template-parts/latest-posts.css";
+@import "./assets/css/template-parts/signature.css";
+
+/* #Templates
+--------------------------------------------------------------- */
+
+@import "./assets/css/templates/contact.css";
+
+/* #Pages
+--------------------------------------------------------------- */
+
+@import "./assets/css/pages/404.css";
+@import "./assets/css/pages/front-page.css";
+@import "./assets/css/pages/index.css";
+@import "./assets/css/pages/page.css";
+@import "./assets/css/pages/single.css";
