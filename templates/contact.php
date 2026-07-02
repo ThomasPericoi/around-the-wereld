@@ -58,7 +58,7 @@ get_header(); ?>
             <section id="contact-form-<?= esc_attr($post_id); ?>" class="contact-form">
                 <div class="container container-sm formatted">
                     <?php if ($form_title) : ?>
-                        <h2 class="h3-size"><?= esc_html($form_title); ?></h2>
+                        <h2 class="h3-size"><?= wp_kses_post($form_title); ?></h2>
                     <?php endif; ?>
                     <?php if ($form_id) : ?>
                         <?= do_shortcode('[contact-form-7 id="' . esc_attr($form_id) . '"]'); ?>

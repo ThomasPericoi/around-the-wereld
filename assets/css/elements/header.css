@@ -68,6 +68,7 @@ body.js-menuOpened {
 
 #header .nav-wrapper>.btn {
     align-self: flex-start;
+    rotate: calc(var(--tilt-soft) * -1);
 }
 
 @media screen and (min-width: 1200px) {

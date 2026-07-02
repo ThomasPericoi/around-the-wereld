@@ -9,16 +9,57 @@
     background-color: var(--white);
     border-radius: var(--border-radius);
     overflow: hidden;
+    transition: rotate var(--transition-timing) var(--transition-duration), translate var(--transition-timing) var(--transition-duration);
+}
+
+.posts.grid .post.post-tilt-left {
+    rotate: calc(var(--tilt-soft) * -1);
+}
+
+.posts.grid .post.post-tilt-right {
+    rotate: var(--tilt-soft);
+}
+
+.posts.grid .post:hover,
+.posts.grid .post:focus-visible {
+    translate: 0 -0.25rem;
+}
+
+.posts.grid .post.no-thumbnail {
+    min-height: 100%;
+}
+
+.posts.grid .post.no-thumbnail.post-accent-primary {
+    --post-placeholder-color: var(--primary);
+    --post-content-background: var(--primary-light);
+}
+
+.posts.grid .post.no-thumbnail.post-accent-secondary {
+    --post-placeholder-color: var(--secondary);
+    --post-content-background: var(--secondary-light);
+}
+
+.posts.grid .post.no-thumbnail.post-accent-tertiary {
+    --post-placeholder-color: var(--tertiary);
+    --post-content-background: var(--tertiary-light);
+}
+
+.posts.grid .post.no-thumbnail .content {
+    background-color: var(--post-content-background);
 }
 
 .posts.grid .post .thumbnail {
     width: 100%;
     height: auto;
-    aspect-ratio: 1.35;
+    aspect-ratio: 1.75;
     flex-grow: 1;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.posts.grid .post .thumbnail.placeholder {
+    background-color: var(--post-placeholder-color);
 }
 
 .posts.grid .post .content {

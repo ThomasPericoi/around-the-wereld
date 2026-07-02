@@ -1,6 +1,6 @@
 {
     "key": "group_around_the_wereld_page",
-    "title": "Post type - Page",
+    "title": "Post type - Page & Post",
     "fields": [
         {
             "key": "field_page_subtitle",
@@ -28,7 +28,7 @@
             "name": "page_hero_background",
             "aria-label": "",
             "type": "select",
-            "instructions": "Optional background color for the page hero.",
+            "instructions": "Optional background color for the hero.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -67,6 +67,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
         ]
     ],
     "menu_order": 0,
@@ -81,5 +88,5 @@
     "display_title": "Optional settings",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1782988066
+    "modified": 1782991923
 }

@@ -28,10 +28,12 @@ $latest = get_posts($args_query); ?>
         <div class="container container-lg">
             <h2 class="h3-size"><?= esc_html($title); ?></h2>
             <div class="grid grid-<?= esc_attr($amount); ?> posts">
-                <?php foreach ($latest as $post) :
+                <?php foreach ($latest as $index => $post) :
                     setup_postdata($post); ?>
 
-                    <?php get_template_part('template-parts/item', 'post'); ?>
+                    <?php get_template_part('template-parts/item', 'post', array(
+                        'index' => $index,
+                    )); ?>
 
                 <?php endforeach; ?>
             </div>

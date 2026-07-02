@@ -33,16 +33,7 @@
 }
 
 #main-footer .title {
-    display: inline-block;
     color: var(--secondary);
-}
-
-#main-footer .col:nth-child(odd) .title {
-    rotate: calc(var(--tilt-soft) * -1);
-}
-
-#main-footer .col:nth-child(even) .title {
-    rotate: var(--tilt-soft);
 }
 
 #main-footer .description p {
@@ -134,9 +125,10 @@
 
 #sub-footer .sub-footer-menu>ul {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    gap: 0.5rem 0.75rem;
 }
 
 @media screen and (min-width: 992px) {
@@ -145,6 +137,7 @@
     }
 
     #sub-footer .sub-footer-menu>ul {
+        justify-content: flex-start;
         align-items: flex-start;
     }
 
@@ -158,7 +151,20 @@
 }
 
 #sub-footer .sub-footer-menu li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
     font-size: inherit;
+}
+
+#sub-footer .sub-footer-menu li:not(:last-child):after {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    display: block;
+    flex: 0 0 auto;
+    background-color: var(--secondary);
+    rotate: 45deg;
 }
 
 #sub-footer .sub-footer-signature {

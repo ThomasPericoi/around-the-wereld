@@ -8,17 +8,30 @@ $content = trim(get_the_content());
 $categories = get_the_category();
 $primary_category = !empty($categories) ? $categories[0] : false;
 $tags = get_the_tags();
+$hero_background = get_field('page_hero_background');
+$hero_backgrounds = array('primary', 'primary-dark', 'primary-light', 'secondary', 'secondary-dark', 'secondary-light', 'tertiary', 'tertiary-dark', 'tertiary-light', 'white', 'black', 'content-color');
+$subtitle = get_field('page_subtitle') ?: get_the_excerpt();
 ?>
 
 <!-- Hero -->
-<section id="hero-<?= esc_attr($post_id); ?>" class="hero hero-simple <?= $primary_category ? esc_attr($primary_category->slug) : ''; ?>">
+<?php
+$hero_classes = array(
+    'hero',
+    'hero-simple',
+    $primary_category ? $primary_category->slug : false,
+    has_post_thumbnail() ? 'hero-has-media' : false,
+    in_array($hero_background, $hero_backgrounds, true) ? 'hero-bg-' . $hero_background : false,
+);
+$hero_classes_attr = implode(' ', array_map('sanitize_html_class', array_filter($hero_classes)));
+?>
+<section id="hero-<?= esc_attr($post_id); ?>" class="<?= esc_attr($hero_classes_attr); ?>">
     <div class="container container-sm formatted">
         <div class="breadcrumbs">
             <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
         </div>
         <h1 class="title"><?= esc_html(get_the_title()); ?></h1>
-        <?php if (has_excerpt()) : ?>
-            <p class="description"><?= esc_html(get_the_excerpt()); ?></p>
+        <?php if ($subtitle) : ?>
+            <p class="description"><?= wp_kses_post($subtitle); ?></p>
         <?php endif; ?>
         <?php if (has_post_thumbnail()) : ?>
             <figure class="hero-media">

@@ -35,7 +35,9 @@ endif;
         <?php if (have_posts()) : ?>
             <div class="grid grid-3 posts">
                 <?php while (have_posts()) : the_post(); ?>
-                    <?php get_template_part('template-parts/item', 'post'); ?>
+                    <?php get_template_part('template-parts/item', 'post', array(
+                        'index' => $wp_query->current_post,
+                    )); ?>
                 <?php endwhile; ?>
             </div>
 
