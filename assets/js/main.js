@@ -241,6 +241,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    const initMenuSectionsNav = () => {
+        const navLinks = Array.from(document.querySelectorAll('.menu-sections-nav a[href^="#"]'));
+
+        if (!navLinks.length) {
+            return;
+        }
+
+        const linksBySectionId = new Map();
+        const sections = navLinks.map((link) => {
+            const sectionId = decodeURIComponent(link.hash.slice(1));
+            const section = sectionId ? document.getElementById(sectionId) : null;
+
+            if (section) {
+                linksBySectionId.set(sectionId, link);
+            }
+
+            return section;
+        }).filter(Boolean);
+
+        if (!sections.length) {
+            return;
+        }
+
+        const setActiveSection = (section) => {
+            navLinks.forEach((link) => {
+                const isActive = link === linksBySectionId.get(section.id);
+
+                link.classList.toggle('is-active', isActive);
+
+                if (isActive) {
+                    link.setAttribute('aria-current', 'location');
+                    return;
+                }
+
+                link.removeAttribute('aria-current');
+            });
+        };
+
+        const getCurrentSection = () => {
+            const offset = (header?.offsetHeight || 0) + 40;
+
+            return sections.reduce((currentSection, section) => {
+                const rect = section.getBoundingClientRect();
+
+                if (rect.top <= offset && rect.bottom > offset) {
+                    return section;
+                }
+
+                if (rect.top <= offset) {
+                    return section;
+                }
+
+                return currentSection;
+            }, sections[0]);
+        };
+
+        let menuSectionsTicking = false;
+        const updateActiveSection = () => {
+            if (menuSectionsTicking) {
+                return;
+            }
+
+            menuSectionsTicking = true;
+            window.requestAnimationFrame(() => {
+                setActiveSection(getCurrentSection());
+                menuSectionsTicking = false;
+            });
+        };
+
+        setActiveSection(getCurrentSection());
+        window.addEventListener('scroll', updateActiveSection, { passive: true });
+        window.addEventListener('resize', updateActiveSection, { passive: true });
+    };
+
     const initContactMaps = () => {
         const mapElements = document.querySelectorAll('[data-leaflet-map]');
 
@@ -433,6 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDyslexicMode();
     initRevealOnScroll();
     initOrderedLists();
+    initMenuSectionsNav();
     initContactMaps();
     initMenu();
     initGalleries();

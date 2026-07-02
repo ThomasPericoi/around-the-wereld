@@ -29,6 +29,7 @@ function atw_name_acf_groups_json($filename, $post, $load_path)
         'group_680a44823fac2' => 'group_block_pdf_viewer',
         'group_around_the_wereld_contact' => 'group_around_the_wereld_contact',
         'group_around_the_wereld_event' => 'group_around_the_wereld_event',
+        'group_around_the_wereld_menu' => 'group_around_the_wereld_menu',
         'group_around_the_wereld_page' => 'group_around_the_wereld_page',
         'group_around_the_wereld_theme_options' => 'group_around_the_wereld_theme_options',
         'group_theme_options_header' => 'group_theme_options_header',

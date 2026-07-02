@@ -1,0 +1,239 @@
+/* #Menu Template
+--------------------------------------------------------------- */
+.menu-content {
+    padding-bottom: 0;
+}
+
+.menu-page>.container {
+    display: grid;
+    gap: var(--content-spacing);
+}
+
+.menu-page .menu-sections-nav {
+    padding: 0;
+    z-index: 2;
+    align-self: start;
+}
+
+.menu-page .menu-sections-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.75rem;
+    justify-content: flex-start;
+}
+
+.menu-page .menu-sections-nav a {
+    --menu-accent-size: 0.4rem;
+    --menu-hover-offset: 0.25rem;
+
+    padding: 0.35rem 0.35rem 0.35rem calc(var(--menu-accent-size) + 0.7rem);
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--content-color);
+    font-family: var(--bold);
+    line-height: 1.1;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: color var(--transition-timing) var(--transition-duration), translate var(--transition-timing) var(--transition-duration);
+}
+
+.menu-page .menu-sections-nav a:hover,
+.menu-page .menu-sections-nav a:focus-visible,
+.menu-page .menu-sections-nav a.is-active {
+    text-decoration: none;
+}
+
+.menu-page .menu-sections-nav a:before {
+    content: "";
+    width: var(--menu-accent-size);
+    height: var(--menu-accent-size);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background-color: var(--secondary);
+    rotate: 45deg;
+    translate: 0 -50%;
+    transition: background-color var(--transition-timing) var(--transition-duration), rotate var(--transition-timing) var(--transition-duration), scale var(--transition-timing) var(--transition-duration);
+}
+
+.menu-page .menu-sections-nav a:hover,
+.menu-page .menu-sections-nav a:focus-visible,
+.menu-page .menu-sections-nav a.is-active {
+    color: var(--primary);
+    translate: var(--menu-hover-offset) 0;
+}
+
+.menu-page .menu-sections-nav a:hover:before,
+.menu-page .menu-sections-nav a:focus-visible:before,
+.menu-page .menu-sections-nav a.is-active:before {
+    background-color: var(--primary);
+    rotate: 0deg;
+    scale: 1.25;
+}
+
+.menu-page .menu-sections {
+    display: grid;
+    gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.menu-page .menu-section {
+    --menu-section-color: var(--primary);
+    --menu-section-color-dark: var(--primary-dark);
+    --menu-section-background: var(--primary-light);
+
+    scroll-margin-top: calc(var(--header-height) + var(--admin-bar-visible-height, 0px) + 2rem);
+    display: grid;
+    gap: 1rem;
+}
+
+.menu-page .menu-section:nth-child(3n + 2) {
+    --menu-section-color: var(--secondary);
+    --menu-section-color-dark: var(--secondary-dark);
+    --menu-section-background: var(--secondary-light);
+}
+
+.menu-page .menu-section:nth-child(3n) {
+    --menu-section-color: var(--tertiary);
+    --menu-section-color-dark: var(--tertiary-dark);
+    --menu-section-background: var(--tertiary-light);
+}
+
+.menu-page .menu-section-header {
+    max-width: 44rem;
+}
+
+.menu-page .menu-section-header h2 {
+    width: fit-content;
+    margin-bottom: 0.25em;
+    color: var(--menu-section-color);
+    rotate: var(--tilt-soft);
+}
+
+.menu-page .menu-section:nth-child(even) .menu-section-header h2 {
+    rotate: calc(var(--tilt-soft) * -1);
+}
+
+.menu-page .menu-items {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.menu-page .menu-item {
+    padding: 0.9rem 1rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem 1rem;
+    align-items: start;
+    background-color: var(--menu-section-background);
+    border-radius: var(--border-radius);
+}
+
+.menu-page .menu-item-has-spacing {
+    margin-bottom: 2rem;
+}
+
+.menu-page .menu-item-main {
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.6rem;
+    align-items: center;
+}
+
+.menu-page .menu-item h3 {
+    color: var(--content-color);
+}
+
+.menu-page .menu-item p {
+    grid-column: 1;
+    margin: 0;
+    color: var(--content-color);
+    font-style: italic;
+}
+
+.menu-page .menu-item-label {
+    padding: 0.25rem 0.45rem;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    background-color: var(--menu-section-color);
+    border-radius: var(--border-radius);
+}
+
+.menu-page .menu-item-price {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    color: var(--menu-section-color-dark);
+    font-family: var(--bold);
+    font-size: 1.1rem;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.menu-page .menu-item-options {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+    margin-left: 0.6rem;
+    padding-top: 0.45rem;
+    border-top: 1px solid color-mix(in srgb, var(--content-color) 18%, transparent);
+}
+
+.menu-page .menu-item-options li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.menu-page .menu-item-options span {
+    color: var(--content-color);
+}
+
+.menu-page .menu-item-options span:before,
+.menu-page .menu-item-options strong:before {
+    content: "+ ";
+}
+
+.menu-page .menu-item-options strong {
+    color: var(--menu-section-color-dark);
+    font-family: var(--body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+@media screen and (min-width: 992px) {
+    .menu-page>.container {
+        grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr);
+        align-items: start;
+    }
+
+    .menu-page .menu-sections-nav {
+        position: sticky;
+        top: calc(var(--header-height) + var(--admin-bar-visible-height, 0px) + 1rem);
+    }
+
+    .menu-page .menu-sections-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.2rem;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .menu-page .menu-item {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-page .menu-item-price {
+        grid-column: 1;
+        grid-row: auto;
+        padding-right: 0;
+    }
+}

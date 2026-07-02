@@ -1,0 +1,294 @@
+{
+    "key": "group_around_the_wereld_menu",
+    "title": "Page template – Menu",
+    "fields": [
+        {
+            "key": "field_6a4664977d470",
+            "label": "Menu",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_menu_sections",
+            "label": "Sections",
+            "name": "menu_sections",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_menu_section_title",
+            "button_label": "Add section",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_menu_section_title",
+                    "label": "Title",
+                    "name": "section_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_menu_sections"
+                },
+                {
+                    "key": "field_menu_section_description",
+                    "label": "Description",
+                    "name": "section_description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Optional short text displayed under the section title.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": 2,
+                    "placeholder": "",
+                    "new_lines": "br",
+                    "parent_repeater": "field_menu_sections"
+                },
+                {
+                    "key": "field_menu_section_items",
+                    "label": "Items",
+                    "name": "section_items",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_menu_item_title",
+                    "button_label": "Add item",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_menu_sections",
+                    "sub_fields": [
+                        {
+                            "key": "field_menu_item_title",
+                            "label": "Title",
+                            "name": "item_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 1,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_menu_section_items"
+                        },
+                        {
+                            "key": "field_menu_item_description",
+                            "label": "Description",
+                            "name": "item_description",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": 2,
+                            "placeholder": "",
+                            "new_lines": "br",
+                            "parent_repeater": "field_menu_section_items"
+                        },
+                        {
+                            "key": "field_menu_item_price",
+                            "label": "Price",
+                            "name": "item_price",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "5",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 1,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_menu_section_items"
+                        },
+                        {
+                            "key": "field_menu_item_options",
+                            "label": "Options",
+                            "name": "item_options",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Optional variations displayed under the menu item.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "field_menu_item_option_title",
+                            "button_label": "Add option",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_menu_item_option_title",
+                                    "label": "Option",
+                                    "name": "option_title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 1,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_menu_item_options"
+                                },
+                                {
+                                    "key": "field_menu_item_option_price",
+                                    "label": "Price",
+                                    "name": "option_price",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 1,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_menu_item_options"
+                                }
+                            ],
+                            "parent_repeater": "field_menu_section_items"
+                        },
+                        {
+                            "key": "field_menu_item_has_spacing",
+                            "label": "Add spacing after this item",
+                            "name": "item_has_spacing",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Adds a small visual gap after this item to group the menu.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Yes",
+                            "ui_off_text": "No",
+                            "parent_repeater": "field_menu_section_items"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates\/menu.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "Menu builder",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1783002479
+}

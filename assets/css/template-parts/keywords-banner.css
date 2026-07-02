@@ -10,7 +10,7 @@
 .keywords-banner-track {
     width: max-content;
     display: flex;
-    animation: keywords-banner 26s linear infinite;
+    animation: keywords-banner 60s linear infinite;
     will-change: transform;
 }
 
