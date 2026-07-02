@@ -160,3 +160,25 @@
 .formatted .has-text-align-center {
     text-align: center;
 }
+
+/* Separator */
+.formatted hr,
+.formatted .wp-block-separator {
+    width: 100%;
+    height: 2px;
+    margin: 0;
+    border: 0;
+    color: inherit;
+    background-color: currentColor;
+    opacity: 1;
+}
+
+.formatted .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+    width: min(8rem, 100%);
+    margin: 0 auto;
+}
+
+.formatted .wp-block-separator.is-style-dots {
+    height: auto;
+    background-color: transparent;
+}

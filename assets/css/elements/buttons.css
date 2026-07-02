@@ -26,6 +26,7 @@
     font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
+    line-height: 1;
     color: var(--white);
     background-color: var(--content-color);
     border-radius: 50px;

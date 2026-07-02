@@ -1,8 +1,8 @@
 <?php
 /* RENDER
 --------------------------------------------------------------- */
-// Render CTA
-function atw_render_cta($selector_prefix, $post_id = false, $sub_field = false)
+// Get CTA
+function atw_get_cta($selector_prefix, $post_id = false, $sub_field = false)
 {
     $color = $sub_field ? get_sub_field("{$selector_prefix}_cta_color") : get_field("{$selector_prefix}_cta_color", $post_id);
     $type = $sub_field ? get_sub_field("{$selector_prefix}_cta_type") : get_field("{$selector_prefix}_cta_type", $post_id);
@@ -13,14 +13,14 @@ function atw_render_cta($selector_prefix, $post_id = false, $sub_field = false)
     $image_cta = $sub_field ? get_sub_field("{$selector_prefix}_cta_image") : get_field("{$selector_prefix}_cta_image", $post_id);
 
     if (!$text_cta && empty($image_cta['image'])) {
-        return;
+        return '';
     }
 
     if ($type === 'text' && !empty($text_cta['title'])) {
         $target = !empty($text_cta['target']) ? $text_cta['target'] : '_self';
         $rel = $target === '_blank' ? ' rel="noopener noreferrer"' : '';
 
-        echo sprintf(
+        return sprintf(
             '<a class="btn btn-%1$s btn-icon-%2$s %3$s" href="%4$s" target="%5$s"%6$s>%7$s</a>',
             esc_attr($color),
             esc_attr($text_icon),
@@ -34,7 +34,7 @@ function atw_render_cta($selector_prefix, $post_id = false, $sub_field = false)
         $target = !empty($image_cta['target']) ? $image_cta['target'] : '_self';
         $rel = $target === '_blank' ? ' rel="noopener noreferrer"' : '';
 
-        echo sprintf(
+        return sprintf(
             '<a class="btn btn-%1$s btn-image" href="%2$s" title="%3$s" aria-label="%3$s" target="%4$s"%5$s>
                 <img src="%6$s" alt="%3$s" />
             </a>',
@@ -46,6 +46,14 @@ function atw_render_cta($selector_prefix, $post_id = false, $sub_field = false)
             esc_url($image_cta['image'])
         );
     }
+
+    return '';
+}
+
+// Render CTA
+function atw_render_cta($selector_prefix, $post_id = false, $sub_field = false)
+{
+    echo atw_get_cta($selector_prefix, $post_id, $sub_field);
 }
 
 // Render Link CTA

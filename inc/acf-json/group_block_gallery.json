@@ -21,7 +21,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_6883f97c55492",
+            "key": "field_6a463ac0b36f8",
             "label": "Content",
             "name": "",
             "aria-label": "",
@@ -37,48 +37,6 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
-        },
-        {
-            "key": "field_68ad7211346cf",
-            "label": "Section title",
-            "name": "title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_68ad832db7a75",
-            "label": "Introduction",
-            "name": "introduction",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 1
         },
         {
             "key": "field_6883f947f8496",
@@ -151,5 +109,5 @@
     "display_title": "Gallery",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1782912902
+    "modified": 1782987482
 }

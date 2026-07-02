@@ -1,5 +1,15 @@
 /* #PDF Viewer Block
 --------------------------------------------------------------- */
+.pdf-viewer-block {
+    display: block;
+}
+
+.pdf-viewer-iframe {
+    width: 100%;
+    display: block;
+    border: 0;
+}
+
 .pdf-viewer-block .btn {
     margin-top: 2rem;
 }

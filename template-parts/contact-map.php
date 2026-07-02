@@ -13,6 +13,8 @@ $map_zoom = absint(get_field('contact_map_zoom', 'options') ?: 15);
 $map_latitude = (float) $map_latitude;
 $map_longitude = (float) $map_longitude;
 $map_zoom = min(19, max(1, $map_zoom));
+
+$map_button = atw_get_cta('contact_map_button', 'options');
 ?>
 
 <!-- Contact Map -->
@@ -28,7 +30,6 @@ $map_zoom = min(19, max(1, $map_zoom));
                         <?= wp_kses_post($map_text); ?>
                     </div>
                 <?php endif; ?>
-                <?php atw_render_cta('contact_map_button', 'options'); ?>
             </div>
             <div class="contact-map-frame">
                 <div
@@ -44,5 +45,10 @@ $map_zoom = min(19, max(1, $map_zoom));
                 </div>
             </div>
         </div>
+        <?php if ($map_button) : ?>
+            <div class="contact-map-actions btn-wrapper">
+                <?= $map_button; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

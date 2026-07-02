@@ -9,6 +9,7 @@
 .galleries-wrapper .swiper {
     width: 100%;
     position: relative;
+    border-radius: var(--border-radius);
 }
 
 .galleries-wrapper figure img {

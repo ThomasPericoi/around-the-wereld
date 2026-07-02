@@ -33,7 +33,16 @@
 }
 
 #main-footer .title {
+    display: inline-block;
     color: var(--secondary);
+}
+
+#main-footer .col:nth-child(odd) .title {
+    rotate: calc(var(--tilt-soft) * -1);
+}
+
+#main-footer .col:nth-child(even) .title {
+    rotate: var(--tilt-soft);
 }
 
 #main-footer .description p {
@@ -52,12 +61,20 @@
 }
 
 #main-footer .footer-socials .social {
-    background-color: var(--secondary);
+    background-color: var(--white);
 
     &:hover,
     &:focus-visible {
         background-color: var(--white);
     }
+}
+
+#main-footer .footer-socials li:nth-child(odd) .social {
+    rotate: calc(var(--tilt-medium) * -1);
+}
+
+#main-footer .footer-socials li:nth-child(even) .social {
+    rotate: var(--tilt-medium);
 }
 
 #main-footer .footer-socials .social>svg {

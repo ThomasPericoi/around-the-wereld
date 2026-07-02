@@ -13,10 +13,10 @@ body.js-menuOpened {
     font-size: 1rem;
     background-color: var(--white);
     box-shadow: 0 -11px 15px 4px rgba(0, 0, 0, 0.25);
+}
 
-    .admin-bar & {
-        top: var(--wp-admin--admin-bar--height);
-    }
+.admin-bar #header {
+    top: var(--admin-bar-visible-height, var(--wp-admin--admin-bar--height, 32px));
 }
 
 @media screen and (min-width: 1200px) {
@@ -94,9 +94,9 @@ body.js-menuOpened {
 
 @media screen and (max-width: 1199px) {
     .admin-bar #header .nav-wrapper {
-        height: calc(var(--viewport-height, 100vh) - var(--header-height) - var(--wp-admin--admin-bar--height, 0px));
-        max-height: calc(var(--viewport-height, 100vh) - var(--header-height) - var(--wp-admin--admin-bar--height, 0px));
-        top: calc(var(--header-height) + var(--wp-admin--admin-bar--height, 0px));
+        height: calc(var(--viewport-height, 100vh) - var(--header-height) - var(--admin-bar-visible-height, var(--wp-admin--admin-bar--height, 32px)));
+        max-height: calc(var(--viewport-height, 100vh) - var(--header-height) - var(--admin-bar-visible-height, var(--wp-admin--admin-bar--height, 32px)));
+        top: calc(var(--header-height) + var(--admin-bar-visible-height, var(--wp-admin--admin-bar--height, 32px)));
     }
 }
 
@@ -378,6 +378,8 @@ body.js-menuOpened {
 }
 
 .menu-toggle-wrapper {
+    --menu-toggle-rotation: 0deg;
+
     width: 48px;
     height: 48px;
     position: relative;
@@ -386,7 +388,11 @@ body.js-menuOpened {
     justify-content: center;
     background-color: var(--primary);
     border-radius: var(--border-radius);
-    transition: background-color var(--transition-timing) var(--transition-duration), rotate var(--transition-timing) var(--transition-duration);
+    backface-visibility: hidden;
+    transform: rotate(var(--menu-toggle-rotation)) translateZ(0);
+    transform-origin: center;
+    transition: background-color var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
+    will-change: transform;
 }
 
 .menu-toggle-wrapper:hover,
@@ -395,8 +401,9 @@ body.js-menuOpened {
 }
 
 .js-menuOpened .menu-toggle-wrapper {
+    --menu-toggle-rotation: 2deg;
+
     background-color: var(--secondary);
-    rotate: 2deg;
 }
 
 #menu-toggle {
@@ -404,11 +411,12 @@ body.js-menuOpened {
     height: 48px;
     margin: 0;
     position: absolute;
-    top: 0;
-    right: 0;
+    inset: 0;
     display: block;
     opacity: 0;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 
     &:focus:not(:focus-visible)+div {
         outline: 0;
@@ -452,28 +460,29 @@ body.js-menuOpened {
 .menu-toggle-open>span:after {
     width: 18px;
     right: 0;
+    transform-origin: center;
 }
 
 .menu-toggle-open>span:before {
     content: "";
-    top: -9px;
-    transition: width var(--transition-timing) var(--transition-duration), top var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
+    top: 0;
+    transform: translateY(-9px);
+    transition: width var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
 }
 
 .js-menuOpened .menu-toggle-open>span:before {
-    top: 0;
-    transform: rotate(-45deg);
+    transform: translateY(0) rotate(-45deg);
 }
 
 .menu-toggle-open>span:after {
     content: "";
-    top: 9px;
-    transition: width var(--transition-timing) var(--transition-duration), top var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
+    top: 0;
+    transform: translateY(9px);
+    transition: width var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
 }
 
 .js-menuOpened .menu-toggle-open>span:after {
-    top: 0;
-    transform: rotate(45deg);
+    transform: translateY(0) rotate(45deg);
 }
 
 .js-menuOpened .menu-toggle-open>span:before,

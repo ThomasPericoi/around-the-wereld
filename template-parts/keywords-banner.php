@@ -21,7 +21,7 @@ if (empty($keywords)) {
         <?php for ($i = 0; $i < 2; $i++) : ?>
             <ul class="keywords-banner-list" <?= $i > 0 ? 'aria-hidden="true"' : ''; ?>>
                 <?php foreach ($keywords as $keyword) : ?>
-                    <li class="h4-size"><?= esc_html($keyword); ?></li>
+                    <li class="h5-size"><?= esc_html($keyword); ?></li>
                 <?php endforeach; ?>
             </ul>
         <?php endfor; ?>

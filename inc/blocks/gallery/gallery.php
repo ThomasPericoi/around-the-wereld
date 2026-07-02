@@ -12,9 +12,6 @@
  * @param   array $context The context provided to the block by the post or it's parent block.
  */
 
-$title = get_field('title');
-$introduction = get_field('introduction');
-
 $classes = array('gallery-block', 'js-alwaysInView');
 $classes_attr  = implode(' ', $classes);
 if (!empty($block['className'])) {
@@ -26,12 +23,6 @@ $styles_attr  = implode('; ', $styles);
 
 <!-- Block - Gallery -->
 <section class="<?= esc_attr($classes_attr); ?>" style="<?= esc_attr($styles_attr); ?>">
-    <?php if ($title) : ?>
-        <h2><?= wp_kses_post($title); ?></h2>
-    <?php endif; ?>
-    <?php if ($introduction) : ?>
-        <div class="introduction formatted"><?= wp_kses_post($introduction); ?></div>
-    <?php endif; ?>
     <?php get_template_part('template-parts/gallery', '', array(
         'images' => get_field('gallery'),
         'description' => get_field('description') ?: esc_attr__('Gallery', 'around-the-wereld'),

@@ -2,7 +2,7 @@
 --------------------------------------------------------------- */
 .contact-map {
     padding-block: var(--spacing-section-outer, var(--spacing-section-outer));
-    background-color: var(--secondary-light);
+    background-color: var(--tertiary-light);
 }
 
 .contact-map-grid {
@@ -24,6 +24,7 @@
     background-color: var(--primary);
     border-radius: var(--border-radius);
     overflow: hidden;
+    rotate: calc(var(--tilt-soft) * -1);
 }
 
 .contact-map-content:before {
@@ -41,20 +42,23 @@
     color: inherit;
 }
 
-.contact-map-content .btn {
-    margin-top: var(--content-spacing);
-    align-self: flex-start;
-}
-
 /* Map Frame */
 .contact-map-frame {
     width: 100%;
     min-height: min(80vw, 360px);
+    aspect-ratio: 1;
     position: relative;
     background-color: var(--white);
     border: 2px solid var(--primary);
     border-radius: var(--border-radius);
     overflow: hidden;
+    rotate: var(--tilt-soft);
+}
+
+.contact-map-actions {
+    margin-top: var(--spacing-section-inner);
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-map-leaflet {

@@ -28,7 +28,7 @@ $styles_attr  = implode('; ', $styles);
 <!-- Block - PDF Viewer -->
 <section class="<?= esc_attr($classes_attr); ?>" style="<?= esc_attr($styles_attr); ?>">
     <?php if ($file) : ?>
-        <iframe src="<?= esc_url(get_template_directory_uri() . '/assets/js/pdfjs/web/viewer.html?file=' . rawurlencode($file)); ?>" width="100%" height="<?= esc_attr($height); ?>" title="<?= esc_attr__('PDF viewer', 'around-the-wereld'); ?>"></iframe>
+        <iframe class="pdf-viewer-iframe" src="<?= esc_url(get_template_directory_uri() . '/assets/js/pdfjs/web/viewer.html?file=' . rawurlencode($file)); ?>" width="100%" height="<?= esc_attr($height); ?>" loading="lazy" title="<?= esc_attr__('PDF viewer', 'around-the-wereld'); ?>"></iframe>
         <a href="<?= esc_url($file); ?>" class="btn btn-primary btn-icon-download" target="_blank" rel="noopener noreferrer">
             <?= esc_html__('Download PDF', 'around-the-wereld'); ?>
         </a>

@@ -21,6 +21,43 @@
             "default_value": "",
             "maxlength": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_page_hero_background",
+            "label": "Hero background",
+            "name": "page_hero_background",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Optional background color for the page hero.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "primary": "Primary",
+                "primary-dark": "Primary dark",
+                "primary-light": "Primary light",
+                "secondary": "Secondary",
+                "secondary-dark": "Secondary dark",
+                "secondary-light": "Secondary light",
+                "tertiary": "Tertiary",
+                "tertiary-dark": "Tertiary dark",
+                "tertiary-light": "Tertiary light"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -44,5 +81,5 @@
     "display_title": "Optional settings",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1782912457
+    "modified": 1782988066
 }

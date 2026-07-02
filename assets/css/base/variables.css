@@ -34,11 +34,15 @@
     --body: "Space Grotesk", sans-serif;
 
     /* Radius */
-    --border-radius: 2px;
+    --border-radius: 3px;
+
+    /* Tilt */
+    --tilt-soft: 0.4deg;
+    --tilt-medium: 0.65deg;
 
     /* Spacings */
-    --container-padding: 2rem;
     --header-height: 87px;
+    --container-padding: 2rem;
     --spacing-section-inner: 3rem;
     --spacing-section-outer: 4rem;
 

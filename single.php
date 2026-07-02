@@ -21,7 +21,7 @@ $tags = get_the_tags();
             <p class="description"><?= esc_html(get_the_excerpt()); ?></p>
         <?php endif; ?>
         <?php if (has_post_thumbnail()) : ?>
-            <figure>
+            <figure class="hero-media">
                 <?php the_post_thumbnail('full'); ?>
                 <?php if (($thumbnail = get_post(get_post_thumbnail_id())) && ($excerpt = $thumbnail->post_excerpt)) : ?>
                     <figcaption><?= esc_html($excerpt); ?></figcaption>

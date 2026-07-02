@@ -18,33 +18,24 @@ body {
     }
 }
 
-main {
+#main {
     margin-top: var(--header-height);
 }
 
-main > section {
+#main > section {
     padding-block: var(--spacing-section-outer);
-}
-
-main section {
     opacity: 1;
     translate: none;
 }
 
-.js-enabled main section:not(:first-child):not(.js-alwaysInView) {
+.js-enabled #main > section:not(:first-child):not(.js-alwaysInView) {
     opacity: 0;
+    translate: 0 20px;
     transition: opacity calc(var(--transition-duration) * 2) ease-out, translate calc(var(--transition-duration) * 2) ease-out;
-
-    &:not([id^="content"]) {
-        translate: 0 20px;
-    }
 
     &.js-inView {
         opacity: 1;
-
-        &:not([id^="content"]) {
-            translate: 0;
-        }
+        translate: 0;
     }
 }
 
@@ -62,9 +53,9 @@ main section {
         transition-duration: 1ms !important;
     }
 
-    main section {
+    #main > section {
 
-        &:not(.js-alwaysInView):not([id^="content"]) {
+        &:not(.js-alwaysInView) {
             transition: none;
             translate: none;
         }

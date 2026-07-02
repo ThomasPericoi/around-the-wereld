@@ -2,7 +2,7 @@
 --------------------------------------------------------------- */
 .keywords-banner {
     width: 100%;
-    padding-block: 24px;
+    padding-block: 24px !important;
     overflow: hidden;
     background-color: var(--primary);
 }
@@ -36,6 +36,18 @@
     gap: var(--keywords-banner-gap);
     color: var(--white);
     white-space: nowrap;
+}
+
+.keywords-banner-list li:nth-child(odd) {
+    rotate: calc(var(--tilt-soft) * -1);
+}
+
+.keywords-banner-list li:nth-child(even) {
+    rotate: var(--tilt-soft);
+}
+
+.keywords-banner-list li:nth-child(3n) {
+    rotate: calc(var(--tilt-medium) * -1);
 }
 
 .keywords-banner-list li:after {

@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const body = document.body;
     const header = document.getElementById('header');
-    const main = document.querySelector('main');
+    const main = document.getElementById('main');
     const footer = document.querySelector('footer');
+    const adminBar = body.classList.contains('admin-bar') ? document.getElementById('wpadminbar') : null;
     const nav = document.querySelector('.nav-wrapper');
     const menuToggle = document.getElementById('menu-toggle');
     const desktopQuery = window.matchMedia('(min-width: 1200px)');
@@ -57,10 +58,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateLayoutVariables = () => {
         root.style.setProperty('--viewport-height', `${window.innerHeight}px`);
         root.style.setProperty('--scrollbar-width', `${window.innerWidth - root.clientWidth}px`);
+        root.style.setProperty('--admin-bar-visible-height', '0px');
+
+        if (adminBar) {
+            const adminBarRect = adminBar.getBoundingClientRect();
+            const adminBarVisibleHeight = Math.max(0, Math.min(adminBarRect.bottom, adminBarRect.height));
+
+            root.style.setProperty('--admin-bar-visible-height', `${adminBarVisibleHeight}px`);
+        }
 
         if (header) {
             root.style.setProperty('--header-height', `${header.offsetHeight}px`);
         }
+    };
+
+    let layoutTicking = false;
+    const requestLayoutVariablesUpdate = () => {
+        if (layoutTicking) {
+            return;
+        }
+
+        layoutTicking = true;
+        window.requestAnimationFrame(() => {
+            updateLayoutVariables();
+            layoutTicking = false;
+        });
     };
 
     const onViewportChange = () => {
@@ -78,10 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const initLayoutVariables = () => {
         updateLayoutVariables();
         window.addEventListener('resize', onViewportChange, { passive: true });
+        window.addEventListener('scroll', requestLayoutVariablesUpdate, { passive: true });
         window.visualViewport?.addEventListener('resize', updateLayoutVariables, { passive: true });
+        window.visualViewport?.addEventListener('scroll', requestLayoutVariablesUpdate, { passive: true });
 
         if ('ResizeObserver' in window && header) {
             new ResizeObserver(updateLayoutVariables).observe(header);
+        }
+
+        if ('ResizeObserver' in window && adminBar) {
+            new ResizeObserver(updateLayoutVariables).observe(adminBar);
         }
 
         if (typeof desktopQuery.addEventListener === 'function') {
@@ -127,19 +155,58 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initRevealOnScroll = () => {
-        document.querySelectorAll('main section.js-alwaysInView').forEach((section) => {
-            section.classList.add('js-inView');
-        });
+        if (!main) {
+            return;
+        }
 
-        const sections = document.querySelectorAll('main section:not(.js-alwaysInView)');
+        const mainSections = Array.from(main.children).filter((element) => element.tagName === 'SECTION');
+        const alwaysVisibleSections = mainSections.filter((section) => section.classList.contains('js-alwaysInView'));
+        const sections = mainSections.filter((section) => !section.classList.contains('js-alwaysInView'));
+
+        const revealSection = (section) => {
+            section.classList.add('js-inView');
+        };
+
+        const revealVisibleSections = () => {
+            sections.forEach((section) => {
+                if (section.classList.contains('js-inView')) {
+                    return;
+                }
+
+                const rect = section.getBoundingClientRect();
+                const entersViewport = rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
+
+                if (entersViewport) {
+                    revealSection(section);
+                }
+            });
+        };
+
+        let revealTicking = false;
+        const requestRevealVisibleSections = () => {
+            if (revealTicking) {
+                return;
+            }
+
+            revealTicking = true;
+            window.requestAnimationFrame(() => {
+                revealVisibleSections();
+                revealTicking = false;
+            });
+        };
+
+        alwaysVisibleSections.forEach(revealSection);
 
         if (!sections.length || reduceMotionQuery.matches) {
-            sections.forEach((section) => section.classList.add('js-inView'));
+            sections.forEach(revealSection);
             return;
         }
 
         if (!('IntersectionObserver' in window)) {
-            sections.forEach((section) => section.classList.add('js-inView'));
+            revealVisibleSections();
+            window.addEventListener('scroll', requestRevealVisibleSections, { passive: true });
+            window.addEventListener('resize', requestRevealVisibleSections, { passive: true });
+            window.addEventListener('load', revealVisibleSections);
             return;
         }
 
@@ -149,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                entry.target.classList.add('js-inView');
+                revealSection(entry.target);
                 observer.unobserve(entry.target);
             });
         }, {
@@ -158,6 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         sections.forEach((section) => observer.observe(section));
+        revealVisibleSections();
+        window.addEventListener('scroll', requestRevealVisibleSections, { passive: true });
+        window.addEventListener('resize', requestRevealVisibleSections, { passive: true });
+        window.addEventListener('load', revealVisibleSections);
     };
 
     const initOrderedLists = () => {
