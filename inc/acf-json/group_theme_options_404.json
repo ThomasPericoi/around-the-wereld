@@ -93,7 +93,7 @@
             }
         ]
     ],
-    "menu_order": 3,
+    "menu_order": 4,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -105,5 +105,5 @@
     "display_title": "404 options",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1782912568
+    "modified": 1782976521
 }

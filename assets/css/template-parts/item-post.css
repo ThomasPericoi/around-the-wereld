@@ -50,7 +50,6 @@
 .posts.grid .post .metas {
     font-size: 0.875em;
     color: var(--content-color);
-    font-family: var(--bold);
 }
 
 .posts.grid .post .btn {

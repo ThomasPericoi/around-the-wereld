@@ -1,0 +1,239 @@
+{
+    "key": "group_theme_options_contact_map",
+    "title": "Theme options - Contact map",
+    "fields": [
+        {
+            "key": "field_6a4611dc45ef5",
+            "label": "Content box",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_site_contact_map_title",
+            "label": "Map title",
+            "name": "contact_map_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_site_contact_map_text",
+            "label": "Map text",
+            "name": "contact_map_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 1
+        },
+        {
+            "key": "field_site_contact_map_button",
+            "label": "Map button",
+            "name": "contact_map_button",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Use this button to link to Google Maps, OpenStreetMap, or any route page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_67f67834a0f5b"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_6a46114945ef4",
+            "label": "Map settings",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_site_contact_map_latitude",
+            "label": "Latitude",
+            "name": "contact_map_latitude",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Decimal coordinates. Example: 50.8798",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_site_contact_map_longitude",
+            "label": "Longitude",
+            "name": "contact_map_longitude",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Decimal coordinates. Example: 4.7005",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_site_contact_map_zoom",
+            "label": "Zoom",
+            "name": "contact_map_zoom",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Recommended: 15 to 17.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 15,
+            "min": 1,
+            "max": 19,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": 1,
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_site_contact_map_marker_title",
+            "label": "Marker title",
+            "name": "contact_map_marker_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional title displayed in the map marker popup.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_site_contact_map_marker_subtitle",
+            "label": "Marker subtitle",
+            "name": "contact_map_marker_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional subtitle displayed below the marker title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "Contact map options",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1782982100
+}

@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_67f7e131fdb62",
-            "label": "Information",
+            "label": "Content #1",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -22,7 +22,7 @@
         },
         {
             "key": "field_6825ecd94ca6b",
-            "label": "Title #1",
+            "label": "Title",
             "name": "footer_title_1",
             "aria-label": "",
             "type": "textarea",
@@ -43,7 +43,7 @@
         },
         {
             "key": "field_67f7e104fdb61",
-            "label": "Short description",
+            "label": "Description",
             "name": "footer_description",
             "aria-label": "",
             "type": "wysiwyg",
@@ -140,8 +140,99 @@
             ]
         },
         {
+            "key": "field_theme_options_footer_socials",
+            "label": "Social networks",
+            "name": "footer_socials",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Displayed below the footer contact details.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_theme_options_footer_social_link",
+            "button_label": "Add social link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_theme_options_footer_social_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "facebook": "Facebook",
+                        "instagram": "Instagram",
+                        "linkedin": "LinkedIn"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_theme_options_footer_socials"
+                },
+                {
+                    "key": "field_theme_options_footer_social_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_theme_options_footer_socials"
+                }
+            ]
+        },
+        {
+            "key": "field_6a4610de59c56",
+            "label": "Content #2",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_6825ed0a4ca6c",
-            "label": "Title #2",
+            "label": "Title",
             "name": "footer_title_2",
             "aria-label": "",
             "type": "textarea",
@@ -282,7 +373,7 @@
             }
         ]
     ],
-    "menu_order": 2,
+    "menu_order": 1,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -294,5 +385,5 @@
     "display_title": "Footer options",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1782913320
+    "modified": 1782983600
 }

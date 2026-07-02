@@ -24,7 +24,6 @@
     align-items: center;
     text-decoration: none;
     font-size: 0.875rem;
-    font-family: var(--bold);
     font-weight: 700;
     text-transform: uppercase;
     color: var(--white);
@@ -58,11 +57,11 @@
 
     &:hover,
     &:focus {
-        color: var(--content-color);
+        color: var(--primary-dark);
         background-color: var(--white);
 
         &:after {
-            filter: var(--content-color-filter);
+            filter: var(--primary-filter);
         }
     }
 }
@@ -82,11 +81,11 @@
 }
 
 .btn.btn-secondary {
-    color: var(--white);
+    color: var(--content-color);
     background-color: var(--secondary);
 
     &:after {
-        filter: brightness(0) invert(1);
+        filter: var(--content-color-filter);
     }
 
     &:hover,
@@ -179,6 +178,10 @@ input.btn-icon-bell {
 
 .btn-icon-envelop:after {
     background-image: url(../../medias/icons/envelop.svg);
+}
+
+input.btn-icon-envelop {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpolyline points='22,6 12,13 2,6'/%3E%3C/svg%3E");
 }
 
 .btn-icon-external-link:after {

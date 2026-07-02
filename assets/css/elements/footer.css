@@ -10,8 +10,9 @@
 
 /* Main Footer */
 #main-footer {
-    padding: var(--spacing-section-outer) 0;
-    font-family: var(--bold);
+    --content-color: var(--white);
+
+    padding-block: var(--spacing-section-outer);
     font-size: 0.875em;
     color: var(--white);
     background-color: var(--primary);
@@ -31,24 +32,12 @@
     gap: var(--content-spacing);
 }
 
-#main-footer .formatted,
-#main-footer .formatted p,
-#main-footer .formatted li {
-    color: var(--white);
+#main-footer .title {
+    color: var(--secondary);
 }
 
 #main-footer .description p {
     font-size: 1.25em;
-}
-
-#main-footer .formatted ul>li,
-#main-footer .formatted ol>li {
-    padding-left: 0;
-}
-
-#main-footer .formatted ul>li:before,
-#main-footer .formatted ol>li:before {
-    display: none;
 }
 
 #main-footer .addresses ul {
@@ -56,6 +45,23 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+}
+
+#main-footer .footer-socials {
+    justify-content: center;
+}
+
+#main-footer .footer-socials .social {
+    background-color: var(--secondary);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--white);
+    }
+}
+
+#main-footer .footer-socials .social>svg {
+    filter: var(--primary-filter);
 }
 
 #main-footer .addresses a,
@@ -82,23 +88,21 @@
 
 /* Sub Footer */
 #sub-footer {
-    padding: 24px 0;
-    font-family: var(--bold);
+    padding-block: 24px;
     font-size: 0.875rem;
     background-color: var(--primary-dark);
 }
 
 #sub-footer>.container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
     gap: 1rem;
 }
 
 @media screen and (min-width: 992px) {
     #sub-footer>.container {
-        flex-direction: row;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     }
 }
 
@@ -111,26 +115,7 @@
     }
 }
 
-#sub-footer .menu-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-@media screen and (min-width: 992px) {
-    #sub-footer .menu-footer {
-        align-items: flex-start;
-    }
-}
-
-#sub-footer .menu-footer span {
-    color: var(--primary);
-    font-size: inherit;
-}
-
-#sub-footer .menu-footer>ul {
+#sub-footer .sub-footer-menu>ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,21 +123,36 @@
 }
 
 @media screen and (min-width: 992px) {
-    #sub-footer .menu-footer>ul {
-        flex-direction: column;
+    #sub-footer .sub-footer-menu {
+        justify-self: start;
+    }
+
+    #sub-footer .sub-footer-menu>ul {
         align-items: flex-start;
+    }
+
+    #sub-footer .sub-footer-signature {
+        justify-self: center;
+    }
+
+    #sub-footer .sub-footer-dyslexic {
+        justify-self: end;
     }
 }
 
-#sub-footer .menu-footer li {
+#sub-footer .sub-footer-menu li {
     font-size: inherit;
 }
 
-.dyslexic-toggle {
+#sub-footer .sub-footer-signature {
+    text-align: center;
+}
+
+#footer .dyslexic-toggle {
     font-family: 'OpenDyslexic', sans-serif;
 }
 
-.dyslexic-toggle label {
+#footer .dyslexic-toggle label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,11 +177,11 @@
     }
 }
 
-.dyslexic-toggle input:checked+label:before {
+#footer .dyslexic-toggle input:checked+label:before {
     background-color: var(--white);
 }
 
-.dyslexic-toggle input:focus-visible+label {
+#footer .dyslexic-toggle input:focus-visible+label {
     outline: 2px dashed var(--white);
     outline-offset: 6px;
 }

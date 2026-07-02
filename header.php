@@ -29,6 +29,7 @@
                         'depth' => 3,
                         'fallback_cb' => false,
                     ]); ?>
+                    <?php atw_render_cta('header_menu_button', 'options'); ?>
                 </nav>
                 <div class="menu-toggle-col">
                     <div class="menu-toggle-wrapper">

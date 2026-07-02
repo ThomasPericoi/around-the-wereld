@@ -10,7 +10,6 @@ body.js-menuOpened {
     position: fixed;
     top: 0;
     z-index: 99;
-    font-family: var(--bold);
     font-size: 1rem;
     background-color: var(--white);
     box-shadow: 0 -11px 15px 4px rgba(0, 0, 0, 0.25);
@@ -67,6 +66,10 @@ body.js-menuOpened {
     }
 }
 
+#header .nav-wrapper>.btn {
+    align-self: flex-start;
+}
+
 @media screen and (min-width: 1200px) {
     #header .nav-wrapper {
         width: unset;
@@ -81,6 +84,11 @@ body.js-menuOpened {
         overflow: visible;
         transform: translateX(0);
         margin-left: auto;
+    }
+
+    #header .nav-wrapper>.btn {
+        align-self: center;
+        margin-left: 0.5rem;
     }
 }
 
@@ -138,7 +146,7 @@ body.js-menuOpened {
 
 @media screen and (min-width: 1200px) {
     #header .custom-logo {
-        max-height: 100px;
+        max-height: 90px;
     }
 }
 
@@ -357,7 +365,8 @@ body.js-menuOpened {
 
 /* Toggle */
 .menu-toggle-col {
-    width: 30px;
+    width: 48px;
+    flex-shrink: 0;
     transition: opacity var(--transition-timing) var(--transition-duration);
 }
 
@@ -369,12 +378,30 @@ body.js-menuOpened {
 }
 
 .menu-toggle-wrapper {
+    width: 48px;
+    height: 48px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-timing) var(--transition-duration), rotate var(--transition-timing) var(--transition-duration);
+}
+
+.menu-toggle-wrapper:hover,
+.menu-toggle-wrapper:focus-within {
+    background-color: var(--primary-dark);
+}
+
+.js-menuOpened .menu-toggle-wrapper {
+    background-color: var(--secondary);
+    rotate: 2deg;
 }
 
 #menu-toggle {
-    width: 30px;
-    height: 30px;
+    width: 48px;
+    height: 48px;
     margin: 0;
     position: absolute;
     top: 0;
@@ -388,19 +415,22 @@ body.js-menuOpened {
     }
 
     &:focus-visible+div {
-        outline: 2px dashed var(--secondary);
+        outline: 2px dashed var(--primary);
         outline-offset: 6px;
     }
 }
 
 .menu-toggle-open {
-    max-width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+    position: relative;
     pointer-events: none;
 }
 
 .menu-toggle-open>span {
-    margin-top: 13px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 
     .js-menuOpened & {
         background-color: transparent;
@@ -410,48 +440,52 @@ body.js-menuOpened {
 .menu-toggle-open>span,
 .menu-toggle-open>span:before,
 .menu-toggle-open>span:after {
-    width: 30px;
+    width: 28px;
     height: 2px;
     position: absolute;
     display: block;
-    background-color: var(--black);
+    background-color: var(--white);
+    transform-origin: center;
 }
 
 .menu-toggle-open>span:before,
 .menu-toggle-open>span:after {
-    width: 20px;
+    width: 18px;
     right: 0;
 }
 
 .menu-toggle-open>span:before {
     content: "";
-    margin-top: -13px;
-    transition: width var(--transition-timing) var(--transition-duration);
+    top: -9px;
+    transition: width var(--transition-timing) var(--transition-duration), top var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
 }
 
 .js-menuOpened .menu-toggle-open>span:before {
-    rotate: -45deg;
+    top: 0;
+    transform: rotate(-45deg);
 }
 
 .menu-toggle-open>span:after {
     content: "";
-    margin-top: 13px;
-    transition: width var(--transition-timing) var(--transition-duration) 90ms;
+    top: 9px;
+    transition: width var(--transition-timing) var(--transition-duration), top var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
 }
 
 .js-menuOpened .menu-toggle-open>span:after {
-    rotate: 45deg;
+    top: 0;
+    transform: rotate(45deg);
 }
 
 .js-menuOpened .menu-toggle-open>span:before,
 .js-menuOpened .menu-toggle-open>span:after {
-    width: 36px;
-    transform-origin: right;
+    width: 28px;
+    right: 0;
+    background-color: var(--primary-dark);
 }
 
 body:not(.js-menuOpened) .menu-toggle-wrapper:hover .menu-toggle-open>span:before,
 body:not(.js-menuOpened) .menu-toggle-wrapper:focus-within .menu-toggle-open>span:before,
 body:not(.js-menuOpened) .menu-toggle-wrapper:hover .menu-toggle-open>span:after,
 body:not(.js-menuOpened) .menu-toggle-wrapper:focus-within .menu-toggle-open>span:after {
-    width: 30px;
+    width: 28px;
 }

@@ -1,0 +1,68 @@
+/* #Keywords Banner
+--------------------------------------------------------------- */
+.keywords-banner {
+    width: 100%;
+    padding-block: 24px;
+    overflow: hidden;
+    background-color: var(--primary);
+}
+
+.keywords-banner-track {
+    width: max-content;
+    display: flex;
+    animation: keywords-banner 26s linear infinite;
+    will-change: transform;
+}
+
+.keywords-banner:hover .keywords-banner-track {
+    animation-play-state: paused;
+}
+
+.keywords-banner-list {
+    --keywords-banner-gap: clamp(1rem, 3vw, 2rem);
+
+    margin-right: var(--keywords-banner-gap);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--keywords-banner-gap);
+    list-style: none;
+}
+
+.keywords-banner-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--keywords-banner-gap);
+    color: var(--white);
+    white-space: nowrap;
+}
+
+.keywords-banner-list li:after {
+    content: "";
+    width: 0.45em;
+    aspect-ratio: 1;
+    display: block;
+    flex-shrink: 0;
+    background-color: var(--secondary);
+}
+
+@keyframes keywords-banner {
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .keywords-banner {
+        overflow-x: auto;
+    }
+
+    .keywords-banner-track {
+        animation: none;
+    }
+
+    .keywords-banner-track .keywords-banner-list:nth-child(2) {
+        display: none;
+    }
+}

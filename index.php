@@ -20,7 +20,7 @@ endif;
         <div class="breadcrumbs">
             <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
         </div>
-        <h1><?= esc_html($title); ?></h1>
+        <h1><?= wp_kses_post($title); ?></h1>
         <?php if (is_archive() && get_the_archive_description()) : ?>
             <div class="description formatted">
                 <?= wp_kses_post(get_the_archive_description()); ?>

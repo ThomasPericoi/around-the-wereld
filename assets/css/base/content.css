@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--content-spacing);
+    color: var(--content-color);
     overflow-wrap: break-word;
 }
 
@@ -17,7 +18,7 @@
 
 .formatted p,
 .formatted li {
-    color: var(--content-color);
+    color: inherit;
 }
 
 .formatted a:not([class]) {
@@ -62,7 +63,7 @@
     height: 8px;
     margin-top: 0.7em;
     display: block;
-    background-color: var(--primary);
+    background-color: currentColor;
     border-radius: 50%;
 }
 
@@ -71,7 +72,7 @@
 
     &:before {
         content: counter(item);
-        color: var(--accent-content-color);
+        color: currentColor;
         font-weight: 700;
     }
 }

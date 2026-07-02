@@ -4,7 +4,6 @@
     width: 100%;
     display: block;
     font-weight: 400;
-    font-family: var(--bold);
 }
 
 @media screen and (min-width: 992px) {
@@ -75,7 +74,6 @@
 
 .wpcf7-not-valid-tip {
     margin-top: 0.5em;
-    font-family: var(--bold);
 }
 
 .wpcf7-form .wpcf7-spinner {

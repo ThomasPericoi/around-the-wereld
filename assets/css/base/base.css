@@ -5,8 +5,8 @@ html {
 }
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
@@ -23,7 +23,7 @@ main {
 }
 
 main > section {
-    padding-block: var(--section-padding-y, var(--spacing-section-y));
+    padding-block: var(--spacing-section-outer);
 }
 
 main section {
@@ -31,18 +31,18 @@ main section {
     translate: none;
 }
 
-.js-enabled main section:not(:first-child) {
+.js-enabled main section:not(:first-child):not(.js-alwaysInView) {
     opacity: 0;
     transition: opacity calc(var(--transition-duration) * 2) ease-out, translate calc(var(--transition-duration) * 2) ease-out;
 
-    &:not(.js-alwaysInView):not([id^="content"]) {
+    &:not([id^="content"]) {
         translate: 0 20px;
     }
 
     &.js-inView {
         opacity: 1;
 
-        &:not(.js-alwaysInView):not([id^="content"]) {
+        &:not([id^="content"]) {
             translate: 0;
         }
     }
@@ -54,8 +54,8 @@ main section {
     }
 
     *,
-    *::before,
-    *::after {
+    *:before,
+    *:after {
         animation-duration: 1ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;

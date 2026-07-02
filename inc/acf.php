@@ -31,6 +31,9 @@ function atw_name_acf_groups_json($filename, $post, $load_path)
         'group_around_the_wereld_event' => 'group_around_the_wereld_event',
         'group_around_the_wereld_page' => 'group_around_the_wereld_page',
         'group_around_the_wereld_theme_options' => 'group_around_the_wereld_theme_options',
+        'group_theme_options_header' => 'group_theme_options_header',
+        'group_theme_options_keywords_banner' => 'group_theme_options_keywords_banner',
+        'group_theme_options_contact_map' => 'group_theme_options_contact_map',
     );
 
     if (!empty($post['key']) && !empty($filenames[$post['key']])) {

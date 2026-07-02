@@ -23,7 +23,6 @@
     margin-top: 0;
     padding: 1.5em 2em;
     box-sizing: border-box;
-    font-family: var(--bold);
     color: var(--white);
     font-style: italic;
 }

@@ -54,6 +54,8 @@ Text Domain: around-the-wereld
 --------------------------------------------------------------- */
 
 @import "./assets/css/template-parts/gallery.css";
+@import "./assets/css/template-parts/keywords-banner.css";
+@import "./assets/css/template-parts/contact-map.css";
 @import "./assets/css/template-parts/item-post.css";
 @import "./assets/css/template-parts/latest-posts.css";
 @import "./assets/css/template-parts/signature.css";

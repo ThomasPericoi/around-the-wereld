@@ -3,7 +3,6 @@
 .rank-math-breadcrumb a,
 .rank-math-breadcrumb .last {
     color: var(--content-color);
-    font-family: var(--bold);
     text-decoration: none;
     font-size: 0.875em;
     transition: color var(--transition-timing) var(--transition-duration);

@@ -1,0 +1,136 @@
+/* #Contact Map
+--------------------------------------------------------------- */
+.contact-map {
+    padding-block: var(--spacing-section-outer, var(--spacing-section-outer));
+    background-color: var(--secondary-light);
+}
+
+.contact-map-grid {
+    display: grid;
+    gap: var(--spacing-section-inner);
+    align-items: stretch;
+}
+
+/* Map Content */
+.contact-map-content {
+    --content-color: var(--white);
+
+    padding: clamp(1.5rem, 5vw, 3rem);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--content-color);
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.contact-map-content:before {
+    content: "";
+    width: clamp(1.25rem, 4vw, 2rem);
+    aspect-ratio: 1;
+    position: absolute;
+    top: clamp(1rem, 3vw, 1.5rem);
+    right: clamp(1rem, 3vw, 1.5rem);
+    background-color: var(--secondary);
+}
+
+.contact-map-content>* {
+    max-width: 34rem;
+    color: inherit;
+}
+
+.contact-map-content .btn {
+    margin-top: var(--content-spacing);
+    align-self: flex-start;
+}
+
+/* Map Frame */
+.contact-map-frame {
+    width: 100%;
+    min-height: min(80vw, 360px);
+    position: relative;
+    background-color: var(--white);
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.contact-map-leaflet {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: saturate(0.82) contrast(1.04);
+}
+
+.contact-map-frame .leaflet-container {
+    background-color: var(--tertiary-light);
+    font-family: var(--text);
+}
+
+.contact-map-frame .leaflet-control-attribution {
+    font-size: 0.625rem;
+}
+
+.contact-map-marker {
+    background: none;
+    border: 0;
+}
+
+.contact-map-marker span {
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: relative;
+}
+
+.contact-map-marker span:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background-image: url("../../medias/icons/wereldcafe-map-marker.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.leaflet-popup-content-wrapper {
+    color: var(--content-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+}
+
+.leaflet-popup-content {
+    margin: 0.75rem 0.85rem;
+}
+
+.contact-map-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.contact-map-popup strong {
+    font-family: var(--bold);
+    font-size: 0.95rem;
+    line-height: 1.1;
+}
+
+.contact-map-popup span {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+@media screen and (min-width: 992px) {
+    .contact-map-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-map-content,
+    .contact-map-frame {
+        min-height: 100%;
+    }
+}

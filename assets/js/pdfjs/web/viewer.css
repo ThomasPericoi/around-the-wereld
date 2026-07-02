@@ -78,7 +78,7 @@
     align-self:stretch;
   }
 
-:is(.messageBar > div)::before{
+:is(.messageBar > div):before{
       content:"";
       display:inline-block;
       width:16px;
@@ -112,7 +112,7 @@
     justify-content:center;
   }
 
-:is(.messageBar .closeButton)::before{
+:is(.messageBar .closeButton):before{
       content:"";
       display:inline-block;
       width:16px;
@@ -124,7 +124,7 @@
       background-color:var(--message-bar-close-button-color);
     }
 
-:is(.messageBar .closeButton):is(:hover,:active,:focus)::before{
+:is(.messageBar .closeButton):is(:hover,:active,:focus):before{
       background-color:var(--message-bar-close-button-color-hover);
     }
 
@@ -661,7 +661,7 @@
       align-self:stretch;
     }
 
-:is(:is(:is(.dialog .mainContainer) .messageBar) > div)::before,:is(:is(:is(.dialog .mainContainer) .messageBar) > div)  > div{
+:is(:is(:is(.dialog .mainContainer) .messageBar) > div):before,:is(:is(:is(.dialog .mainContainer) .messageBar) > div)  > div{
           margin-block:4px;
         }
 
@@ -868,7 +868,7 @@
       color:ButtonText !important;
     }
 
-    .annotationLayer .highlightArea:hover::after{
+    .annotationLayer .highlightArea:hover:after{
       position:absolute;
       top:0;
       left:0;
@@ -1042,28 +1042,28 @@
     outline:var(--input-focus-outline);
   }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::before,.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::after,.annotationLayer .buttonWidgetAnnotation.radioButton input:checked::before{
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before,.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after,.annotationLayer .buttonWidgetAnnotation.radioButton input:checked:before{
     background-color:CanvasText;
     content:"";
     display:block;
     position:absolute;
   }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::before,.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::after{
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before,.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after{
     height:80%;
     left:45%;
     width:1px;
   }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::before{
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:before{
     transform:rotate(45deg);
   }
 
-.annotationLayer .buttonWidgetAnnotation.checkBox input:checked::after{
+.annotationLayer .buttonWidgetAnnotation.checkBox input:checked:after{
     transform:rotate(-45deg);
   }
 
-.annotationLayer .buttonWidgetAnnotation.radioButton input:checked::before{
+.annotationLayer .buttonWidgetAnnotation.radioButton input:checked:before{
     border-radius:50%;
     height:50%;
     left:25%;
@@ -1726,7 +1726,7 @@
     border-color:var(--toggle-border-color);
   }
 
-.toggle-button::before{
+.toggle-button:before{
     display:block;
     content:"";
     background-color:var(--toggle-dot-background-color);
@@ -1752,21 +1752,21 @@
     border-color:transparent;
   }
 
-.toggle-button[aria-pressed="true"]::before{
+.toggle-button[aria-pressed="true"]:before{
     translate:var(--toggle-dot-transform-x);
     background-color:var(--toggle-dot-background-color-on-pressed);
   }
 
-.toggle-button[aria-pressed="true"]:enabled:hover::before,.toggle-button[aria-pressed="true"]:enabled:hover:active::before{
+.toggle-button[aria-pressed="true"]:enabled:hover:before,.toggle-button[aria-pressed="true"]:enabled:hover:active:before{
     background-color:var(--toggle-dot-background-color-on-pressed);
   }
 
-.toggle-button[aria-pressed="true"]:-moz-locale-dir(rtl)::before,[dir="rtl"] .toggle-button[aria-pressed="true"]::before{
+.toggle-button[aria-pressed="true"]:-moz-locale-dir(rtl):before,[dir="rtl"] .toggle-button[aria-pressed="true"]:before{
     translate:calc(-1 * var(--toggle-dot-transform-x));
   }
 
 @media (prefers-reduced-motion: no-preference){
-  .toggle-button::before{
+  .toggle-button:before{
     transition:translate 100ms;
   }
 }
@@ -1794,8 +1794,8 @@
         border-color:var(--toggle-dot-background-color-hover);
       }
 
-  .toggle-button:enabled:hover::before,
-  .toggle-button:enabled:hover:active::before{
+  .toggle-button:enabled:hover:before,
+  .toggle-button:enabled:hover:active:before{
     background-color:var(--toggle-dot-background-color-hover);
   }
 }
@@ -1810,7 +1810,7 @@
     --toggle-border-color-active:var(--border-color-interactive-active);
   }
 
-  .toggle-button[aria-pressed="true"]:enabled::after{
+  .toggle-button[aria-pressed="true"]:enabled:after{
     border:1px solid var(--button-background-color);
     content:"";
     position:absolute;
@@ -1821,7 +1821,7 @@
     inset:-2px;
   }
 
-  .toggle-button[aria-pressed="true"]:enabled:hover:active::after{
+  .toggle-button[aria-pressed="true"]:enabled:hover:active:after{
     border-color:var(--toggle-border-color-active);
   }
 }
@@ -2085,7 +2085,7 @@
     height:0;
   }
 
-#addSignatureDialog.waiting::after{
+#addSignatureDialog.waiting:after{
     content:"";
     cursor:wait;
     position:absolute;
@@ -2414,7 +2414,7 @@
               color:var(--clear-signature-button-color);
             }
 
-:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton) > span)::after{
+:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton) > span):after{
                 content:"";
                 display:inline-block;
                 width:16px;
@@ -2435,7 +2435,7 @@
                 color:var(--clear-signature-button-hover-color);
               }
 
-:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):hover > span)::after{
+:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):hover > span):after{
                   background-color:var(--clear-signature-button-hover-color);
                 }
 
@@ -2447,7 +2447,7 @@
                 color:var(--clear-signature-button-active-color);
               }
 
-:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):active > span)::after{
+:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):active > span):after{
                   background-color:var(--clear-signature-button-active-color);
                 }
 
@@ -2459,7 +2459,7 @@
                 color:var(--clear-signature-button-focus-color);
               }
 
-:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):focus-visible > span)::after{
+:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):focus-visible > span):after{
                   background-color:var(--clear-signature-button-focus-color);
                 }
 
@@ -2472,7 +2472,7 @@
                 color:var(--clear-signature-button-disabled-color);
               }
 
-:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):disabled > span)::after{
+:is(:is(:is(:is(:is(:is(#addSignatureDialog .mainContainer) #addSignatureActionContainer) #addSignatureControls) #horizontalContainer) #clearSignatureButton):disabled > span):after{
                   background-color:var(
                     --clear-signature-button-disabled-color
                   );
@@ -2593,7 +2593,7 @@
           color:var(--button-signature-active-color);
         }
 
-:is(:is(:is(#editorSignatureParamsToolbar #addSignatureDoorHanger) .toolbarAddSignatureButtonContainer) button):active::before{
+:is(:is(:is(#editorSignatureParamsToolbar #addSignatureDoorHanger) .toolbarAddSignatureButtonContainer) button):active:before{
             background-color:var(--button-signature-active-color);
           }
 
@@ -2601,11 +2601,11 @@
           outline:var(--focus-ring-outline);
         }
 
-:is(:is(:is(#editorSignatureParamsToolbar #addSignatureDoorHanger) .toolbarAddSignatureButtonContainer) button):focus-visible::before{
+:is(:is(:is(#editorSignatureParamsToolbar #addSignatureDoorHanger) .toolbarAddSignatureButtonContainer) button):focus-visible:before{
             background-color:var(--button-signature-color);
           }
 
-:is(:is(:is(#editorSignatureParamsToolbar #addSignatureDoorHanger) .toolbarAddSignatureButtonContainer) .deleteButton)::before{
+:is(:is(:is(#editorSignatureParamsToolbar #addSignatureDoorHanger) .toolbarAddSignatureButtonContainer) .deleteButton):before{
           -webkit-mask-image:var(--clear-signature-button-icon);
                   mask-image:var(--clear-signature-button-icon);
         }
@@ -2694,7 +2694,7 @@
   --alt-text-add-image:url(images/editor-toolbar-edit.svg) !important;
 }
 
-.editDescription.altText::before{
+.editDescription.altText:before{
     width:16px !important;
     height:16px !important;
   }
@@ -2851,7 +2851,7 @@
     outline:var(--focus-outline-around);
   }
 
-.selectedEditor:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.signatureEditor))::before{
+.selectedEditor:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.signatureEditor)):before{
       content:"";
       position:absolute;
       inset:0;
@@ -2864,7 +2864,7 @@
     outline:var(--hover-outline-around);
   }
 
-:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.signatureEditor)):hover:not(.selectedEditor)::before{
+:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.signatureEditor)):hover:not(.selectedEditor):before{
       content:"";
       position:absolute;
       inset:0;
@@ -2999,7 +2999,7 @@
         width:var(--editor-toolbar-height);
       }
 
-:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .highlightButton)::before{
+:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .highlightButton):before{
           content:"";
           -webkit-mask-image:var(--editor-toolbar-highlight-image);
                   mask-image:var(--editor-toolbar-highlight-image);
@@ -3013,7 +3013,7 @@
           height:100%;
         }
 
-:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .highlightButton):hover::before{
+:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .highlightButton):hover:before{
           background-color:var(--editor-toolbar-hover-fg-color);
         }
 
@@ -3021,7 +3021,7 @@
         width:var(--editor-toolbar-height);
       }
 
-:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .delete)::before{
+:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .delete):before{
           content:"";
           -webkit-mask-image:var(--editor-toolbar-delete-image);
                   mask-image:var(--editor-toolbar-delete-image);
@@ -3035,7 +3035,7 @@
           height:100%;
         }
 
-:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .delete):hover::before{
+:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .delete):hover:before{
           background-color:var(--editor-toolbar-hover-fg-color);
         }
 
@@ -3087,7 +3087,7 @@
           pointer-events:none;
         }
 
-:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText)::before{
+:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):before{
           content:"";
           -webkit-mask-image:var(--alt-text-add-image);
                   mask-image:var(--alt-text-add-image);
@@ -3102,16 +3102,16 @@
           margin-inline-end:4px;
         }
 
-:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):hover::before{
+:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):hover:before{
           background-color:var(--editor-toolbar-hover-fg-color);
         }
 
-.done:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText)::before{
+.done:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):before{
           -webkit-mask-image:var(--alt-text-done-image);
                   mask-image:var(--alt-text-done-image);
         }
 
-.new:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText)::before{
+.new:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):before{
             width:16px;
             height:16px;
             -webkit-mask-image:var(--new-alt-text-warning-image);
@@ -3121,17 +3121,17 @@
                     mask-size:cover;
           }
 
-.new:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):hover::before{
+.new:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):hover:before{
             background-color:var(--alt-text-hover-warning-color);
           }
 
-.new.done:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText)::before{
+.new.done:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):before{
               -webkit-mask-image:var(--alt-text-done-image);
                       mask-image:var(--alt-text-done-image);
               background-color:var(--alt-text-done-color);
             }
 
-.new.done:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):hover::before{
+.new.done:is(:is(:is(:is(.annotationEditorLayer :is(.freeTextEditor,.inkEditor,.stampEditor,.highlightEditor,.signatureEditor),.textLayer) .editToolbar) .buttons) .altText):hover:before{
               background-color:var(--alt-text-hover-done-color);
             }
 
@@ -3230,7 +3230,7 @@
   display:block;
 }
 
-.annotationEditorLayer .freeTextEditor .internal:empty::before{
+.annotationEditorLayer .freeTextEditor .internal:empty:before{
   content:attr(default-content);
   color:gray;
 }
@@ -3322,7 +3322,7 @@
     background:var(--no-alt-text-badge-bg-color);
   }
 
-:is(:is(.annotationEditorLayer .stampEditor) .noAltTextBadge)::before{
+:is(:is(.annotationEditorLayer .stampEditor) .noAltTextBadge):before{
       content:"";
       display:inline-block;
       width:16px;
@@ -3676,7 +3676,7 @@
           font-size:11px;
         }
 
-:is(:is(:is(:is(.dialog.newAltText #newAltTextContainer) #mainContent) #descriptionInstruction) #newAltTextDisclaimer)::before{
+:is(:is(:is(:is(.dialog.newAltText #newAltTextContainer) #mainContent) #descriptionInstruction) #newAltTextDisclaimer):before{
             content:"";
             display:inline-block;
             width:17px;
@@ -3696,7 +3696,7 @@
         align-self:stretch;
       }
 
-:is(:is(:is(.dialog.newAltText #newAltTextContainer) #mainContent) #newAltTextDownloadModel)::before{
+:is(:is(:is(.dialog.newAltText #newAltTextContainer) #mainContent) #newAltTextDownloadModel):before{
           content:"";
           display:inline-block;
           width:16px;
@@ -3834,7 +3834,7 @@
           padding:4px;
         }
 
-:is(:is(:is(:is(.annotationEditorLayer .highlightEditor) .editToolbar) .buttons) .colorPicker)::after{
+:is(:is(:is(:is(.annotationEditorLayer .highlightEditor) .editToolbar) .buttons) .colorPicker):after{
             content:"";
             -webkit-mask-image:var(--editor-toolbar-colorpicker-arrow-image);
                     mask-image:var(--editor-toolbar-colorpicker-arrow-image);
@@ -3848,7 +3848,7 @@
             height:12px;
           }
 
-:is(:is(:is(:is(.annotationEditorLayer .highlightEditor) .editToolbar) .buttons) .colorPicker):hover::after{
+:is(:is(:is(:is(.annotationEditorLayer .highlightEditor) .editToolbar) .buttons) .colorPicker):hover:after{
             background-color:var(--editor-toolbar-hover-fg-color);
           }
 
@@ -3856,7 +3856,7 @@
             background-color:var(--editor-toolbar-hover-bg-color);
           }
 
-:is(:is(:is(:is(.annotationEditorLayer .highlightEditor) .editToolbar) .buttons) .colorPicker):has(.dropdown:not(.hidden))::after{
+:is(:is(:is(:is(.annotationEditorLayer .highlightEditor) .editToolbar) .buttons) .colorPicker):has(.dropdown:not(.hidden)):after{
               scale:-1;
             }
 
@@ -4001,7 +4001,7 @@
         opacity:0.4;
       }
 
-:is(:is(#highlightParamsToolbarContainer #editorHighlightThickness) .thicknessPicker)::before,:is(:is(#highlightParamsToolbarContainer #editorHighlightThickness) .thicknessPicker)::after{
+:is(:is(#highlightParamsToolbarContainer #editorHighlightThickness) .thicknessPicker):before,:is(:is(#highlightParamsToolbarContainer #editorHighlightThickness) .thicknessPicker):after{
         content:"";
         width:8px;
         aspect-ratio:1;
@@ -4010,7 +4010,7 @@
         background-color:var(--example-color);
       }
 
-:is(:is(#highlightParamsToolbarContainer #editorHighlightThickness) .thicknessPicker)::after{
+:is(:is(#highlightParamsToolbarContainer #editorHighlightThickness) .thicknessPicker):after{
         width:24px;
       }
 
@@ -4279,7 +4279,7 @@
   margin-inline:5px;
 }
 
-.pdfViewer .page.loadingIcon::after{
+.pdfViewer .page.loadingIcon:after{
   position:absolute;
   top:0;
   left:0;
@@ -4294,11 +4294,11 @@
   contain:strict;
 }
 
-.pdfViewer .page.loading::after{
+.pdfViewer .page.loading:after{
   display:block;
 }
 
-.pdfViewer .page:not(.loading)::after{
+.pdfViewer .page:not(.loading):after{
   transition-property:none;
   display:none;
 }
@@ -4575,7 +4575,7 @@ body{
   scrollbar-color:var(--scrollbar-color) var(--scrollbar-bg-color);
 }
 
-body.wait::before{
+body.wait:before{
     content:"";
     position:fixed;
     width:100%;
@@ -4703,23 +4703,23 @@ body.wait::before{
     height:100%;
   }
 
-:is(#toolbarSidebar #toolbarSidebarLeft) #viewThumbnail::before{
+:is(#toolbarSidebar #toolbarSidebarLeft) #viewThumbnail:before{
       -webkit-mask-image:var(--toolbarButton-viewThumbnail-icon);
               mask-image:var(--toolbarButton-viewThumbnail-icon);
     }
 
-:is(#toolbarSidebar #toolbarSidebarLeft) #viewOutline::before{
+:is(#toolbarSidebar #toolbarSidebarLeft) #viewOutline:before{
       -webkit-mask-image:var(--toolbarButton-viewOutline-icon);
               mask-image:var(--toolbarButton-viewOutline-icon);
       transform:scaleX(var(--dir-factor));
     }
 
-:is(#toolbarSidebar #toolbarSidebarLeft) #viewAttachments::before{
+:is(#toolbarSidebar #toolbarSidebarLeft) #viewAttachments:before{
       -webkit-mask-image:var(--toolbarButton-viewAttachments-icon);
               mask-image:var(--toolbarButton-viewAttachments-icon);
     }
 
-:is(#toolbarSidebar #toolbarSidebarLeft) #viewLayers::before{
+:is(#toolbarSidebar #toolbarSidebarLeft) #viewLayers:before{
       -webkit-mask-image:var(--toolbarButton-viewLayers-icon);
               mask-image:var(--toolbarButton-viewLayers-icon);
     }
@@ -4757,7 +4757,7 @@ body.wait::before{
   inset-block-start:calc(100% + var(--doorhanger-height) - 2px);
 }
 
-:is(.doorHanger,.doorHangerRight)::after,:is(.doorHanger,.doorHangerRight)::before{
+:is(.doorHanger,.doorHangerRight):after,:is(.doorHanger,.doorHangerRight):before{
     bottom:100%;
     border-style:solid;
     border-color:transparent;
@@ -4769,12 +4769,12 @@ body.wait::before{
     opacity:var(--doorhanger-triangle-opacity-whcm);
   }
 
-:is(.doorHanger,.doorHangerRight)::before{
+:is(.doorHanger,.doorHangerRight):before{
     border-width:calc(var(--doorhanger-height) + 2px);
     border-bottom-color:var(--doorhanger-border-color);
   }
 
-:is(.doorHanger,.doorHangerRight)::after{
+:is(.doorHanger,.doorHangerRight):after{
     border-width:var(--doorhanger-height);
   }
 
@@ -4782,11 +4782,11 @@ body.wait::before{
   inset-inline-end:calc(50% - var(--doorhanger-height) - 1px);
 }
 
-.doorHangerRight::before{
+.doorHangerRight:before{
     inset-inline-end:-1px;
   }
 
-.doorHangerRight::after{
+.doorHangerRight:after{
     border-bottom-color:var(--doorhanger-bg-color);
     inset-inline-end:1px;
   }
@@ -4795,11 +4795,11 @@ body.wait::before{
   inset-inline-start:calc(50% - var(--doorhanger-height) - 1px);
 }
 
-.doorHanger::before{
+.doorHanger:before{
     inset-inline-start:-1px;
   }
 
-.doorHanger::after{
+.doorHanger:after{
     border-bottom-color:var(--toolbar-bg-color);
     inset-inline-start:1px;
   }
@@ -4844,7 +4844,7 @@ body.wait::before{
   box-sizing:border-box;
 }
 
-.treeItemToggler::before{
+.treeItemToggler:before{
   position:absolute;
   display:inline-block;
   width:16px;
@@ -4856,100 +4856,100 @@ body.wait::before{
           mask-size:cover;
 }
 
-#sidebarToggleButton::before{
+#sidebarToggleButton:before{
   -webkit-mask-image:var(--toolbarButton-sidebarToggle-icon);
           mask-image:var(--toolbarButton-sidebarToggle-icon);
   transform:scaleX(var(--dir-factor));
 }
 
-#secondaryToolbarToggleButton::before{
+#secondaryToolbarToggleButton:before{
   -webkit-mask-image:var(--toolbarButton-secondaryToolbarToggle-icon);
           mask-image:var(--toolbarButton-secondaryToolbarToggle-icon);
   transform:scaleX(var(--dir-factor));
 }
 
-#previous::before{
+#previous:before{
   -webkit-mask-image:var(--toolbarButton-pageUp-icon);
           mask-image:var(--toolbarButton-pageUp-icon);
 }
 
-#next::before{
+#next:before{
   -webkit-mask-image:var(--toolbarButton-pageDown-icon);
           mask-image:var(--toolbarButton-pageDown-icon);
 }
 
-#zoomOutButton::before{
+#zoomOutButton:before{
   -webkit-mask-image:var(--toolbarButton-zoomOut-icon);
           mask-image:var(--toolbarButton-zoomOut-icon);
 }
 
-#zoomInButton::before{
+#zoomInButton:before{
   -webkit-mask-image:var(--toolbarButton-zoomIn-icon);
           mask-image:var(--toolbarButton-zoomIn-icon);
 }
 
-#presentationMode::before{
+#presentationMode:before{
   -webkit-mask-image:var(--toolbarButton-presentationMode-icon);
           mask-image:var(--toolbarButton-presentationMode-icon);
 }
 
-#editorFreeTextButton::before{
+#editorFreeTextButton:before{
   -webkit-mask-image:var(--toolbarButton-editorFreeText-icon);
           mask-image:var(--toolbarButton-editorFreeText-icon);
 }
 
-#editorHighlightButton::before{
+#editorHighlightButton:before{
   -webkit-mask-image:var(--toolbarButton-editorHighlight-icon);
           mask-image:var(--toolbarButton-editorHighlight-icon);
 }
 
-#editorInkButton::before{
+#editorInkButton:before{
   -webkit-mask-image:var(--toolbarButton-editorInk-icon);
           mask-image:var(--toolbarButton-editorInk-icon);
 }
 
-#editorStampButton::before{
+#editorStampButton:before{
   -webkit-mask-image:var(--toolbarButton-editorStamp-icon);
           mask-image:var(--toolbarButton-editorStamp-icon);
 }
 
-#editorSignatureButton::before{
+#editorSignatureButton:before{
   -webkit-mask-image:var(--toolbarButton-editorSignature-icon);
           mask-image:var(--toolbarButton-editorSignature-icon);
 }
 
-#printButton::before{
+#printButton:before{
   -webkit-mask-image:var(--toolbarButton-print-icon);
           mask-image:var(--toolbarButton-print-icon);
 }
 
-#secondaryOpenFile::before{
+#secondaryOpenFile:before{
   -webkit-mask-image:var(--toolbarButton-openFile-icon);
           mask-image:var(--toolbarButton-openFile-icon);
 }
 
-#downloadButton::before{
+#downloadButton:before{
   -webkit-mask-image:var(--toolbarButton-download-icon);
           mask-image:var(--toolbarButton-download-icon);
 }
 
-#viewBookmark::before{
+#viewBookmark:before{
   -webkit-mask-image:var(--toolbarButton-bookmark-icon);
           mask-image:var(--toolbarButton-bookmark-icon);
 }
 
-#currentOutlineItem::before{
+#currentOutlineItem:before{
   -webkit-mask-image:var(--toolbarButton-currentOutlineItem-icon);
           mask-image:var(--toolbarButton-currentOutlineItem-icon);
   transform:scaleX(var(--dir-factor));
 }
 
-#viewFindButton::before{
+#viewFindButton:before{
   -webkit-mask-image:var(--toolbarButton-search-icon);
           mask-image:var(--toolbarButton-search-icon);
 }
 
-.pdfSidebarNotification::after{
+.pdfSidebarNotification:after{
   position:absolute;
   display:inline-block;
   top:2px;
@@ -5033,7 +5033,7 @@ body.wait::before{
     -webkit-appearance:none;
   }
 
-.loadingInput:has( > .loading:is(#pageNumber))::after{
+.loadingInput:has( > .loading:is(#pageNumber)):after{
     display:inline;
     visibility:visible;
 
@@ -5045,7 +5045,7 @@ body.wait::before{
   position:relative;
 }
 
-.loadingInput::after{
+.loadingInput:after{
     position:absolute;
     visibility:hidden;
     display:none;
@@ -5060,11 +5060,11 @@ body.wait::before{
             mask-image:var(--loading-icon);
   }
 
-.loadingInput.start::after{
+.loadingInput.start:after{
     inset-inline-start:4px;
   }
 
-.loadingInput.end::after{
+.loadingInput.end:after{
     inset-inline-end:4px;
   }
 
@@ -5183,13 +5183,13 @@ a:focus > .thumbnail > .thumbnailImage,
   color:rgb(255 255 255 / 0.5);
 }
 
-.treeItemToggler::before{
+.treeItemToggler:before{
   inset-inline-end:4px;
   -webkit-mask-image:var(--treeitem-expanded-icon);
           mask-image:var(--treeitem-expanded-icon);
 }
 
-.treeItemToggler.treeItemsHidden::before{
+.treeItemToggler.treeItemsHidden:before{
   -webkit-mask-image:var(--treeitem-collapsed-icon);
           mask-image:var(--treeitem-collapsed-icon);
   transform:scaleX(var(--dir-factor));
@@ -5358,7 +5358,7 @@ dialog :link{
     overflow:hidden;
   }
 
-.toolbarButton::before{
+.toolbarButton:before{
     opacity:var(--toolbar-icon-opacity);
     display:inline-block;
     width:var(--icon-size);
@@ -5376,7 +5376,7 @@ dialog :link{
     color:var(--toggled-btn-color);
   }
 
-.toolbarButton.toggled::before{
+.toolbarButton.toggled:before{
       background-color:var(--toggled-btn-color);
     }
 
@@ -5392,7 +5392,7 @@ dialog :link{
     background-color:var(--button-hover-color);
   }
 
-.toolbarButton:is(:hover,:focus-visible)::before{
+.toolbarButton:is(:hover,:focus-visible):before{
       background-color:var(--toolbar-icon-hover-bg-color);
     }
 
@@ -5422,7 +5422,7 @@ dialog :link{
         pointer-events:none;
       }
 
-.toolbarButton.labeled::before{
+.toolbarButton.labeled:before{
       opacity:var(--doorhanger-icon-opacity);
     }
 
@@ -5475,7 +5475,7 @@ dialog :link{
     cursor:default;
   }
 
-:is(.toolbarButtonWithContainer .editorParamsToolbar) :is(#editorStampAddImage,#editorSignatureAddSignature)::before{
+:is(.toolbarButtonWithContainer .editorParamsToolbar) :is(#editorStampAddImage,#editorSignatureAddSignature):before{
       -webkit-mask-image:var(--editorParams-stampAddImage-icon);
               mask-image:var(--editorParams-stampAddImage-icon);
     }
@@ -5550,102 +5550,102 @@ dialog :link{
   max-height:calc(var(--viewer-container-height) - 40px);
 }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #secondaryOpenFile::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #secondaryOpenFile:before{
       -webkit-mask-image:var(--toolbarButton-openFile-icon);
               mask-image:var(--toolbarButton-openFile-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #secondaryPrint::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #secondaryPrint:before{
       -webkit-mask-image:var(--toolbarButton-print-icon);
               mask-image:var(--toolbarButton-print-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #secondaryDownload::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #secondaryDownload:before{
       -webkit-mask-image:var(--toolbarButton-download-icon);
               mask-image:var(--toolbarButton-download-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #presentationMode::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #presentationMode:before{
       -webkit-mask-image:var(--toolbarButton-presentationMode-icon);
               mask-image:var(--toolbarButton-presentationMode-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #viewBookmark::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #viewBookmark:before{
       -webkit-mask-image:var(--toolbarButton-bookmark-icon);
               mask-image:var(--toolbarButton-bookmark-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #firstPage::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #firstPage:before{
       -webkit-mask-image:var(--secondaryToolbarButton-firstPage-icon);
               mask-image:var(--secondaryToolbarButton-firstPage-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #lastPage::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #lastPage:before{
       -webkit-mask-image:var(--secondaryToolbarButton-lastPage-icon);
               mask-image:var(--secondaryToolbarButton-lastPage-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #pageRotateCcw::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #pageRotateCcw:before{
       -webkit-mask-image:var(--secondaryToolbarButton-rotateCcw-icon);
               mask-image:var(--secondaryToolbarButton-rotateCcw-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #pageRotateCw::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #pageRotateCw:before{
       -webkit-mask-image:var(--secondaryToolbarButton-rotateCw-icon);
               mask-image:var(--secondaryToolbarButton-rotateCw-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #cursorSelectTool::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #cursorSelectTool:before{
       -webkit-mask-image:var(--secondaryToolbarButton-selectTool-icon);
               mask-image:var(--secondaryToolbarButton-selectTool-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #cursorHandTool::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #cursorHandTool:before{
       -webkit-mask-image:var(--secondaryToolbarButton-handTool-icon);
               mask-image:var(--secondaryToolbarButton-handTool-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollPage::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollPage:before{
       -webkit-mask-image:var(--secondaryToolbarButton-scrollPage-icon);
               mask-image:var(--secondaryToolbarButton-scrollPage-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollVertical::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollVertical:before{
       -webkit-mask-image:var(--secondaryToolbarButton-scrollVertical-icon);
               mask-image:var(--secondaryToolbarButton-scrollVertical-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollHorizontal::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollHorizontal:before{
       -webkit-mask-image:var(--secondaryToolbarButton-scrollHorizontal-icon);
               mask-image:var(--secondaryToolbarButton-scrollHorizontal-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollWrapped::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #scrollWrapped:before{
       -webkit-mask-image:var(--secondaryToolbarButton-scrollWrapped-icon);
               mask-image:var(--secondaryToolbarButton-scrollWrapped-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #spreadNone::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #spreadNone:before{
       -webkit-mask-image:var(--secondaryToolbarButton-spreadNone-icon);
               mask-image:var(--secondaryToolbarButton-spreadNone-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #spreadOdd::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #spreadOdd:before{
       -webkit-mask-image:var(--secondaryToolbarButton-spreadOdd-icon);
               mask-image:var(--secondaryToolbarButton-spreadOdd-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #spreadEven::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #spreadEven:before{
       -webkit-mask-image:var(--secondaryToolbarButton-spreadEven-icon);
               mask-image:var(--secondaryToolbarButton-spreadEven-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #imageAltTextSettings::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #imageAltTextSettings:before{
       -webkit-mask-image:var(--secondaryToolbarButton-imageAltTextSettings-icon);
               mask-image:var(--secondaryToolbarButton-imageAltTextSettings-icon);
     }
 
-:is(#secondaryToolbar #secondaryToolbarButtonContainer) #documentProperties::before{
+:is(#secondaryToolbar #secondaryToolbarButtonContainer) #documentProperties:before{
       -webkit-mask-image:var(--secondaryToolbarButton-documentProperties-icon);
               mask-image:var(--secondaryToolbarButton-documentProperties-icon);
     }
@@ -5680,12 +5680,12 @@ dialog :link{
     margin-inline-start:2px;
   }
 
-:is(#findbar #findInputContainer) #findPreviousButton::before{
+:is(#findbar #findInputContainer) #findPreviousButton:before{
       -webkit-mask-image:var(--findbarButton-previous-icon);
               mask-image:var(--findbarButton-previous-icon);
     }
 
-:is(#findbar #findInputContainer) #findNextButton::before{
+:is(#findbar #findInputContainer) #findNextButton:before{
       -webkit-mask-image:var(--findbarButton-next-icon);
               mask-image:var(--findbarButton-next-icon);
     }
@@ -5703,7 +5703,7 @@ dialog :link{
         font-style:normal;
       }
 
-.loadingInput:has( > [data-status="pending"]:is(:is(#findbar #findInputContainer) #findInput))::after{
+.loadingInput:has( > [data-status="pending"]:is(:is(#findbar #findInputContainer) #findInput)):after{
         display:inline;
         visibility:visible;
         inset-inline-end:calc(var(--input-horizontal-padding) + 1px);
@@ -5924,7 +5924,7 @@ dialog :link{
       color:var(--toggled-btn-color);
     }
 
-.dropdownToolbarButton::after{
+.dropdownToolbarButton:after{
     position:absolute;
     display:inline;
     width:var(--icon-size);
@@ -5941,7 +5941,7 @@ dialog :link{
             mask-image:var(--toolbarButton-menuArrow-icon);
   }
 
-.dropdownToolbarButton:is(:hover,:focus-visible,:active)::after{
+.dropdownToolbarButton:is(:hover,:focus-visible,:active):after{
     background-color:var(--toolbar-icon-hover-bg-color);
   }
 
@@ -6036,72 +6036,72 @@ dialog :link{
         animation:progressIndeterminate 1s linear infinite;
       }
 
-#secondaryToolbar #firstPage::before{
+#secondaryToolbar #firstPage:before{
     -webkit-mask-image:var(--secondaryToolbarButton-firstPage-icon);
             mask-image:var(--secondaryToolbarButton-firstPage-icon);
   }
 
-#secondaryToolbar #lastPage::before{
+#secondaryToolbar #lastPage:before{
     -webkit-mask-image:var(--secondaryToolbarButton-lastPage-icon);
             mask-image:var(--secondaryToolbarButton-lastPage-icon);
   }
 
-#secondaryToolbar #pageRotateCcw::before{
+#secondaryToolbar #pageRotateCcw:before{
     -webkit-mask-image:var(--secondaryToolbarButton-rotateCcw-icon);
             mask-image:var(--secondaryToolbarButton-rotateCcw-icon);
   }
 
-#secondaryToolbar #pageRotateCw::before{
+#secondaryToolbar #pageRotateCw:before{
     -webkit-mask-image:var(--secondaryToolbarButton-rotateCw-icon);
             mask-image:var(--secondaryToolbarButton-rotateCw-icon);
   }
 
-#secondaryToolbar #cursorSelectTool::before{
+#secondaryToolbar #cursorSelectTool:before{
     -webkit-mask-image:var(--secondaryToolbarButton-selectTool-icon);
             mask-image:var(--secondaryToolbarButton-selectTool-icon);
   }
 
-#secondaryToolbar #cursorHandTool::before{
+#secondaryToolbar #cursorHandTool:before{
     -webkit-mask-image:var(--secondaryToolbarButton-handTool-icon);
             mask-image:var(--secondaryToolbarButton-handTool-icon);
   }
 
-#secondaryToolbar #scrollPage::before{
+#secondaryToolbar #scrollPage:before{
     -webkit-mask-image:var(--secondaryToolbarButton-scrollPage-icon);
             mask-image:var(--secondaryToolbarButton-scrollPage-icon);
   }
 
-#secondaryToolbar #scrollVertical::before{
+#secondaryToolbar #scrollVertical:before{
     -webkit-mask-image:var(--secondaryToolbarButton-scrollVertical-icon);
             mask-image:var(--secondaryToolbarButton-scrollVertical-icon);
   }
 
-#secondaryToolbar #scrollHorizontal::before{
+#secondaryToolbar #scrollHorizontal:before{
     -webkit-mask-image:var(--secondaryToolbarButton-scrollHorizontal-icon);
             mask-image:var(--secondaryToolbarButton-scrollHorizontal-icon);
   }
 
-#secondaryToolbar #scrollWrapped::before{
+#secondaryToolbar #scrollWrapped:before{
     -webkit-mask-image:var(--secondaryToolbarButton-scrollWrapped-icon);
             mask-image:var(--secondaryToolbarButton-scrollWrapped-icon);
   }
 
-#secondaryToolbar #spreadNone::before{
+#secondaryToolbar #spreadNone:before{
     -webkit-mask-image:var(--secondaryToolbarButton-spreadNone-icon);
             mask-image:var(--secondaryToolbarButton-spreadNone-icon);
   }
 
-#secondaryToolbar #spreadOdd::before{
+#secondaryToolbar #spreadOdd:before{
     -webkit-mask-image:var(--secondaryToolbarButton-spreadOdd-icon);
             mask-image:var(--secondaryToolbarButton-spreadOdd-icon);
   }
 
-#secondaryToolbar #spreadEven::before{
+#secondaryToolbar #spreadEven:before{
     -webkit-mask-image:var(--secondaryToolbarButton-spreadEven-icon);
             mask-image:var(--secondaryToolbarButton-spreadEven-icon);
   }
 
-#secondaryToolbar #documentProperties::before{
+#secondaryToolbar #documentProperties:before{
     -webkit-mask-image:var(--secondaryToolbarButton-documentProperties-icon);
             mask-image:var(--secondaryToolbarButton-documentProperties-icon);
   }

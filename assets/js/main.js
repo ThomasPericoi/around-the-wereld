@@ -127,7 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initRevealOnScroll = () => {
-        const sections = document.querySelectorAll('main section');
+        document.querySelectorAll('main section.js-alwaysInView').forEach((section) => {
+            section.classList.add('js-inView');
+        });
+
+        const sections = document.querySelectorAll('main section:not(.js-alwaysInView)');
 
         if (!sections.length || reduceMotionQuery.matches) {
             sections.forEach((section) => section.classList.add('js-inView'));
@@ -162,6 +166,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!Number.isNaN(start)) {
                 list.style.counterReset = `item ${start - 1}`;
+            }
+        });
+    };
+
+    const initContactMaps = () => {
+        const mapElements = document.querySelectorAll('[data-leaflet-map]');
+
+        if (!mapElements.length || typeof window.L !== 'object') {
+            return;
+        }
+
+        mapElements.forEach((mapElement) => {
+            const latitude = Number.parseFloat(mapElement.dataset.latitude);
+            const longitude = Number.parseFloat(mapElement.dataset.longitude);
+            const zoom = Number.parseInt(mapElement.dataset.zoom, 10) || 16;
+
+            if (Number.isNaN(latitude) || Number.isNaN(longitude)) {
+                return;
+            }
+
+            const map = window.L.map(mapElement, {
+                attributionControl: true,
+                boxZoom: true,
+                doubleClickZoom: true,
+                dragging: true,
+                keyboard: true,
+                scrollWheelZoom: false,
+                tap: true,
+                touchZoom: true,
+            }).setView([latitude, longitude], zoom);
+
+            window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 19,
+            }).addTo(map);
+
+            const markerIcon = window.L.divIcon({
+                className: 'contact-map-marker',
+                html: '<span></span>',
+                iconAnchor: [20, 40],
+                iconSize: [40, 40],
+                popupAnchor: [0, -40],
+            });
+
+            const marker = window.L.marker([latitude, longitude], {
+                icon: markerIcon,
+                keyboard: false,
+            }).addTo(map);
+
+            if (mapElement.dataset.markerTitle || mapElement.dataset.markerSubtitle) {
+                const popupContent = document.createElement('div');
+                popupContent.className = 'contact-map-popup';
+
+                if (mapElement.dataset.markerTitle) {
+                    const title = document.createElement('strong');
+                    title.textContent = mapElement.dataset.markerTitle;
+                    popupContent.append(title);
+                }
+
+                if (mapElement.dataset.markerSubtitle) {
+                    const subtitle = document.createElement('span');
+                    subtitle.textContent = mapElement.dataset.markerSubtitle;
+                    popupContent.append(subtitle);
+                }
+
+                marker.bindPopup(popupContent, {
+                    closeButton: false,
+                    offset: [0, -4],
+                }).openPopup();
             }
         });
     };
@@ -289,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDyslexicMode();
     initRevealOnScroll();
     initOrderedLists();
+    initContactMaps();
     initMenu();
     initGalleries();
 });

@@ -18,7 +18,9 @@
     --accent-content-color: var(--primary);
 
     --primary-dark: #083f4a;
+    --primary-light: #e7f1f3;
     --secondary-dark: #d09a00;
+    --secondary-light: #fff4cf;
     --tertiary-dark: #516700;
     --tertiary-light: #edf2df;
 
@@ -28,18 +30,17 @@
     --content-color-filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(1362%) hue-rotate(184deg) brightness(100%) contrast(87%);
 
     /* Fonts */
-    --bold: "Fraunces", "Open Sans", serif;
-    --body: "Open Sans", sans-serif;
+    --bold: "Abril Fatface", "Space Grotesk", serif;
+    --body: "Space Grotesk", sans-serif;
 
     /* Radius */
-    --border-radius: 1px;
+    --border-radius: 2px;
 
     /* Spacings */
     --container-padding: 2rem;
     --header-height: 87px;
     --spacing-section-inner: 3rem;
     --spacing-section-outer: 4rem;
-    --spacing-section-y: 3rem;
 
     --content-spacing: 2.25em;
     --spacing-title: 1em;
@@ -65,6 +66,5 @@ html.is-dyslexic {
         /* Spacings */
         --spacing-section-inner: 3rem;
         --spacing-section-outer: 6rem;
-        --spacing-section-y: 4.5rem;
     }
 }
