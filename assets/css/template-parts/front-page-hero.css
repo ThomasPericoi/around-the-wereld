@@ -5,6 +5,30 @@
     background-color: var(--white);
 }
 
+.front-page-hero-header {
+    max-width: 54rem;
+    margin-bottom: var(--spacing-section-inner);
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.front-page-hero-header h1 {
+    margin-bottom: 0;
+    display: grid;
+    gap: var(--spacing-sm);
+    color: var(--primary);
+}
+
+.front-page-hero-header h1 span {
+    max-width: 36rem;
+    display: block;
+    font-family: var(--body);
+    font-size: 0.45em;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--content-color);
+}
+
 .front-page-hero-grid {
     display: grid;
     gap: var(--spacing-md);

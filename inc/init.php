@@ -155,6 +155,37 @@ function atw_add_category_slug_to_body($classes)
 }
 add_filter('body_class', 'atw_add_category_slug_to_body');
 
+// Detect whether a menu item points to the posts page.
+function atw_is_posts_page_menu_item($item)
+{
+    $posts_page_id = (int) get_option('page_for_posts');
+
+    if ($posts_page_id && (int) $item->object_id === $posts_page_id) {
+        return true;
+    }
+
+    if (!$posts_page_id || empty($item->url)) {
+        return false;
+    }
+
+    return untrailingslashit($item->url) === untrailingslashit(get_permalink($posts_page_id));
+}
+
+// Mark the blog menu item active on single post pages.
+function atw_add_blog_menu_current_class($classes, $item, $args, $depth)
+{
+    if (($args->theme_location ?? '') !== 'header-menu' || $depth !== 0 || !is_singular('post')) {
+        return $classes;
+    }
+
+    if (atw_is_posts_page_menu_item($item)) {
+        $classes[] = 'current-menu-item';
+    }
+
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'atw_add_blog_menu_current_class', 10, 4);
+
 // Use the newest CSS file timestamp as the main stylesheet version.
 function atw_get_stylesheet_version()
 {

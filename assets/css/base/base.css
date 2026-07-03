@@ -28,7 +28,7 @@ body {
     translate: none;
 }
 
-.js-enabled #main > section:not(:first-child):not(.js-alwaysInView) {
+.js-enabled #main > section:not(.js-alwaysInView) {
     opacity: 0;
     translate: 0 20px;
     transition: opacity calc(var(--transition-duration) * 2) ease-out, translate calc(var(--transition-duration) * 2) ease-out;

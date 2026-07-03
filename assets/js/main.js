@@ -195,6 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+        // Run a callback after the browser has painted the hidden state.
+        const afterInitialPaint = (callback) => {
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(callback);
+            });
+        };
+
         let revealTicking = false;
         // Batch reveal checks to avoid doing layout work on every scroll event.
         const requestRevealVisibleSections = () => {
@@ -217,10 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (!('IntersectionObserver' in window)) {
-            revealVisibleSections();
+            afterInitialPaint(revealVisibleSections);
             window.addEventListener('scroll', requestRevealVisibleSections, { passive: true });
             window.addEventListener('resize', requestRevealVisibleSections, { passive: true });
-            window.addEventListener('load', revealVisibleSections);
+            window.addEventListener('load', () => afterInitialPaint(revealVisibleSections));
             return;
         }
 
@@ -238,11 +245,13 @@ document.addEventListener('DOMContentLoaded', () => {
             threshold: 0.1,
         });
 
-        sections.forEach((section) => observer.observe(section));
-        revealVisibleSections();
+        afterInitialPaint(() => {
+            sections.forEach((section) => observer.observe(section));
+            revealVisibleSections();
+        });
         window.addEventListener('scroll', requestRevealVisibleSections, { passive: true });
         window.addEventListener('resize', requestRevealVisibleSections, { passive: true });
-        window.addEventListener('load', revealVisibleSections);
+        window.addEventListener('load', () => afterInitialPaint(revealVisibleSections));
     };
 
     // Preserve custom ordered-list starts inside formatted content.

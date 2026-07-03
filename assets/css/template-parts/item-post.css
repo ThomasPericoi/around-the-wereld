@@ -9,7 +9,7 @@
     background-color: var(--white);
     border-radius: var(--border-radius);
     overflow: hidden;
-    transition: rotate var(--transition-timing) var(--transition-duration), translate var(--transition-timing) var(--transition-duration);
+    transition: rotate var(--transition-timing) var(--transition-duration);
 }
 
 .posts.grid .post.post-tilt-left {
@@ -20,9 +20,11 @@
     rotate: var(--tilt-soft);
 }
 
-.posts.grid .post:hover,
-.posts.grid .post:focus-visible {
-    translate: 0 calc(var(--spacing-2xs) * -1);
+.posts.grid .post.post-tilt-left:hover,
+.posts.grid .post.post-tilt-left:focus-visible,
+.posts.grid .post.post-tilt-right:hover,
+.posts.grid .post.post-tilt-right:focus-visible {
+    rotate: 0deg;
 }
 
 .posts.grid .post.no-thumbnail {
