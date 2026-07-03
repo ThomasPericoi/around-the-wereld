@@ -33,6 +33,7 @@ Text Domain: around-the-wereld
 --------------------------------------------------------------- */
 
 @import "./assets/css/elements/breadcrumbs.css";
+@import "./assets/css/elements/badges.css";
 @import "./assets/css/elements/buttons.css";
 @import "./assets/css/elements/columns.css";
 @import "./assets/css/elements/containers.css";

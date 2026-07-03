@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Around The Wereld\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-03 10:31+0000\n"
-"PO-Revision-Date: 2026-07-03 10:36+0000\n"
+"PO-Revision-Date: 2026-07-03 10:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: Dutch (Belgium)\n"
 "Language: nl_BE\n"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: single-event.php:37
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: inc/blocks/pdf-viewer/pdf-viewer.php:33
 msgid "Download PDF"
@@ -125,7 +125,7 @@ msgstr ""
 
 #: single-event.php:44
 msgid "Location"
-msgstr ""
+msgstr "Locatie"
 
 #: header.php:23
 msgid "Main navigation"
@@ -186,7 +186,7 @@ msgstr "Voorbije"
 
 #: single-event.php:25
 msgid "Past event"
-msgstr ""
+msgstr "Voorbije"
 
 #: inc/blocks/pdf-viewer/pdf-viewer.php:31
 msgid "PDF viewer"
@@ -278,7 +278,7 @@ msgstr "Komende"
 
 #: single-event.php:25
 msgid "Upcoming event"
-msgstr ""
+msgstr "Komende"
 
 #: inc/admin.php:18
 msgid "Update"

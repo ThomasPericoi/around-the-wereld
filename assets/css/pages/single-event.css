@@ -2,17 +2,14 @@
 --------------------------------------------------------------- */
 .event-single-hero .event-status {
     width: fit-content;
-    padding: var(--spacing-2xs) var(--spacing-xs);
-    display: inline-flex;
-    color: var(--white);
-    font-weight: 700;
-    line-height: 1;
-    background-color: var(--primary);
-    border-radius: var(--border-radius);
+    --event-badge-background: var(--primary);
+    --event-badge-color: var(--white);
+    --event-badge-icon: url("../../medias/icons/arrow-right.svg");
 }
 
 .event-single-hero.event-is-past .event-status {
-    background-color: var(--content-color);
+    --event-badge-background: var(--content-color);
+    --event-badge-icon: url("../../medias/icons/arrow-left.svg");
 }
 
 .event-single-metas {

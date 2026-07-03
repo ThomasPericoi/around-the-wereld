@@ -14,12 +14,38 @@ $event_classes = array(
     $accent_classes[$event_index % count($accent_classes)],
     $tilt_classes[$event_index % count($tilt_classes)],
 );
-$event_date_label = $event_timestamp ? date_i18n('D j M - H:i', $event_timestamp) : '';
-$event_date_label = function_exists('mb_strtoupper') ? mb_strtoupper($event_date_label) : strtoupper($event_date_label);
+$weekdays = array(
+    1 => 'Ma.',
+    2 => 'Di.',
+    3 => 'Wo.',
+    4 => 'Do.',
+    5 => 'Vr.',
+    6 => 'Za.',
+    7 => 'Zo.',
+);
+$months = array(
+    1 => 'januari',
+    2 => 'februari',
+    3 => 'maart',
+    4 => 'april',
+    5 => 'mei',
+    6 => 'juni',
+    7 => 'juli',
+    8 => 'augustus',
+    9 => 'september',
+    10 => 'oktober',
+    11 => 'november',
+    12 => 'december',
+);
+$event_weekday = $event_timestamp ? absint(date_i18n('N', $event_timestamp)) : 0;
+$event_month = $event_timestamp ? absint(date_i18n('n', $event_timestamp)) : 0;
+$event_date_label = $event_timestamp && isset($weekdays[$event_weekday], $months[$event_month])
+    ? sprintf('%s %s %s', $weekdays[$event_weekday], date_i18n('j', $event_timestamp), $months[$event_month])
+    : '';
 ?>
 
 <a href="<?= esc_url(get_the_permalink()); ?>" class="<?= esc_attr(implode(' ', array_filter($event_classes))); ?>">
-    <span class="event-status">
+    <span class="event-badge event-status">
         <?= esc_html($is_past_event ? __('Past', 'around-the-wereld') : __('Upcoming', 'around-the-wereld')); ?>
     </span>
 

@@ -8,8 +8,14 @@
 .event-card {
     --event-color: var(--primary);
     --event-color-dark: var(--primary-dark);
-    --event-background: var(--secondary-light);
+    --event-color-light: var(--primary-light);
+    --event-background: var(--event-color-light);
     --event-rotation: var(--tilt-soft);
+    --event-badge-background: var(--event-color);
+    --event-badge-color: var(--white);
+    --event-badge-icon: url("../../medias/icons/arrow-right.svg");
+    --event-date-background: var(--event-color-dark);
+    --event-date-color: var(--white);
 
     min-height: 100%;
     padding: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
@@ -43,16 +49,19 @@
 .event-card.event-accent-secondary {
     --event-color: var(--secondary);
     --event-color-dark: var(--secondary-dark);
+    --event-color-light: var(--secondary-light);
+    --event-badge-color: var(--content-color);
+    --event-date-color: var(--content-color);
 }
 
 .event-card.event-accent-tertiary {
     --event-color: var(--tertiary);
     --event-color-dark: var(--tertiary-dark);
+    --event-color-light: var(--tertiary-light);
 }
 
 .event-card.event-is-past {
-    --event-color: var(--content-color);
-    --event-color-dark: var(--content-color);
+    --event-badge-icon: url("../../medias/icons/arrow-left.svg");
 
     background-image: repeating-linear-gradient(
         -45deg,
@@ -64,25 +73,20 @@
     opacity: 0.78;
 }
 
-.event-card .event-status {
+.event-card .event-date {
     padding: var(--spacing-2xs) var(--spacing-xs);
-    color: var(--white);
-    font-size: 0.75rem;
-    font-weight: 700;
+    color: var(--event-date-color);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
     line-height: 1;
-    background-color: var(--event-color-dark);
+    text-transform: uppercase;
+    background-color: var(--event-date-background);
     border-radius: var(--border-radius);
 }
 
-.event-card .event-date {
-    color: var(--event-color-dark);
-    font-family: var(--bold);
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    line-height: 1;
-}
-
 .event-card .event-title {
-    margin-top: var(--spacing-2xs);
+    margin-top: var(--spacing-xs);
     color: var(--event-color-dark);
 }
 

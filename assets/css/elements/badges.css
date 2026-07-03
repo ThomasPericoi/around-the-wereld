@@ -1,0 +1,25 @@
+/* #Badges
+--------------------------------------------------------------- */
+.event-badge {
+    padding: var(--spacing-2xs) var(--spacing-xs);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2xs);
+    color: var(--event-badge-color, var(--white));
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    background-color: var(--event-badge-background, var(--primary));
+    border-radius: var(--border-radius);
+}
+
+.event-badge:after {
+    content: "";
+    width: 0.85em;
+    aspect-ratio: 1;
+    display: block;
+    flex-shrink: 0;
+    background-color: currentColor;
+    mask: var(--event-badge-icon) center / contain no-repeat;
+    -webkit-mask: var(--event-badge-icon) center / contain no-repeat;
+}

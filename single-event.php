@@ -21,7 +21,7 @@ $event_date_label = $event_timestamp ? date_i18n('l j F Y - H:i', $event_timesta
             <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
         </div>
 
-        <span class="event-status">
+        <span class="event-badge event-status">
             <?= esc_html($is_past_event ? __('Past event', 'around-the-wereld') : __('Upcoming event', 'around-the-wereld')); ?>
         </span>
 

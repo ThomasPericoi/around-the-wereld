@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Around The Wereld\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-03 10:31+0000\n"
-"PO-Revision-Date: 2026-07-03 10:34+0000\n"
+"PO-Revision-Date: 2026-07-03 10:57+0000\n"
 "Last-Translator: \n"
 "Language-Team: Dutch (Belgium)\n"
 "Language: nl_BE\n"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: single-event.php:37
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: inc/blocks/pdf-viewer/pdf-viewer.php:33
 msgid "Download PDF"
@@ -182,11 +182,11 @@ msgstr ""
 
 #: template-parts/item-event.php:23
 msgid "Past"
-msgstr ""
+msgstr "Voorbije"
 
 #: single-event.php:25
 msgid "Past event"
-msgstr ""
+msgstr "Voorbije"
 
 #: inc/blocks/pdf-viewer/pdf-viewer.php:31
 msgid "PDF viewer"
@@ -210,7 +210,7 @@ msgstr ""
 
 #: template-parts/item-post.php:44
 msgid "Read more"
-msgstr ""
+msgstr "Lees meer"
 
 #: template-parts/item-post.php:45
 #, php-format
@@ -270,7 +270,7 @@ msgstr ""
 
 #: single.php:73
 msgid "Topic(s)"
-msgstr ""
+msgstr "Thema's"
 
 #: template-parts/item-event.php:23
 msgid "Upcoming"
@@ -278,7 +278,7 @@ msgstr "Komende"
 
 #: single-event.php:25
 msgid "Upcoming event"
-msgstr ""
+msgstr "Komende"
 
 #: inc/admin.php:18
 msgid "Update"
