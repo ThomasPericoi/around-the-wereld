@@ -1,0 +1,313 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Around The Wereld\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-03 10:31+0000\n"
+"PO-Revision-Date: 2026-07-03 10:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: Dutch (Belgium)\n"
+"Language: nl_BE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.5; wp-7.0; php-8.0.26\n"
+"X-Domain: around-the-wereld"
+
+#. Description of the theme
+msgid "A complete and customizable WordPress theme built for Wereldcafé."
+msgstr ""
+
+#: inc/post-types/event.php:5 inc/post-types/event.php:6
+msgid "Add event"
+msgstr ""
+
+#: inc/acf.php:57
+msgid "Advanced Custom Fields is required by this theme."
+msgstr ""
+
+#: front-page.php:21 template-parts/latest-events.php:5
+msgid "Agenda"
+msgstr ""
+
+#: inc/post-types/event.php:13
+msgid "All events"
+msgstr ""
+
+#: inc/admin.php:19
+msgid "All good"
+msgstr ""
+
+#: inc/init.php:132
+msgid "An error occurred!"
+msgstr ""
+
+#: 404.php:5
+msgid "Are you lost?"
+msgstr ""
+
+#. Name of the theme
+msgid "Around The Wereld"
+msgstr ""
+
+#: template-parts/gallery.php:36
+msgid "Close fullscreen"
+msgstr ""
+
+#: footer.php:22
+msgid "Contact details"
+msgstr ""
+
+#. Name of the template
+#: templates/contact.php:2
+msgid "Contact page"
+msgstr ""
+
+#: inc/white-label.php:58
+msgid "Credits"
+msgstr ""
+
+#: single-event.php:37
+msgid "Date"
+msgstr ""
+
+#: inc/blocks/pdf-viewer/pdf-viewer.php:33
+msgid "Download PDF"
+msgstr ""
+
+#: inc/post-types/event.php:7
+msgid "Edit event"
+msgstr ""
+
+#: footer.php:103
+msgid "Enable OpenDyslexic"
+msgstr ""
+
+#: inc/post-types/event.php:4
+msgid "Event"
+msgstr "Evenement"
+
+#: inc/post-types/event.php:3
+msgid "Events"
+msgstr "Evenementen"
+
+#: inc/init.php:41
+msgid "Footer submenu"
+msgstr ""
+
+#: template-parts/gallery.php:19
+msgid "Fullscreen gallery"
+msgstr ""
+
+#: inc/blocks/gallery/gallery.php:28
+msgid "Gallery"
+msgstr ""
+
+#: inc/init.php:40
+msgid "Header"
+msgstr ""
+
+#. URI of the theme
+#. Author URI of the theme
+msgid "https://thomaspericoi.com/"
+msgstr ""
+
+#: template-parts/latest-posts.php:5
+msgid "Latest posts"
+msgstr ""
+
+#: front-page.php:22 template-parts/latest-events.php:6
+msgid ""
+"Live music, shared tables and neighbourhood moments. There is always "
+"something happening."
+msgstr ""
+
+#: single-event.php:44
+msgid "Location"
+msgstr ""
+
+#: header.php:23
+msgid "Main navigation"
+msgstr ""
+
+#. Name of the template
+#: templates/menu.php:2
+msgid "Menu page"
+msgstr ""
+
+#: templates/menu.php:73
+msgid "Menu sections"
+msgstr ""
+
+#: single-event.php:78
+msgid "More events"
+msgstr "Meer evenementen"
+
+#: inc/post-types/event.php:8
+msgid "New event"
+msgstr ""
+
+#: archive-event.php:32 index.php:46
+msgid "Next page"
+msgstr ""
+
+#: index.php:50
+msgid "No content found."
+msgstr ""
+
+#: inc/post-types/event.php:14
+msgid "No events found in trash."
+msgstr ""
+
+#: archive-event.php:36 inc/post-types/event.php:12
+msgid "No events found."
+msgstr ""
+
+#: header.php:36
+msgid "Open menu"
+msgstr ""
+
+#: 404.php:20
+msgid "Our latest posts"
+msgstr ""
+
+#: page.php:50 single.php:55
+msgid "Page navigation"
+msgstr ""
+
+#: 404.php:4
+msgid "Page not found"
+msgstr ""
+
+#: template-parts/item-event.php:23
+msgid "Past"
+msgstr "Voorbije"
+
+#: single-event.php:25
+msgid "Past event"
+msgstr ""
+
+#: inc/blocks/pdf-viewer/pdf-viewer.php:31
+msgid "PDF viewer"
+msgstr ""
+
+#: inc/white-label.php:45
+msgid ""
+"Powered by <a href=\"https://wordpress.org\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">WordPress</a> | Theme created by <a href=\"https:"
+"//thomaspericoi.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Thomas "
+"Pericoi</a>"
+msgstr ""
+
+#: archive-event.php:31 index.php:45
+msgid "Previous page"
+msgstr ""
+
+#: single.php:65
+msgid "Read also"
+msgstr ""
+
+#: template-parts/item-post.php:44
+msgid "Read more"
+msgstr ""
+
+#: template-parts/item-post.php:45
+#, php-format
+msgid "Read more about %s"
+msgstr ""
+
+#: 404.php:6
+msgid "Return to the home page"
+msgstr ""
+
+#: inc/post-types/event.php:11
+msgid "Search events"
+msgstr ""
+
+#: index.php:11
+#, php-format
+msgid "Search results for \"%s\""
+msgstr ""
+
+#: templates/menu.php:24 templates/menu.php:90
+msgid "Section %d"
+msgstr ""
+
+#: header.php:12
+msgid "Skip to content"
+msgstr ""
+
+#: footer.php:45
+msgid "Social networks"
+msgstr ""
+
+#: template-parts/gallery.php:15
+msgid "Switch to fullscreen"
+msgstr ""
+
+#: inc/admin.php:12 inc/admin.php:13
+msgid "Theme options"
+msgstr ""
+
+#: inc/white-label.php:52
+msgid ""
+"This theme is created by <a href=\"https://thomaspericoi.com/\" "
+"target=\"_blank\" rel=\"noopener noreferrer\">Thomas Pericoi</a>."
+msgstr ""
+
+#. Author of the theme
+msgid "Thomas Pericoi"
+msgstr ""
+
+#: template-parts/signature.php:47
+msgid "Thomas was here"
+msgstr ""
+
+#: template-parts/signature.php:6
+msgid "Thomas was here - Go to thomaspericoi.com"
+msgstr ""
+
+#: single.php:73
+msgid "Topic(s)"
+msgstr ""
+
+#: template-parts/item-event.php:23
+msgid "Upcoming"
+msgstr "Komende"
+
+#: single-event.php:25
+msgid "Upcoming event"
+msgstr ""
+
+#: inc/admin.php:18
+msgid "Update"
+msgstr ""
+
+#: front-page.php:24 template-parts/latest-events.php:8
+msgid "View agenda"
+msgstr ""
+
+#: inc/post-types/event.php:9
+msgid "View event"
+msgstr ""
+
+#: inc/post-types/event.php:10
+msgid "View events"
+msgstr ""
+
+#: front-page.php:23 template-parts/latest-events.php:7
+msgid "Want more?"
+msgstr ""
+
+#: template-parts/keywords-banner.php:19
+msgid "Wereldcafe keywords"
+msgstr ""
+
+#: template-parts/contact-map.php:38
+msgid "Wereldcafe location map"
+msgstr ""
+
+#: inc/blocks.php:28
+msgid "Wereldcafé"
+msgstr ""
