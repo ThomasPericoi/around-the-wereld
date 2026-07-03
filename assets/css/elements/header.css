@@ -140,13 +140,13 @@ body.js-menuOpened {
     height: auto;
     max-height: 55px;
     display: block;
-    filter: brightness(0) saturate(100%);
+    filter: none;
     transition: filter calc(var(--transition-duration) * 1.75) var(--transition-timing);
 }
 
 #header .custom-logo-link:hover .custom-logo,
 #header .custom-logo-link:focus-visible .custom-logo {
-    filter: none;
+    filter: brightness(0) saturate(100%);
 }
 
 @media screen and (min-width: 1200px) {
@@ -212,6 +212,7 @@ body.js-menuOpened {
 .menu-header li a:hover,
 .menu-header li:focus-within>a,
 .menu-header li.menu-item-has-children:hover>a,
+.menu-header>li.current-menu-item>a,
 .menu-header>li.current-menu-parent>a,
 .menu-header li a[aria-current="page"] {
     color: var(--primary);
@@ -236,11 +237,37 @@ body.js-menuOpened {
 .menu-header li a:hover:before,
 .menu-header li:focus-within>a:before,
 .menu-header li.menu-item-has-children:hover>a:before,
+.menu-header>li.current-menu-item>a:before,
 .menu-header>li.current-menu-parent>a:before,
 .menu-header li a[aria-current="page"]:before {
     background-color: var(--primary);
     rotate: 0deg;
     scale: 1.3;
+}
+
+.menu-count-badge {
+    min-width: 1.35rem;
+    min-height: 1.35rem;
+    padding: 0 var(--spacing-2xs);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--content-color);
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1;
+    background-color: var(--secondary);
+    border-radius: var(--border-radius);
+    rotate: calc(var(--tilt-soft) * -1);
+    transition: background-color var(--transition-timing) var(--transition-duration), rotate var(--transition-timing) var(--transition-duration);
+}
+
+.menu-header li a:hover .menu-count-badge,
+.menu-header li:focus-within>a .menu-count-badge,
+.menu-header>li.current-menu-item>a .menu-count-badge,
+.menu-header li a[aria-current="page"] .menu-count-badge {
+    background-color: var(--primary-light);
+    rotate: var(--tilt-soft);
 }
 
 .menu-header li.menu-item-has-children>a {
@@ -262,6 +289,7 @@ body.js-menuOpened {
     transition: rotate var(--transition-timing) var(--transition-duration), translate var(--transition-timing) var(--transition-duration), filter var(--transition-timing) var(--transition-duration);
 }
 
+.menu-header>li.current-menu-item>a:after,
 .menu-header>li.current-menu-parent>a:after,
 .menu-header li a[aria-current="page"]:after {
     filter: var(--primary-filter);

@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php get_template_part('template-parts/front-page-hero'); ?>
+
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <?php if (trim(get_the_content())) : ?>
         <section id="content-<?= esc_attr(get_the_ID()); ?>" class="front-page-content">
@@ -23,5 +25,7 @@ get_template_part('template-parts/latest', 'events', array(
     'archive_title' => $latest_events_archive_title ?: __('Want more?', 'around-the-wereld'),
     'archive_label' => $latest_events_archive_label ?: __('View agenda', 'around-the-wereld'),
 )); ?>
+
+<?php get_template_part('template-parts/cta-section'); ?>
 
 <?php get_footer(); ?>

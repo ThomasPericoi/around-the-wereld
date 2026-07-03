@@ -2,7 +2,7 @@
 --------------------------------------------------------------- */
 .latest-events {
     padding-block: var(--spacing-section-outer);
-    background-color: var(--tertiary-light);
+    background-color: var(--secondary-light);
 }
 
 .latest-events .latest-events-inner {
@@ -24,7 +24,7 @@
     top: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
     right: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
     pointer-events: none;
-    background-color: var(--tertiary-light);
+    background-color: var(--secondary-light);
     rotate: var(--tilt-medium);
 }
 
@@ -38,7 +38,7 @@
 
 .latest-events h2 {
     margin-bottom: 0;
-    color: var(--secondary-light);
+    color: var(--secondary);
 }
 
 .latest-events .latest-events-header p {
@@ -49,4 +49,12 @@
 .latest-events .event-cards {
     position: relative;
     z-index: 1;
+}
+
+.latest-events .event-card {
+    --event-color: var(--primary);
+    --event-color-dark: var(--primary-dark);
+    --event-color-light: var(--primary-light);
+    --event-badge-color: var(--white);
+    --event-date-color: var(--white);
 }

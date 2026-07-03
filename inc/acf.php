@@ -37,6 +37,7 @@ function atw_name_acf_groups_json($filename, $post, $load_path)
         'group_theme_options_header' => 'group_theme_options_header',
         'group_theme_options_keywords_banner' => 'group_theme_options_keywords_banner',
         'group_theme_options_contact_map' => 'group_theme_options_contact_map',
+        'group_theme_options_cta_section' => 'group_theme_options_cta_section',
     );
 
     if (!empty($post['key']) && !empty($filenames[$post['key']])) {

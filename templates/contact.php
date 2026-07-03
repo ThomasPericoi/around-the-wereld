@@ -67,6 +67,8 @@ get_header(); ?>
             </section>
         <?php endif; ?>
 
+        <?php get_template_part('template-parts/cta-section'); ?>
+
 <?php endwhile;
 endif; ?>
 

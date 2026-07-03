@@ -112,7 +112,7 @@
 }
 
 .event-archive-action h3 {
-    color: var(--secondary-light);
+    color: var(--white);
 }
 
 @media screen and (min-width: 768px) {

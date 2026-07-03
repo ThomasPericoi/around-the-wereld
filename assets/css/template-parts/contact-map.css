@@ -2,7 +2,7 @@
 --------------------------------------------------------------- */
 .contact-map {
     padding-block: var(--spacing-section-outer);
-    background-color: var(--tertiary-light);
+    background-color: var(--secondary-light);
 }
 
 .contact-map-grid {
@@ -40,6 +40,10 @@
 .contact-map-content>* {
     max-width: 34rem;
     color: inherit;
+}
+
+.contact-map-content h2 {
+    color: var(--secondary);
 }
 
 /* Map Frame */
