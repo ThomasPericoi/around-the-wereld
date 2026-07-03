@@ -2,7 +2,7 @@
 /* POST TYPE(S)
 --------------------------------------------------------------- */
 
-// Register post types
+// Register custom post types from the post-types directory.
 function atw_register_custom_post_types()
 {
     $post_types = ['event'];
@@ -17,6 +17,7 @@ function atw_register_custom_post_types()
 }
 add_action('init', 'atw_register_custom_post_types');
 
+// Flush rewrite rules once when the theme is activated.
 function atw_flush_theme_rewrite_rules()
 {
     atw_register_custom_post_types();

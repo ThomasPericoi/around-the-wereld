@@ -18,15 +18,12 @@
 
 .latest-events .latest-events-inner:before {
     content: "";
+    width: clamp(1.25rem, 4vw, 2rem);
     aspect-ratio: 1;
     position: absolute;
-    pointer-events: none;
-}
-
-.latest-events .latest-events-inner:before {
-    width: clamp(1.25rem, 4vw, 2rem);
     top: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
     right: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+    pointer-events: none;
     background-color: var(--tertiary-light);
     rotate: var(--tilt-medium);
 }

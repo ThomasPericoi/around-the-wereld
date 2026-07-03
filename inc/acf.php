@@ -2,13 +2,14 @@
 /* ACF
 --------------------------------------------------------------- */
 
-// Add ACF JSON sync
+// Save ACF local JSON inside the theme.
 function atw_save_acf_groups_json($path)
 {
     return get_stylesheet_directory() . '/inc/acf-json';
 }
 add_filter('acf/settings/save_json', 'atw_save_acf_groups_json');
 
+// Load ACF local JSON from the theme.
 function atw_load_acf_groups_json($paths)
 {
     $paths[] = get_stylesheet_directory() . '/inc/acf-json';
@@ -16,6 +17,7 @@ function atw_load_acf_groups_json($paths)
 }
 add_filter('acf/settings/load_json', 'atw_load_acf_groups_json');
 
+// Keep exported ACF JSON filenames readable and stable.
 function atw_name_acf_groups_json($filename, $post, $load_path)
 {
     $filenames = array(
@@ -45,6 +47,7 @@ function atw_name_acf_groups_json($filename, $post, $load_path)
 }
 add_filter('acf/json/save_file_name', 'atw_name_acf_groups_json', 10, 3);
 
+// Warn admins when the required ACF plugin is missing.
 function atw_display_acf_missing_notice()
 {
     if (class_exists('ACF') || !current_user_can('activate_plugins')) {

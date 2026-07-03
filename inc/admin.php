@@ -2,7 +2,7 @@
 /* ADMIN
 --------------------------------------------------------------- */
 
-// Add options page
+// Add the global theme options page for ACF fields.
 add_action('acf/init', function () {
     if (!function_exists('acf_add_options_page')) {
         return;
@@ -21,7 +21,7 @@ add_action('acf/init', function () {
     ));
 });
 
-// Add and delete roles
+// Remove default roles that are not needed for this site.
 function atw_manage_user_roles()
 {
     remove_role('subscriber');

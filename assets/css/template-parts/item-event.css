@@ -54,11 +54,13 @@
     --event-color: var(--content-color);
     --event-color-dark: var(--content-color);
 
-    background-image: repeating-linear-gradient(-45deg,
-            transparent 0,
-            transparent 0.45rem,
-            color-mix(in srgb, var(--content-color) 8%, transparent) 0.45rem,
-            color-mix(in srgb, var(--content-color) 8%, transparent) 0.55rem);
+    background-image: repeating-linear-gradient(
+        -45deg,
+        transparent 0,
+        transparent 0.45rem,
+        color-mix(in srgb, var(--content-color) 8%, transparent) 0.45rem,
+        color-mix(in srgb, var(--content-color) 8%, transparent) 0.55rem
+    );
     opacity: 0.78;
 }
 
@@ -118,5 +120,17 @@
 @media screen and (min-width: 1200px) {
     .event-cards {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .event-card {
+        transition: none;
+        transform: none;
+    }
+
+    .event-card:hover,
+    .event-card:focus-visible {
+        transform: none;
     }
 }

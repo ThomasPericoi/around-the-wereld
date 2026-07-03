@@ -1,7 +1,7 @@
 <?php
 /* RENDER
 --------------------------------------------------------------- */
-// Get CTA
+// Build a reusable CTA from cloned ACF button fields.
 function atw_get_cta($selector_prefix, $post_id = false, $sub_field = false)
 {
     $color = $sub_field ? get_sub_field("{$selector_prefix}_cta_color") : get_field("{$selector_prefix}_cta_color", $post_id);
@@ -50,13 +50,13 @@ function atw_get_cta($selector_prefix, $post_id = false, $sub_field = false)
     return '';
 }
 
-// Render CTA
+// Echo a reusable CTA from cloned ACF button fields.
 function atw_render_cta($selector_prefix, $post_id = false, $sub_field = false)
 {
     echo atw_get_cta($selector_prefix, $post_id, $sub_field);
 }
 
-// Render Link CTA
+// Echo a simple CTA from an ACF link field.
 function atw_render_link_cta($link, $color = 'primary', $icon = 'arrow-right', $icon_direction = 'icon-after')
 {
     if (empty($link['url']) || empty($link['title'])) {

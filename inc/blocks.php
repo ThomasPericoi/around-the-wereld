@@ -2,7 +2,7 @@
 /* BLOCKS
 --------------------------------------------------------------- */
 
-// Register blocks
+// Register every ACF block declared in the local blocks directory.
 function atw_register_acf_blocks()
 {
     $blocks = ['button', 'gallery', 'pdf-viewer'];
@@ -17,7 +17,7 @@ function atw_register_acf_blocks()
 }
 add_action('init', 'atw_register_acf_blocks');
 
-// Register custom block category
+// Add the theme block category to the editor inserter.
 function atw_register_block_category($categories, $post)
 {
     return array_merge(

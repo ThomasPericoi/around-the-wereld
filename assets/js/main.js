@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const desktopQuery = window.matchMedia('(min-width: 1200px)');
     const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+    // Toggle inert and aria-hidden together for accessible hidden states.
     const setElementState = (element, enabled) => {
         if (!element) {
             return;
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         element.setAttribute('aria-hidden', enabled ? 'false' : 'true');
     };
 
+    // Close every opened submenu and reset its accessible state.
     const closeSubMenus = () => {
         document.querySelectorAll(".menu-item-has-children[data-opened='true']").forEach((item) => {
             item.dataset.opened = 'false';
@@ -27,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Open or close the main navigation and protect the rest of the page.
     const setMenuState = (opened) => {
         body.classList.toggle('js-menuOpened', opened);
 
@@ -55,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => setMenuState(false);
     const openMenu = () => setMenuState(true);
 
+    // Keep viewport, scrollbar, admin bar, and header values in CSS variables.
     const updateLayoutVariables = () => {
         root.style.setProperty('--viewport-height', `${window.innerHeight}px`);
         root.style.setProperty('--scrollbar-width', `${window.innerWidth - root.clientWidth}px`);
@@ -73,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let layoutTicking = false;
+    // Batch layout variable updates into the next animation frame.
     const requestLayoutVariablesUpdate = () => {
         if (layoutTicking) {
             return;
@@ -85,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Reconcile menu and layout state when the viewport changes.
     const onViewportChange = () => {
         updateLayoutVariables();
 
@@ -97,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setMenuState(body.classList.contains('js-menuOpened'));
     };
 
+    // Bind all layout observers and viewport listeners.
     const initLayoutVariables = () => {
         updateLayoutVariables();
         window.addEventListener('resize', onViewportChange, { passive: true });
@@ -117,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Print the theme signature in the console.
     const initSignature = () => {
         console.info('This theme was made by Thomas Pericoi - https://thomaspericoi.com/');
 
@@ -125,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Restore and persist the OpenDyslexic display mode.
     const initDyslexicMode = () => {
         const dyslexicToggle = document.getElementById('open-dyslexic');
 
@@ -132,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Apply the dyslexic mode class and persist the preference safely.
         const setDyslexicMode = (enabled) => {
             root.classList.toggle('is-dyslexic', enabled);
             try {
@@ -154,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dyslexicToggle.addEventListener('change', () => setDyslexicMode(dyslexicToggle.checked));
     };
 
+    // Reveal main sections progressively while keeping fallbacks for iframes and old browsers.
     const initRevealOnScroll = () => {
         if (!main) {
             return;
@@ -163,10 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const alwaysVisibleSections = mainSections.filter((section) => section.classList.contains('js-alwaysInView'));
         const sections = mainSections.filter((section) => !section.classList.contains('js-alwaysInView'));
 
+        // Mark a section as visible.
         const revealSection = (section) => {
             section.classList.add('js-inView');
         };
 
+        // Reveal sections that are already inside the viewport.
         const revealVisibleSections = () => {
             sections.forEach((section) => {
                 if (section.classList.contains('js-inView')) {
@@ -183,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         let revealTicking = false;
+        // Batch reveal checks to avoid doing layout work on every scroll event.
         const requestRevealVisibleSections = () => {
             if (revealTicking) {
                 return;
@@ -231,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('load', revealVisibleSections);
     };
 
+    // Preserve custom ordered-list starts inside formatted content.
     const initOrderedLists = () => {
         document.querySelectorAll('.formatted ol[start]').forEach((list) => {
             const start = Number.parseInt(list.getAttribute('start'), 10);
@@ -241,6 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Highlight the current menu section while scrolling long menu pages.
     const initMenuSectionsNav = () => {
         const navLinks = Array.from(document.querySelectorAll('.menu-sections-nav a[href^="#"]'));
 
@@ -264,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Update the active section link and its aria-current state.
         const setActiveSection = (section) => {
             navLinks.forEach((link) => {
                 const isActive = link === linksBySectionId.get(section.id);
@@ -279,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+        // Resolve the section currently sitting below the fixed header.
         const getCurrentSection = () => {
             const offset = (header?.offsetHeight || 0) + 40;
 
@@ -298,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         let menuSectionsTicking = false;
+        // Batch active-section updates while scrolling.
         const updateActiveSection = () => {
             if (menuSectionsTicking) {
                 return;
@@ -315,6 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', updateActiveSection, { passive: true });
     };
 
+    // Initialize Leaflet maps only when map markup and Leaflet are available.
     const initContactMaps = () => {
         const mapElements = document.querySelectorAll('[data-leaflet-map]');
 
@@ -384,6 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Wire the responsive menu and mobile submenu behaviour.
     const initMenu = () => {
         setMenuState(false);
 
@@ -441,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Initialize Swiper galleries and their fullscreen modal.
     const initGalleries = () => {
         if (typeof window.Swiper !== 'function') {
             return;
@@ -478,6 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             });
 
+            // Close the fullscreen gallery and restore the main gallery position.
             const closeModal = () => {
                 modal.classList.add('hidden');
                 body.classList.remove('body-freeze');

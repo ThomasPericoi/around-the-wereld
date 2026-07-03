@@ -49,6 +49,7 @@ add_rewrite_rule(
     'top'
 );
 
+// Resolve the event date used in dated permalinks.
 function atw_get_event_permalink_date($post_id)
 {
     $event_date = function_exists('get_field') ? get_field('event_start_date', $post_id) : get_post_meta($post_id, 'event_start_date', true);
@@ -61,6 +62,7 @@ function atw_get_event_permalink_date($post_id)
     return date_i18n('Y-m-d', $event_timestamp);
 }
 
+// Replace the event date placeholder in single event permalinks.
 function atw_event_permalink($post_link, $post)
 {
     if ($post->post_type !== 'event') {
@@ -71,6 +73,7 @@ function atw_event_permalink($post_link, $post)
 }
 add_filter('post_type_link', 'atw_event_permalink', 10, 2);
 
+// Prepare the event archive query for custom date ordering.
 function atw_order_event_archive_by_start_date($query)
 {
     if (is_admin() || !$query->is_main_query() || !$query->is_post_type_archive('event')) {
@@ -91,6 +94,7 @@ function atw_order_event_archive_by_start_date($query)
 }
 add_action('pre_get_posts', 'atw_order_event_archive_by_start_date');
 
+// Sort future events first, then past events in reverse date order.
 function atw_order_event_archive_clauses($clauses, $query)
 {
     if (!$query->get('atw_event_archive_order')) {

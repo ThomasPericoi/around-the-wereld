@@ -2,7 +2,7 @@
 /* INIT
 --------------------------------------------------------------- */
 
-// Add theme supports
+// Set up the theme baseline: translations, supports, and menu locations.
 function atw_setup_theme()
 {
     load_theme_textdomain('around-the-wereld', get_template_directory() . '/languages');
@@ -44,7 +44,7 @@ function atw_setup_theme()
 }
 add_action('after_setup_theme', 'atw_setup_theme');
 
-// Disable emojis
+// Remove WordPress emoji assets from the front-end and admin.
 function atw_disable_emojis()
 {
     remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -57,7 +57,7 @@ function atw_disable_emojis()
 }
 add_action('init', 'atw_disable_emojis');
 
-// Close comments on the front-end
+// Keep comments and pingbacks closed everywhere.
 function atw_disable_comments_status()
 {
     return false;
@@ -65,7 +65,7 @@ function atw_disable_comments_status()
 add_filter('comments_open', 'atw_disable_comments_status', 20, 2);
 add_filter('pings_open', 'atw_disable_comments_status', 20, 2);
 
-// Hide existing comments
+// Hide existing comments from public queries.
 function atw_disable_comments_hide_existing_comments($comments)
 {
     $comments = array();
@@ -73,14 +73,14 @@ function atw_disable_comments_hide_existing_comments($comments)
 }
 add_filter('comments_array', 'atw_disable_comments_hide_existing_comments', 10, 2);
 
-// Remove comments page in menu
+// Remove the comments screen from the admin menu.
 function atw_disable_comments_admin_menu()
 {
     remove_menu_page('edit-comments.php');
 }
 add_action('admin_menu', 'atw_disable_comments_admin_menu');
 
-// Redirect any user trying to access comments page
+// Redirect users away from the comments admin screen.
 function atw_disable_comments_admin_menu_redirect()
 {
     global $pagenow;
@@ -91,14 +91,14 @@ function atw_disable_comments_admin_menu_redirect()
 }
 add_action('admin_init', 'atw_disable_comments_admin_menu_redirect');
 
-// Remove comments metabox from dashboard
+// Remove the comments dashboard widget.
 function atw_disable_comments_dashboard()
 {
     remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
 }
 add_action('admin_init', 'atw_disable_comments_dashboard');
 
-// Remove comments links from admin bar
+// Remove the comments shortcut from the admin bar.
 function atw_disable_comments_icon_admin_bar()
 {
     global $wp_admin_bar;
@@ -106,7 +106,7 @@ function atw_disable_comments_icon_admin_bar()
 }
 add_action('wp_before_admin_bar_render', 'atw_disable_comments_icon_admin_bar');
 
-// Disable support for comments and trackbacks in post types
+// Remove comment and trackback support from every post type.
 function atw_disable_comments_post_types_support()
 {
     $post_types = get_post_types();
@@ -119,14 +119,14 @@ function atw_disable_comments_post_types_support()
 }
 add_action('admin_init', 'atw_disable_comments_post_types_support');
 
-// Remove Wordpress version
+// Hide the WordPress version generator tag.
 function atw_remove_wordpress_version()
 {
     return '';
 }
 add_filter('the_generator', 'atw_remove_wordpress_version');
 
-// Hide Wordpress errors
+// Replace detailed login errors with a generic message.
 function atw_hide_wordpress_errors()
 {
     return __('An error occurred!', 'around-the-wereld');
@@ -141,7 +141,7 @@ remove_action('wp_head', 'wlwmanifest_link');
 // Remove Wordpress admin bar
 // add_filter('show_admin_bar', '__return_false');
 
-// Add category slug to body classes
+// Add the first post category slug as a body class on single posts.
 function atw_add_category_slug_to_body($classes)
 {
     if (is_singular('post')) {
@@ -155,6 +155,7 @@ function atw_add_category_slug_to_body($classes)
 }
 add_filter('body_class', 'atw_add_category_slug_to_body');
 
+// Use the newest CSS file timestamp as the main stylesheet version.
 function atw_get_stylesheet_version()
 {
     static $version = null;
@@ -176,6 +177,7 @@ function atw_get_stylesheet_version()
     return $version;
 }
 
+// Version individual assets from their file timestamp.
 function atw_get_asset_version($relative_path)
 {
     $path = get_stylesheet_directory() . '/' . ltrim($relative_path, '/');
@@ -187,6 +189,7 @@ function atw_get_asset_version($relative_path)
     return atw_get_stylesheet_version();
 }
 
+// Check whether the global contact map has enough data to load Leaflet.
 function atw_current_page_has_contact_map()
 {
     if (!function_exists('get_field')) {
@@ -199,6 +202,7 @@ function atw_current_page_has_contact_map()
     return is_numeric($latitude) && is_numeric($longitude);
 }
 
+// Print Google Fonts early so typography starts loading as soon as possible.
 function atw_enqueue_google_fonts()
 {
     // Preconnect Google Fonts domains
@@ -210,6 +214,7 @@ function atw_enqueue_google_fonts()
 }
 add_action('wp_head', 'atw_enqueue_google_fonts', 0);
 
+// Add initial document state classes before the CSS is fully applied.
 function atw_print_document_state_script()
 {
     ?>
@@ -228,7 +233,7 @@ function atw_print_document_state_script()
 }
 add_action('wp_head', 'atw_print_document_state_script', 1);
 
-// Add stylesheets
+// Register and enqueue theme styles only when they are needed.
 function atw_enqueue_theme_stylesheets()
 {
     if (!is_admin()) {
@@ -253,7 +258,7 @@ function atw_enqueue_theme_stylesheets()
 }
 add_action('wp_enqueue_scripts', 'atw_enqueue_theme_stylesheets');
 
-// Add scripts
+// Register and enqueue theme scripts only when they are needed.
 function atw_enqueue_theme_scripts()
 {
     wp_register_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js', array(), null, true);

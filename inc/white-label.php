@@ -2,7 +2,7 @@
 /* WHITE LABEL
 --------------------------------------------------------------- */
 
-// Change login logo
+// Replace the WordPress login logo with the project logo.
 function atw_change_login_logo()
 { ?>
     <style type="text/css">
@@ -19,7 +19,7 @@ function atw_change_login_logo()
 <?php }
 add_action('login_enqueue_scripts', 'atw_change_login_logo');
 
-// Change admin bar logo
+// Replace the admin bar WordPress icon with the project favicon.
 function atw_change_admin_bar_logo()
 {
     $favicon_url = esc_url(get_template_directory_uri() . '/assets/medias/images/favicon.png');
@@ -39,19 +39,20 @@ function atw_change_admin_bar_logo()
 }
 add_action('wp_before_admin_bar_render', 'atw_change_admin_bar_logo');
 
-// Change admin footer text
+// Add custom credits to the admin footer.
 function atw_change_admin_footer_text()
 {
     echo wp_kses_post(__('Powered by <a href="https://wordpress.org" target="_blank" rel="noopener noreferrer">WordPress</a> | Theme created by <a href="https://thomaspericoi.com/" target="_blank" rel="noopener noreferrer">Thomas Pericoi</a>', 'around-the-wereld'));
 }
 add_filter('admin_footer_text', 'atw_change_admin_footer_text');
 
-// Add admin widgets
+// Print the dashboard credits widget content.
 function atw_custom_dashboard_help()
 {
     echo wp_kses_post(__('This theme is created by <a href="https://thomaspericoi.com/" target="_blank" rel="noopener noreferrer">Thomas Pericoi</a>.', 'around-the-wereld'));
 }
 
+// Register custom dashboard widgets.
 function atw_add_admin_widgets()
 {
     wp_add_dashboard_widget('custom_help_widget', __('Credits', 'around-the-wereld'), 'atw_custom_dashboard_help');
