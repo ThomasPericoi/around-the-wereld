@@ -11,5 +11,5 @@
 }
 
 .pdf-viewer-block .btn {
-    margin-top: 2rem;
+    margin-top: var(--spacing-xl);
 }

@@ -1,0 +1,46 @@
+/* #Single Event
+--------------------------------------------------------------- */
+.event-single-hero .event-status {
+    width: fit-content;
+    padding: var(--spacing-2xs) var(--spacing-xs);
+    display: inline-flex;
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1;
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+}
+
+.event-single-hero.event-is-past .event-status {
+    background-color: var(--content-color);
+}
+
+.event-single-metas {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.event-single-metas div {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius);
+}
+
+.event-single-metas dt {
+    color: var(--primary-dark);
+    font-family: var(--bold);
+}
+
+.event-single-metas dd {
+    margin: 0;
+}
+
+.event-single-actions {
+    margin-top: var(--spacing-xs);
+}
+
+@media screen and (min-width: 768px) {
+    .event-single-metas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

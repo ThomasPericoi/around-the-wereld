@@ -24,7 +24,7 @@
 
 /* Posts */
 .grid.posts {
-    column-gap: 0.5rem;
+    column-gap: var(--spacing-xs);
 }
 
 @media screen and (min-width: 1200px) {

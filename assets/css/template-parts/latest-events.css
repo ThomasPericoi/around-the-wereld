@@ -1,0 +1,55 @@
+/* #Latest Events
+--------------------------------------------------------------- */
+.latest-events {
+    padding-block: var(--spacing-section-outer);
+    background-color: var(--tertiary-light);
+}
+
+.latest-events .latest-events-inner {
+    padding: clamp(var(--spacing-xl), 5vw, var(--spacing-section-outer));
+    position: relative;
+    display: grid;
+    gap: var(--spacing-section-inner);
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.latest-events .latest-events-inner:before {
+    content: "";
+    aspect-ratio: 1;
+    position: absolute;
+    pointer-events: none;
+}
+
+.latest-events .latest-events-inner:before {
+    width: clamp(1.25rem, 4vw, 2rem);
+    top: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+    right: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+    background-color: var(--tertiary-light);
+    rotate: var(--tilt-medium);
+}
+
+.latest-events .latest-events-header {
+    max-width: 42rem;
+    position: relative;
+    display: grid;
+    gap: var(--spacing-sm);
+    z-index: 1;
+}
+
+.latest-events h2 {
+    margin-bottom: 0;
+    color: var(--secondary-light);
+}
+
+.latest-events .latest-events-header p {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.latest-events .event-cards {
+    position: relative;
+    z-index: 1;
+}

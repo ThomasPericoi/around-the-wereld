@@ -10,4 +10,18 @@
     <?php endif; ?>
 <?php endwhile; endif; ?>
 
+<?php
+$latest_events_title = function_exists('get_field') ? get_field('home_latest_events_title') : '';
+$latest_events_description = function_exists('get_field') ? get_field('home_latest_events_description') : '';
+$latest_events_archive_title = function_exists('get_field') ? get_field('home_latest_events_archive_title') : '';
+$latest_events_archive_label = function_exists('get_field') ? get_field('home_latest_events_archive_label') : '';
+
+get_template_part('template-parts/latest', 'events', array(
+    'amount' => 4,
+    'title' => $latest_events_title ?: __('Agenda', 'around-the-wereld'),
+    'description' => $latest_events_description ?: __('Live music, shared tables and neighbourhood moments. There is always something happening.', 'around-the-wereld'),
+    'archive_title' => $latest_events_archive_title ?: __('Want more?', 'around-the-wereld'),
+    'archive_label' => $latest_events_archive_label ?: __('View agenda', 'around-the-wereld'),
+)); ?>
+
 <?php get_footer(); ?>

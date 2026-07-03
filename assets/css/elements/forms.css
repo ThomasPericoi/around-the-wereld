@@ -9,7 +9,7 @@
 @media screen and (min-width: 992px) {
 
     .wpcf7-form label.label-sm {
-        width: calc(50% - 12px);
+        width: calc(50% - var(--spacing-sm));
     }
 }
 
@@ -31,7 +31,7 @@
 .wpcf7-form textarea,
 .wpcf7-form select {
     width: 100%;
-    padding: 1rem;
+    padding: var(--spacing-md);
     color: var(--content-color);
     font-family: var(--body);
     border: 0;
@@ -78,8 +78,8 @@
 }
 
 .wpcf7-form input[type="file"]::file-selector-button {
-    margin-right: 1rem;
-    padding: 0.75rem 1rem;
+    margin-right: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
     color: var(--white);
     font-family: var(--bold);
     font-size: 0.875rem;
@@ -106,7 +106,7 @@
 }
 
 .wpcf7-form select option {
-    padding: 1rem;
+    padding: var(--spacing-md);
 }
 
 .wpcf7-form label sup {
@@ -123,7 +123,7 @@
     height: 0;
     margin: 0;
     position: relative;
-    left: 0.75rem;
+    left: var(--spacing-sm);
     overflow: visible;
     vertical-align: middle;
 }
@@ -193,6 +193,8 @@
     background: var(--secondary);
     border-radius: 3px;
     transition: opacity var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .wpcf7-form [type="checkbox"]:not(:checked)+span:after,
@@ -209,7 +211,7 @@
 
 .wpcf7-form [type="radio"]:checked+span,
 .wpcf7-form [type="radio"]:not(:checked)+span {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-xs);
 }
 
 .wpcf7-form [type="radio"]:checked+span:before,

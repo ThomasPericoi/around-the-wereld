@@ -21,6 +21,27 @@
             "selected": 0
         },
         {
+            "key": "field_6a476c9742238",
+            "label": "Subtitle",
+            "name": "event_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
             "key": "field_event_start_date",
             "label": "Start date",
             "name": "event_start_date",
@@ -38,26 +59,6 @@
             "return_format": "Y-m-d H:i:s",
             "first_day": 1,
             "default_to_current_date": 0
-        },
-        {
-            "key": "field_event_end_date",
-            "label": "End date",
-            "name": "event_end_date",
-            "aria-label": "",
-            "type": "date_time_picker",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "d\/m\/Y H:i",
-            "return_format": "Y-m-d H:i:s",
-            "first_day": 1,
-            "default_to_current_date": 0,
-            "allow_in_bindings": 1
         },
         {
             "key": "field_event_location",
@@ -79,6 +80,28 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_event_button",
+            "label": "Event button",
+            "name": "event_button",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Optional button displayed on the single event page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_67f67834a0f5b"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
         }
     ],
     "location": [
@@ -102,5 +125,5 @@
     "display_title": "Post type options",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1782913184
+    "modified": 1783108800
 }

@@ -3,7 +3,7 @@
 .btn-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: var(--spacing-md);
 }
 
 @media screen and (min-width: 768px) {
@@ -16,7 +16,7 @@
 .btn {
     width: 100%;
     min-height: 45px;
-    padding: 0.05rem 1.5rem;
+    padding: 0.05rem var(--spacing-lg);
     box-sizing: border-box;
     position: relative;
     display: inline-flex;
@@ -113,7 +113,7 @@
 .btn[class*="btn-icon"] {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-xs);
 
     &:after {
         content: "";
@@ -123,13 +123,20 @@
         background-size: 20px 20px;
         transform: translateX(0);
         transition: transform var(--transition-timing) var(--transition-duration), filter var(--transition-timing) var(--transition-duration);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 }
 
+.btn[class*="btn-icon"]:hover:after,
+.btn[class*="btn-icon"]:focus-visible:after {
+    transform: rotate(-12deg);
+}
+
 input.btn[class*="btn-icon"] {
-    padding-right: calc(1.5rem + 30px);
+    padding-right: calc(var(--spacing-lg) + 30px);
     background-repeat: no-repeat;
-    background-position: right 1.5rem center;
+    background-position: right var(--spacing-lg) center;
     background-size: 20px 20px;
 }
 
@@ -249,7 +256,7 @@ input.btn-icon-envelop {
 .socials {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
 }
 
 .socials .social {
@@ -274,5 +281,12 @@ input.btn-icon-envelop {
         height: auto;
         display: block;
         filter: brightness(0) invert(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn[class*="btn-icon"]:hover:after,
+    .btn[class*="btn-icon"]:focus-visible:after {
+        transform: none;
     }
 }

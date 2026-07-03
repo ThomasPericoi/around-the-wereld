@@ -22,7 +22,7 @@
 .galleries-wrapper figure figcaption {
     width: 100%;
     margin-top: 0;
-    padding: 1.5em 2em;
+    padding: var(--spacing-lg) var(--spacing-xl);
     box-sizing: border-box;
     color: var(--white);
     font-style: italic;
@@ -48,21 +48,21 @@
 }
 
 .galleries-wrapper .swiper-button-prev {
-    left: 1rem;
+    left: var(--spacing-md);
 }
 
 .galleries-wrapper .swiper-button-next {
-    right: 1rem;
+    right: var(--spacing-md);
 }
 
 .galleries-wrapper .controls {
     z-index: 1;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--spacing-md);
 }
 
 .galleries-wrapper .swiper-pagination-bullets {

@@ -1,0 +1,122 @@
+/* #Item Event
+--------------------------------------------------------------- */
+.event-cards {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.event-card {
+    --event-color: var(--primary);
+    --event-color-dark: var(--primary-dark);
+    --event-background: var(--secondary-light);
+    --event-rotation: var(--tilt-soft);
+
+    min-height: 100%;
+    padding: clamp(var(--spacing-md), 2vw, var(--spacing-lg));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    color: var(--content-color);
+    text-decoration: none;
+    background-color: var(--event-background);
+    border-radius: var(--border-radius);
+    transform: rotate(var(--event-rotation));
+    transform-origin: center;
+    transition: transform var(--transition-timing) var(--transition-duration);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.event-card:hover,
+.event-card:focus-visible {
+    transform: rotate(0deg) translateY(-2px);
+    text-decoration: none;
+}
+
+.event-card.event-tilt-right {
+    --event-rotation: calc(var(--tilt-soft) * -1);
+}
+
+.event-card.event-accent-secondary {
+    --event-color: var(--secondary);
+    --event-color-dark: var(--secondary-dark);
+}
+
+.event-card.event-accent-tertiary {
+    --event-color: var(--tertiary);
+    --event-color-dark: var(--tertiary-dark);
+}
+
+.event-card.event-is-past {
+    --event-color: var(--content-color);
+    --event-color-dark: var(--content-color);
+
+    background-image: repeating-linear-gradient(-45deg,
+            transparent 0,
+            transparent 0.45rem,
+            color-mix(in srgb, var(--content-color) 8%, transparent) 0.45rem,
+            color-mix(in srgb, var(--content-color) 8%, transparent) 0.55rem);
+    opacity: 0.78;
+}
+
+.event-card .event-status {
+    padding: var(--spacing-2xs) var(--spacing-xs);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    background-color: var(--event-color-dark);
+    border-radius: var(--border-radius);
+}
+
+.event-card .event-date {
+    color: var(--event-color-dark);
+    font-family: var(--bold);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1;
+}
+
+.event-card .event-title {
+    margin-top: var(--spacing-2xs);
+    color: var(--event-color-dark);
+}
+
+.event-card p {
+    margin: 0;
+    color: var(--content-color);
+}
+
+.event-card .event-location {
+    margin-top: auto;
+    color: color-mix(in srgb, var(--content-color) 80%, transparent);
+    font-size: 0.9rem;
+}
+
+.event-archive-action {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+.event-archive-action h3 {
+    color: var(--secondary-light);
+}
+
+@media screen and (min-width: 768px) {
+    .event-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .event-cards {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}

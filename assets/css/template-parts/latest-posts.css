@@ -1,7 +1,7 @@
 /* #Latest Posts
 --------------------------------------------------------------- */
 .latest-posts h2 {
-    margin-bottom: var(--spacing-title);
+    margin-bottom: var(--spacing-lg);
 }
 
 @media screen and (min-width: 1200px) {

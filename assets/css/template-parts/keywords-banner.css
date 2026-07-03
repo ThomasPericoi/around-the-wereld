@@ -2,7 +2,7 @@
 --------------------------------------------------------------- */
 .keywords-banner {
     width: 100%;
-    padding-block: 24px !important;
+    padding-block: var(--spacing-lg) !important;
     overflow: hidden;
     background-color: var(--primary);
 }
@@ -12,6 +12,10 @@
     display: flex;
     animation: keywords-banner 60s linear infinite;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 .keywords-banner:hover .keywords-banner-track {
@@ -19,7 +23,7 @@
 }
 
 .keywords-banner-list {
-    --keywords-banner-gap: clamp(1rem, 3vw, 2rem);
+    --keywords-banner-gap: clamp(var(--spacing-md), 3vw, var(--spacing-xl));
 
     margin-right: var(--keywords-banner-gap);
     padding: 0;
@@ -61,7 +65,7 @@
 
 @keyframes keywords-banner {
     to {
-        transform: translate3d(-50%, 0, 0);
+        transform: translateX(-50%);
     }
 }
 

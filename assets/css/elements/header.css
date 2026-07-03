@@ -6,7 +6,7 @@ body.js-menuOpened {
 
 #header {
     width: 100%;
-    padding: 1rem 0;
+    padding: var(--spacing-md) 0;
     position: fixed;
     top: 0;
     z-index: 99;
@@ -30,7 +30,7 @@ body.js-menuOpened {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--spacing-lg);
 }
 
 @media screen and (min-width: 1200px) {
@@ -43,7 +43,7 @@ body.js-menuOpened {
     width: 100%;
     height: calc(var(--viewport-height, 100vh) - var(--header-height));
     max-height: calc(var(--viewport-height, 100vh) - var(--header-height));
-    padding: 2em;
+    padding: var(--spacing-xl);
     box-sizing: border-box;
     position: fixed;
     top: var(--header-height);
@@ -53,13 +53,17 @@ body.js-menuOpened {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 2rem;
+    gap: var(--spacing-xl);
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
     background-color: var(--white);
     transform: translateX(100%);
     transition: transform var(--transition-timing) var(--transition-duration);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 
     .js-menuOpened & {
         transform: translateX(0);
@@ -89,7 +93,7 @@ body.js-menuOpened {
 
     #header .nav-wrapper>.btn {
         align-self: center;
-        margin-left: 0.5rem;
+        margin-left: var(--spacing-xs);
     }
 }
 
@@ -154,7 +158,7 @@ body.js-menuOpened {
 .menu-header {
     display: flex;
     align-items: stretch;
-    gap: 2rem;
+    gap: var(--spacing-xl);
     flex-direction: column;
     flex: 0 0 auto;
     background-color: unset;
@@ -185,11 +189,11 @@ body.js-menuOpened {
 
     width: unset;
     position: relative;
-    padding: 0.65rem 0.65rem 0.65rem calc(var(--menu-accent-size) + 0.85rem);
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) calc(var(--menu-accent-size) + var(--spacing-md));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
     isolation: isolate;
     color: var(--content-color);
     font-weight: 500;
@@ -201,7 +205,7 @@ body.js-menuOpened {
 
 @media screen and (min-width: 1200px) {
     .menu-header li a {
-        padding: 2rem 0.65rem 2rem calc(var(--menu-accent-size) + 0.85rem);
+        padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-xl) calc(var(--menu-accent-size) + var(--spacing-md));
     }
 }
 
@@ -300,7 +304,7 @@ body.js-menuOpened {
         padding: var(--spacing-inner-menu) 0;
         position: absolute;
         display: flex;
-        gap: 1rem;
+        gap: var(--spacing-md);
         background-color: var(--white);
         opacity: 0;
         transition: background-color var(--transition-timing) var(--transition-duration);
@@ -356,7 +360,7 @@ body.js-menuOpened {
 }
 
 .menu-header li.menu-item-has-children>ul.sub-menu a {
-    padding: 0.35rem 0.65rem 0.35rem calc(var(--menu-accent-size) + 0.85rem);
+    padding: var(--spacing-2xs) var(--spacing-sm) var(--spacing-2xs) calc(var(--menu-accent-size) + var(--spacing-md));
 }
 
 .menu-header li.menu-item-has-children>ul.sub-menu li.menu-item-has-children>ul.sub-menu {
@@ -390,7 +394,8 @@ body.js-menuOpened {
     background-color: var(--primary);
     border-radius: var(--border-radius);
     backface-visibility: hidden;
-    transform: rotate(var(--menu-toggle-rotation)) translateZ(0);
+    -webkit-backface-visibility: hidden;
+    transform: rotate(var(--menu-toggle-rotation));
     transform-origin: center;
     transition: background-color var(--transition-timing) var(--transition-duration), transform var(--transition-timing) var(--transition-duration);
     will-change: transform;
@@ -455,6 +460,8 @@ body.js-menuOpened {
     display: block;
     background-color: var(--white);
     transform-origin: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .menu-toggle-open>span:before,

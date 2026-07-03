@@ -14,11 +14,11 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--spacing-md);
 }
 
 .single-post .tags-list .tag {
-    padding: 0.5rem 1rem;
+    padding: var(--spacing-xs) var(--spacing-md);
     display: block;
     color: var(--white);
     text-decoration: none;

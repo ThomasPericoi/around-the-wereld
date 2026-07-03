@@ -47,6 +47,8 @@
     transform-box: fill-box;
     transform-origin: center;
     transition: transform var(--transition-timing) var(--transition-duration);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .signature:hover .signature-logo-pupil,

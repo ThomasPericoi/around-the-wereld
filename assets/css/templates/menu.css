@@ -18,7 +18,7 @@
 .menu-page .menu-sections-nav ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.15rem 0.75rem;
+    gap: var(--spacing-2xs) var(--spacing-sm);
     justify-content: flex-start;
 }
 
@@ -26,7 +26,7 @@
     --menu-accent-size: 0.4rem;
     --menu-hover-offset: 0.25rem;
 
-    padding: 0.35rem 0.35rem 0.35rem calc(var(--menu-accent-size) + 0.7rem);
+    padding: var(--spacing-2xs) var(--spacing-2xs) var(--spacing-2xs) calc(var(--menu-accent-size) + var(--spacing-sm));
     position: relative;
     display: flex;
     align-items: center;
@@ -74,7 +74,7 @@
 
 .menu-page .menu-sections {
     display: grid;
-    gap: clamp(2rem, 5vw, 3.5rem);
+    gap: clamp(var(--spacing-xl), 5vw, var(--spacing-section-outer));
 }
 
 .menu-page .menu-section {
@@ -82,9 +82,9 @@
     --menu-section-color-dark: var(--primary-dark);
     --menu-section-background: var(--primary-light);
 
-    scroll-margin-top: calc(var(--header-height) + var(--admin-bar-visible-height, 0px) + 2rem);
+    scroll-margin-top: calc(var(--header-height) + var(--admin-bar-visible-height, 0px) + var(--spacing-xl));
     display: grid;
-    gap: 1rem;
+    gap: var(--spacing-md);
 }
 
 .menu-page .menu-section:nth-child(3n + 2) {
@@ -116,29 +116,29 @@
 
 .menu-page .menu-items {
     display: grid;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
 }
 
 .menu-page .menu-item {
-    padding: 0.9rem 1rem;
+    padding: var(--spacing-md);
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.35rem 1rem;
+    gap: var(--spacing-xs) var(--spacing-md);
     align-items: start;
     background-color: var(--menu-section-background);
     border-radius: var(--border-radius);
 }
 
 .menu-page .menu-item-has-spacing {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
 }
 
 .menu-page .menu-item-main {
     min-width: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem 0.6rem;
+    gap: var(--spacing-xs) var(--spacing-sm);
     align-items: center;
 }
 
@@ -154,7 +154,7 @@
 }
 
 .menu-page .menu-item-label {
-    padding: 0.25rem 0.45rem;
+    padding: var(--spacing-2xs) var(--spacing-xs);
     color: var(--white);
     font-size: 0.75rem;
     font-weight: 700;
@@ -176,17 +176,17 @@
 .menu-page .menu-item-options {
     grid-column: 1 / -1;
     display: grid;
-    gap: 0.25rem;
-    margin-top: 0.25rem;
-    margin-left: 0.6rem;
-    padding-top: 0.45rem;
+    gap: var(--spacing-2xs);
+    margin-top: var(--spacing-2xs);
+    margin-left: var(--spacing-sm);
+    padding-top: var(--spacing-xs);
     border-top: 1px solid color-mix(in srgb, var(--content-color) 18%, transparent);
 }
 
 .menu-page .menu-item-options li {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem;
+    gap: var(--spacing-md);
     align-items: baseline;
 }
 
@@ -216,13 +216,13 @@
 
     .menu-page .menu-sections-nav {
         position: sticky;
-        top: calc(var(--header-height) + var(--admin-bar-visible-height, 0px) + 1rem);
+        top: calc(var(--header-height) + var(--admin-bar-visible-height, 0px) + var(--spacing-md));
     }
 
     .menu-page .menu-sections-nav ul {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.2rem;
+        gap: var(--spacing-2xs);
     }
 }
 

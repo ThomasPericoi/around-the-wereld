@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
     flex-wrap: wrap;
 }
 
@@ -38,12 +38,12 @@
 }
 
 .navigation.pagination .nav-links a.next {
-    margin-left: 1rem;
+    margin-left: var(--spacing-md);
     border-color: transparent;
 }
 
 .navigation.pagination .nav-links a.prev {
-    margin-right: 1rem;
+    margin-right: var(--spacing-md);
     border-color: transparent;
 }
 
