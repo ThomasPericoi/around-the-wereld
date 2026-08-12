@@ -5,6 +5,9 @@
 <?php
 $post_id = get_the_ID();
 $content = trim(get_the_content());
+$has_thumbnail = has_post_thumbnail();
+$thumbnail = $has_thumbnail ? get_post(get_post_thumbnail_id()) : false;
+$thumbnail_caption = $thumbnail ? $thumbnail->post_excerpt : '';
 $categories = get_the_category();
 $primary_category = !empty($categories) ? $categories[0] : false;
 $tags = get_the_tags();
@@ -19,7 +22,7 @@ $hero_classes = array(
     'hero',
     'hero-simple',
     $primary_category ? $primary_category->slug : false,
-    has_post_thumbnail() ? 'hero-has-media' : false,
+    $has_thumbnail ? 'hero-has-media' : false,
     in_array($hero_background, $hero_backgrounds, true) ? 'hero-bg-' . $hero_background : false,
 );
 $hero_classes_attr = implode(' ', array_map('sanitize_html_class', array_filter($hero_classes)));
@@ -33,11 +36,11 @@ $hero_classes_attr = implode(' ', array_map('sanitize_html_class', array_filter(
         <?php if ($subtitle) : ?>
             <p class="description"><?= wp_kses_post($subtitle); ?></p>
         <?php endif; ?>
-        <?php if (has_post_thumbnail()) : ?>
+        <?php if ($has_thumbnail) : ?>
             <figure class="hero-media">
                 <?php the_post_thumbnail('full'); ?>
-                <?php if (($thumbnail = get_post(get_post_thumbnail_id())) && ($excerpt = $thumbnail->post_excerpt)) : ?>
-                    <figcaption><?= esc_html($excerpt); ?></figcaption>
+                <?php if ($thumbnail_caption) : ?>
+                    <figcaption><?= esc_html($thumbnail_caption); ?></figcaption>
                 <?php endif; ?>
             </figure>
         <?php endif; ?>

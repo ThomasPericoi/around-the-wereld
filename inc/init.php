@@ -196,7 +196,13 @@ function atw_get_stylesheet_version()
     }
 
     $version = filemtime(get_stylesheet_directory() . '/style.css');
-    $css_directory = new RecursiveDirectoryIterator(get_stylesheet_directory() . '/assets/css', FilesystemIterator::SKIP_DOTS);
+    $css_path = get_stylesheet_directory() . '/assets/css';
+
+    if (!is_dir($css_path)) {
+        return $version;
+    }
+
+    $css_directory = new RecursiveDirectoryIterator($css_path, FilesystemIterator::SKIP_DOTS);
     $css_files = new RecursiveIteratorIterator($css_directory);
 
     foreach ($css_files as $css_file) {
@@ -220,17 +226,45 @@ function atw_get_asset_version($relative_path)
     return atw_get_stylesheet_version();
 }
 
-// Check whether the global contact map has enough data to load Leaflet.
-function atw_current_page_has_contact_map()
+// Get and normalize the global contact map data once per request.
+function atw_get_contact_map_data()
 {
+    static $map_data = null;
+
+    if ($map_data !== null) {
+        return $map_data;
+    }
+
     if (!function_exists('get_field')) {
-        return false;
+        return array();
     }
 
     $latitude = get_field('contact_map_latitude', 'options');
     $longitude = get_field('contact_map_longitude', 'options');
 
-    return is_numeric($latitude) && is_numeric($longitude);
+    if (!is_numeric($latitude) || !is_numeric($longitude)) {
+        $map_data = array();
+        return $map_data;
+    }
+
+    $map_data = array(
+        'title' => get_field('contact_map_title', 'options'),
+        'text' => get_field('contact_map_text', 'options'),
+        'latitude' => (float) $latitude,
+        'longitude' => (float) $longitude,
+        'marker_title' => get_field('contact_map_marker_title', 'options'),
+        'marker_subtitle' => get_field('contact_map_marker_subtitle', 'options'),
+        'zoom' => min(19, max(1, absint(get_field('contact_map_zoom', 'options') ?: 15))),
+        'button' => atw_get_cta('contact_map_button', 'options'),
+    );
+
+    return $map_data;
+}
+
+// Check whether the global contact map has enough data to load Leaflet.
+function atw_current_page_has_contact_map()
+{
+    return !empty(atw_get_contact_map_data());
 }
 
 // Print Google Fonts early so typography starts loading as soon as possible.
@@ -276,7 +310,7 @@ function atw_enqueue_theme_stylesheets()
     wp_register_style('wp-core', get_template_directory_uri() . '/assets/css/inc/wp-core.css', array(), null, 'all');
     wp_register_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css', array(), null, 'all');
     wp_register_style('leaflet', 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css', array(), '1.9.4', 'all');
-    wp_register_style('style', get_stylesheet_uri(), array(), atw_get_stylesheet_version(), 'all');
+    wp_register_style('style', get_stylesheet_uri(), array('reset', 'wp-core'), atw_get_stylesheet_version(), 'all');
     wp_enqueue_style('reset');
     wp_enqueue_style('wp-core');
     if (is_singular() && has_block('acf/gallery')) {

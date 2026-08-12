@@ -2,9 +2,11 @@
 
 <?php
 $post_id = get_queried_object_id();
+$posts_page_id = (int) get_option('page_for_posts');
+$archive_description = is_archive() ? get_the_archive_description() : '';
 
-if (is_home() && get_option('page_for_posts')) :
-    $title = get_the_title(get_option('page_for_posts'));
+if (is_home() && $posts_page_id) :
+    $title = get_the_title($posts_page_id);
 elseif (is_archive()) :
     $title = get_the_archive_title();
 elseif (is_search()) :
@@ -21,9 +23,9 @@ endif;
             <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
         </div>
         <h1><?= wp_kses_post($title); ?></h1>
-        <?php if (is_archive() && get_the_archive_description()) : ?>
+        <?php if ($archive_description) : ?>
             <div class="description formatted">
-                <?= wp_kses_post(get_the_archive_description()); ?>
+                <?= wp_kses_post($archive_description); ?>
             </div>
         <?php endif; ?>
     </div>

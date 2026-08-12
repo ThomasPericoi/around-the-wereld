@@ -70,13 +70,17 @@
                         <?php if ($footer_title_2 = get_field('footer_title_2', 'options')) : ?>
                             <h2 class="h3-size title"><?= wp_kses_post($footer_title_2); ?></h2>
                         <?php endif; ?>
-                        <?php if (get_field('footer_primary_cta_text', 'options') || get_field('footer_primary_cta_image', 'options') || get_field('footer_secondary_cta_text', 'options') || get_field('footer_secondary_cta_image', 'options')) : ?>
+                        <?php
+                        $footer_primary_cta = atw_get_cta('footer_primary', 'options');
+                        $footer_secondary_cta = atw_get_cta('footer_secondary', 'options');
+                        ?>
+                        <?php if ($footer_primary_cta || $footer_secondary_cta) : ?>
                             <div class="btn-wrapper">
-                                <?php if (get_field('footer_primary_cta_text', 'options') || get_field('footer_primary_cta_image', 'options')) : ?>
-                                    <?php atw_render_cta('footer_primary', 'options'); ?>
+                                <?php if ($footer_primary_cta) : ?>
+                                    <?= $footer_primary_cta; ?>
                                 <?php endif; ?>
-                                <?php if (get_field('footer_secondary_cta_text', 'options') || get_field('footer_secondary_cta_image', 'options')) : ?>
-                                    <?php atw_render_cta('footer_secondary', 'options'); ?>
+                                <?php if ($footer_secondary_cta) : ?>
+                                    <?= $footer_secondary_cta; ?>
                                 <?php endif; ?>
                             </div>
                         <?php endif; ?>

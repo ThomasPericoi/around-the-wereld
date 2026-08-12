@@ -1,20 +1,18 @@
 <?php
-$map_title = get_field('contact_map_title', 'options');
-$map_text = get_field('contact_map_text', 'options');
+$map_data = atw_get_contact_map_data();
 
-$map_latitude = get_field('contact_map_latitude', 'options');
-$map_longitude = get_field('contact_map_longitude', 'options');
-if (!is_numeric($map_latitude) || !is_numeric($map_longitude)) {
+if (!$map_data) {
     return;
 }
-$map_marker_title = get_field('contact_map_marker_title', 'options');
-$map_marker_subtitle = get_field('contact_map_marker_subtitle', 'options');
-$map_zoom = absint(get_field('contact_map_zoom', 'options') ?: 15);
-$map_latitude = (float) $map_latitude;
-$map_longitude = (float) $map_longitude;
-$map_zoom = min(19, max(1, $map_zoom));
 
-$map_button = atw_get_cta('contact_map_button', 'options');
+$map_title = $map_data['title'];
+$map_text = $map_data['text'];
+$map_latitude = $map_data['latitude'];
+$map_longitude = $map_data['longitude'];
+$map_marker_title = $map_data['marker_title'];
+$map_marker_subtitle = $map_data['marker_subtitle'];
+$map_zoom = $map_data['zoom'];
+$map_button = $map_data['button'];
 ?>
 
 <!-- Contact Map -->

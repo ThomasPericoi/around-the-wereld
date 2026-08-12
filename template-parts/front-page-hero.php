@@ -20,10 +20,15 @@ $site_tagline = get_bloginfo('description');
 $has_site_heading = $site_title || $site_tagline;
 $has_visible_card = false;
 
-foreach ($hero_cards as $card) {
-    if (get_field($card['key'] . '_title', $post_id)) {
+foreach ($hero_cards as $index => $card) {
+    $key = $card['key'];
+    $hero_cards[$index]['title'] = get_field($key . '_title', $post_id);
+
+    if ($hero_cards[$index]['title']) {
+        $hero_cards[$index]['text'] = get_field($key . '_text', $post_id);
+        $hero_cards[$index]['image'] = get_field($key . '_image', $post_id);
+        $hero_cards[$index]['link'] = get_field($key . '_link', $post_id);
         $has_visible_card = true;
-        break;
     }
 }
 
@@ -52,16 +57,15 @@ if (!$has_visible_card && !$has_site_heading) {
         <?php if ($has_visible_card) : ?>
             <div class="front-page-hero-grid">
                 <?php foreach ($hero_cards as $index => $card) :
-                    $key = $card['key'];
-                    $title = get_field($key . '_title', $post_id);
+                    $title = $card['title'];
 
                     if (!$title) {
                         continue;
                     }
 
-                    $text = get_field($key . '_text', $post_id);
-                    $image = get_field($key . '_image', $post_id);
-                    $button_link = get_field($key . '_link', $post_id);
+                    $text = $card['text'];
+                    $image = $card['image'];
+                    $button_link = $card['link'];
                     $has_card_link = !empty($button_link['url']) && !empty($button_link['title']);
                     $text_allowed_tags = wp_kses_allowed_html('post');
                     $card_tag = $has_card_link ? 'a' : 'article';

@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php $archive_description = get_the_archive_description(); ?>
+
 <!-- Hero -->
 <section id="events-archive-hero" class="hero hero-simple">
     <div class="container container-sm">
@@ -7,9 +9,9 @@
             <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
         </div>
         <h1 class="title-accent"><?= esc_html(post_type_archive_title('', false)); ?></h1>
-        <?php if (get_the_archive_description()) : ?>
+        <?php if ($archive_description) : ?>
             <div class="description formatted">
-                <?= wp_kses_post(get_the_archive_description()); ?>
+                <?= wp_kses_post($archive_description); ?>
             </div>
         <?php endif; ?>
     </div>
