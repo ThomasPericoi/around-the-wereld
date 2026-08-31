@@ -267,7 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Highlight the current menu section while scrolling long menu pages.
     const initMenuSectionsNav = () => {
-        const navLinks = Array.from(document.querySelectorAll('.menu-sections-nav a[href^="#"]'));
+        const menuSectionsNav = document.querySelector('.menu-sections-nav');
+        const navLinks = Array.from(menuSectionsNav?.querySelectorAll('a[href^="#"]') || []);
 
         if (!navLinks.length) {
             return;
@@ -289,10 +290,43 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const navList = menuSectionsNav.querySelector('ul');
+        const mobileMenuQuery = window.matchMedia('(max-width: 991px)');
+        let activeSectionId = '';
+
+        // Keep anchor positioning and scroll detection aligned with the mobile nav.
+        const updateMenuNavHeight = () => {
+            const navHeight = mobileMenuQuery.matches ? menuSectionsNav.offsetHeight : 0;
+            document.documentElement.style.setProperty('--menu-sections-nav-height', `${navHeight}px`);
+        };
+
+        // Bring the active tab into view without changing the page's vertical position.
+        const revealActiveLink = (link) => {
+            if (!mobileMenuQuery.matches || !navList || navList.scrollWidth <= navList.clientWidth) {
+                return;
+            }
+
+            const listRect = navList.getBoundingClientRect();
+            const linkRect = link.getBoundingClientRect();
+            const targetLeft = navList.scrollLeft + linkRect.left - listRect.left
+                - ((navList.clientWidth - linkRect.width) / 2);
+            navList.scrollTo({
+                left: Math.max(0, targetLeft),
+                behavior: reduceMotionQuery.matches ? 'auto' : 'smooth',
+            });
+        };
+
         // Update the active section link and its aria-current state.
         const setActiveSection = (section) => {
+            if (activeSectionId === section.id) {
+                return;
+            }
+
+            activeSectionId = section.id;
+            const activeLink = linksBySectionId.get(section.id);
+
             navLinks.forEach((link) => {
-                const isActive = link === linksBySectionId.get(section.id);
+                const isActive = link === activeLink;
 
                 link.classList.toggle('is-active', isActive);
 
@@ -303,11 +337,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 link.removeAttribute('aria-current');
             });
+
+            if (activeLink) {
+                revealActiveLink(activeLink);
+            }
         };
 
         // Resolve the section currently sitting below the fixed header.
         const getCurrentSection = () => {
-            const offset = (header?.offsetHeight || 0) + 40;
+            const navHeight = mobileMenuQuery.matches ? menuSectionsNav.offsetHeight : 0;
+            const headerBottom = header?.getBoundingClientRect().bottom || 0;
+            const offset = headerBottom + navHeight + 16;
 
             return sections.reduce((currentSection, section) => {
                 const rect = section.getBoundingClientRect();
@@ -338,9 +378,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+        updateMenuNavHeight();
         setActiveSection(getCurrentSection());
         window.addEventListener('scroll', updateActiveSection, { passive: true });
-        window.addEventListener('resize', updateActiveSection, { passive: true });
+        window.addEventListener('resize', () => {
+            updateMenuNavHeight();
+            // Force the current tab back into view after a breakpoint or orientation change.
+            activeSectionId = '';
+            updateActiveSection();
+        }, { passive: true });
     };
 
     // Initialize Leaflet maps only when map markup and Leaflet are available.
